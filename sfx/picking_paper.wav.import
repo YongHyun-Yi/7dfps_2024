@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/picking_paper.wav-37abe2d8651324635c2f7eecc340cafd.sample"
+
+[deps]
+
+source_file="res://sfx/picking_paper.wav"
+dest_files=[ "res://.import/picking_paper.wav-37abe2d8651324635c2f7eecc340cafd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

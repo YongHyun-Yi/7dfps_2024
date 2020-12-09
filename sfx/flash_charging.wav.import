@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/flash_charging.wav-1bfdb3a7dd4e82f0789745709bfcdbe9.sample"
+
+[deps]
+
+source_file="res://sfx/flash_charging.wav"
+dest_files=[ "res://.import/flash_charging.wav-1bfdb3a7dd4e82f0789745709bfcdbe9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

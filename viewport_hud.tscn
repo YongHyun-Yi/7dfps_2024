@@ -1,0 +1,217 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://camera/viewfinder.png" type="Texture" id=1]
+[ext_resource path="res://sprite/crose_hair.png" type="Texture" id=2]
+[ext_resource path="res://sprite/item_slot.png" type="Texture" id=3]
+[ext_resource path="res://viewport_hud.gd" type="Script" id=4]
+[ext_resource path="res://cursor.gd" type="Script" id=5]
+[ext_resource path="res://inventory.gd" type="Script" id=6]
+[ext_resource path="res://player_state.gd" type="Script" id=7]
+[ext_resource path="res://map.gd" type="Script" id=8]
+[ext_resource path="res://ingame_menu.gd" type="Script" id=9]
+[ext_resource path="res://pause_menu.gd" type="Script" id=10]
+[ext_resource path="res://default_env.tres" type="Environment" id=11]
+[ext_resource path="res://item_mesh_in_inventory.tscn" type="PackedScene" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="World" id=2]
+environment = ExtResource( 11 )
+
+[node name="viewport_hud" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="velocity" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="viewfinder" type="TextureRect" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="last_picture" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.588235 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -271.556
+margin_top = -166.971
+margin_right = -15.5564
+margin_bottom = -16.9706
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="cursor" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.635294 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3.5
+margin_top = -3.5
+margin_right = 3.5
+margin_bottom = 3.5
+rect_pivot_offset = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item_slot" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.635294 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -66.8455
+margin_top = -67.2909
+margin_right = -8.84546
+margin_bottom = -9.29089
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ingame_menu" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+popup_exclusive = true
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="ingame_menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_state" type="Control" parent="ingame_menu/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ingame_menu/TabContainer/player_state"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inventory" type="Control" parent="ingame_menu/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="ingame_menu/TabContainer/inventory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -539.0
+max_columns = 5
+same_column_width = true
+icon_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ingame_menu/TabContainer/inventory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 538.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mesh_view" type="Sprite" parent="ingame_menu/TabContainer/inventory"]
+position = Vector2( 776.111, 176.389 )
+scale = Vector2( 1, -1 )
+
+[node name="Viewport" type="Viewport" parent="ingame_menu/TabContainer/inventory/mesh_view"]
+size = Vector2( 512, 300 )
+world = SubResource( 2 )
+transparent_bg = true
+
+[node name="item_mesh_in_inventory" parent="ingame_menu/TabContainer/inventory/mesh_view/Viewport" instance=ExtResource( 12 )]
+
+[node name="name" type="Label" parent="ingame_menu/TabContainer/inventory"]
+margin_left = 561.0
+margin_top = 336.0
+margin_right = 1004.0
+margin_bottom = 350.0
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="describe" type="RichTextLabel" parent="ingame_menu/TabContainer/inventory"]
+margin_left = 559.0
+margin_top = 377.0
+margin_right = 998.0
+margin_bottom = 488.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="map" type="Control" parent="ingame_menu/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ingame_menu/TabContainer/map"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pause_menu" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+popup_exclusive = true
+script = ExtResource( 10 )
+[connection signal="item_selected" from="ingame_menu/TabContainer/inventory/ItemList" to="ingame_menu/TabContainer/inventory" method="item_selected"]

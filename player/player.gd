@@ -12,6 +12,9 @@ export var floor_speed = 1.0
 
 #export var mouse_sensitivity = 0.1
 
+var z_input = 0
+var x_input = 0
+
 var movement_speed = 0
 export var walk_speed = 1.0
 export var run_speed = 2.8
@@ -37,17 +40,36 @@ func _physics_process(delta):
 		gravity_vector += Vector3.DOWN * air_gravity * delta
 		gravity_vector.y = clamp(gravity_vector.y, -7.0, 0.0)
 	
+	direction += transform.basis.z * z_input
+	direction += transform.basis.x * x_input
+	
+	direction = direction.normalized()
+	direction = direction * movement_speed
+	direction.x += gravity_vector.x
+	direction.z += gravity_vector.z
+	direction.y = gravity_vector.y
+	
+	move_and_slide(direction, Vector3.UP)
+	
+	pass
+
+func _unhandled_input(event):
+	
 	if Input.is_action_pressed("move_foward"):
-		direction -= transform.basis.z
+		z_input = -1
 	elif Input.is_action_pressed("move_backward"):
-		direction += transform.basis.z
+		z_input = 1
+	else:
+		z_input = 0
 	
 	if Input.is_action_pressed("move_left"):
-		direction -= transform.basis.x
+		x_input = -1
 	elif Input.is_action_pressed("move_right"):
-		direction += transform.basis.x
+		x_input = 1
+	else:
+		x_input = 0
 	
-	if Input.is_action_pressed("move_foward") or Input.is_action_pressed("move_backward") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_foward") || Input.is_action_pressed("move_backward") || Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"):
 		if is_on_floor():
 			if run_mode:
 				$foot_sound_animation.play("run")
@@ -60,18 +82,6 @@ func _physics_process(delta):
 	else:
 		run_mode = false
 		movement_speed = walk_speed
-	
-	direction = direction.normalized()
-	direction = direction * movement_speed
-	direction.x += gravity_vector.x
-	direction.z += gravity_vector.z
-	direction.y = gravity_vector.y
-	
-	move_and_slide(direction, Vector3.UP)
-	#$camroot.GlobalRef.hud.get_node("velocity").text = str(movement_speed)
-	#move_and_slide_with_snap(direction, get_floor_velocity(), Vector3.UP)
-	
-	pass
 
 func ladder_entered(body):
 	

@@ -15,3 +15,8 @@ func _ready():
 func _process(delta):
 	$Spatial.rotation_degrees.y -= .1
 	pass
+
+
+func set_mesh(mesh):
+	$Spatial.rotation_degrees.y = 0
+	$Spatial/mesh.mesh = mesh

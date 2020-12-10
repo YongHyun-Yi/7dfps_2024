@@ -12,22 +12,11 @@ func _ready():
 	pass
 
 func _process(delta):
-	if capture_mode:
-		if Input.is_action_just_pressed("left_click"):
-			var pic = get_viewport().get_texture().get_data()
-			pic.flip_y()
-			pic.shrink_x2()
-			pic.shrink_x2()
-			var tex = ImageTexture.new()
-			tex.create_from_image(pic)
-			GlobalRef.hud.get_node("last_picture").texture = tex
-			$sound_animation.play("sutter")
-			print("사진 찍었어용")
-	
-	if Input.is_action_just_pressed("right_click"):
-		capture_mode_toggle()
+	pass
 
 func _input(event):
+	if Input.is_action_just_pressed("left_click"):
+		print("cam")
 	if event is InputEventMouseMotion:
 		GlobalRef.player.rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 		rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
@@ -43,6 +32,21 @@ func _input(event):
 				zoom_current = clamp(zoom_current + zoom_factor, zoom_min, zoom_max)
 				$Camera.fov = zoom_current
 				$sound_animation.play("wind")
+	
+	if capture_mode:
+		if Input.is_action_just_pressed("left_click"):
+			var pic = get_viewport().get_texture().get_data()
+			pic.flip_y()
+			pic.shrink_x2()
+			pic.shrink_x2()
+			var tex = ImageTexture.new()
+			tex.create_from_image(pic)
+			GlobalRef.hud.get_node("last_picture").texture = tex
+			$sound_animation.play("sutter")
+			print("사진 찍었어용")
+	
+	if Input.is_action_just_pressed("right_click"):
+		capture_mode_toggle()
 
 func capture_mode_toggle():
 	capture_mode = !capture_mode

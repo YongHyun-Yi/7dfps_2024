@@ -9,8 +9,8 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalRef.inventory = self
-	var viewport_tex = $mesh_view/Viewport.get_texture()
-	$mesh_view.texture = viewport_tex
+	var viewport_tex = $details/mesh_view/Viewport.get_texture()
+	$details/mesh_view.texture = viewport_tex
 	pass # Replace with function body.
 
 
@@ -21,9 +21,9 @@ func _process(delta):
 
 func item_selected(index):
 	var datas = $ItemList.get_item_metadata(index)
-	$name.text = datas[0]
-	$describe.text = datas[1]
-	$mesh_view/Viewport/item_mesh_in_inventory/Spatial/mesh.mesh = datas[3]
+	$details/name.text = datas[0]
+	$details/describe.text = datas[1]
+	$details/mesh_view/Viewport/item_mesh_in_inventory.set_mesh(datas[3])
 	pass # Replace with function body.
 
 func add_item(datas): # 이름, 설명, 아이콘, 모델

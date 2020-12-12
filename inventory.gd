@@ -29,3 +29,9 @@ func item_selected(index):
 func add_item(datas): # 이름, 설명, 아이콘, 모델
 	$ItemList.add_item("", datas[2])
 	$ItemList.set_item_metadata($ItemList.get_item_count() - 1, datas)
+
+
+func visibility_changed():
+	if visible:
+		$details/mesh_view/Viewport/item_mesh_in_inventory.rotation_reset()
+	pass # Replace with function body.

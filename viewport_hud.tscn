@@ -403,5 +403,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="focus_entered" from="ingame_menu" to="ingame_menu" method="focus_entered"]
+[connection signal="visibility_changed" from="ingame_menu/TabContainer/inventory" to="ingame_menu/TabContainer/inventory" method="visibility_changed"]
 [connection signal="item_selected" from="ingame_menu/TabContainer/inventory/ItemList" to="ingame_menu/TabContainer/inventory" method="item_selected"]
 [connection signal="focus_entered" from="pause_menu" to="pause_menu" method="focus_entered"]

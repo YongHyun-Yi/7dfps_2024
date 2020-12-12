@@ -504,9 +504,9 @@ stream = ExtResource( 18 )
 transform = Transform( -0.199093, 0, -0.0190266, 0, 0.2, 0, 0.0190266, 0, -0.199093, -1.18875, 0.287504, -1.97326 )
 [connection signal="call_elevator" from="maps/tower/call_elevator_button/call_elevator_interact" to="maps/elevator" method="_move"]
 [connection signal="call_elevator" from="maps/tower/call_elevator_button2/call_elevator_interact" to="maps/elevator" method="_move"]
-[connection signal="buttons_toggle" from="maps/elevator" to="maps/tower/call_elevator_button/call_elevator_interact" method="active_switch"]
 [connection signal="buttons_toggle" from="maps/elevator" to="maps/tower/call_elevator_button2/call_elevator_interact" method="active_switch"]
 [connection signal="buttons_toggle" from="maps/elevator" to="maps/elevator/platform/move_elevator_button/move_elevator_interact" method="active_switch"]
+[connection signal="buttons_toggle" from="maps/elevator" to="maps/tower/call_elevator_button/call_elevator_interact" method="active_switch"]
 [connection signal="move_elevator" from="maps/elevator/platform/move_elevator_button/move_elevator_interact" to="maps/elevator" method="_move"]
 [connection signal="tween_all_completed" from="maps/elevator/Tween" to="maps/elevator" method="tween_all_completed"]
 [connection signal="animation_finished" from="maps/elevator/sound_animation" to="maps/elevator" method="sound_animation_finished"]

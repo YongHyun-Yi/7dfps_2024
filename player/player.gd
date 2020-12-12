@@ -55,33 +55,35 @@ func _physics_process(delta):
 
 func _unhandled_input(event):
 	
-	if Input.is_action_pressed("move_foward"):
-		z_input = -1
-	elif Input.is_action_pressed("move_backward"):
-		z_input = 1
-	else:
-		z_input = 0
+	if event is InputEventKey:
 	
-	if Input.is_action_pressed("move_left"):
-		x_input = -1
-	elif Input.is_action_pressed("move_right"):
-		x_input = 1
-	else:
-		x_input = 0
-	
-	if Input.is_action_pressed("move_foward") || Input.is_action_pressed("move_backward") || Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"):
-		if is_on_floor():
-			if run_mode:
-				$foot_sound_animation.play("run")
-			else:
-				$foot_sound_animation.play("walk")
-	
-	if Input.is_action_pressed("sprint"):
-		run_mode = true
-		movement_speed = run_speed
-	else:
-		run_mode = false
-		movement_speed = walk_speed
+		if Input.is_action_pressed("move_foward"):
+			z_input = -1
+		elif Input.is_action_pressed("move_backward"):
+			z_input = 1
+		else:
+			z_input = 0
+		
+		if Input.is_action_pressed("move_left"):
+			x_input = -1
+		elif Input.is_action_pressed("move_right"):
+			x_input = 1
+		else:
+			x_input = 0
+		
+		if Input.is_action_pressed("move_foward") || Input.is_action_pressed("move_backward") || Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"):
+			if is_on_floor():
+				if run_mode:
+					$foot_sound_animation.play("run")
+				else:
+					$foot_sound_animation.play("walk")
+		
+		if Input.is_action_pressed("sprint"):
+			run_mode = true
+			movement_speed = run_speed
+		else:
+			run_mode = false
+			movement_speed = walk_speed
 
 func ladder_entered(body):
 	

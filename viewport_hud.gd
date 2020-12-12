@@ -33,6 +33,3 @@ func _unhandled_input(event):
 		
 		elif Input.is_action_just_pressed("ui_cancel"):
 			$pause_menu.grab_focus()
-	
-	if event is InputEventMouseMotion:
-		print("motion")

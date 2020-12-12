@@ -20,3 +20,6 @@ func _process(delta):
 func set_mesh(mesh):
 	$Spatial.rotation_degrees.y = 0
 	$Spatial/mesh.mesh = mesh
+
+func rotation_reset():
+	$Spatial.rotation_degrees.y = 0

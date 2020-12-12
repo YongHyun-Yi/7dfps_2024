@@ -17,7 +17,7 @@ func _process(delta):
 	if is_colliding() and collider is Interactable:
 		if current_collider != collider:
 			current_collider = collider
-			print("뭔가 부딫힘")
+			#print("뭔가 부딫힘")
 		
 		collider.get_interaction_icon()
 		
@@ -25,6 +25,6 @@ func _process(delta):
 			collider.interact()
 		
 	elif current_collider:
-		print("부딫히는데 아무것도 없음")
+		#print("부딫히는데 아무것도 없음")
 		GlobalRef.hud.get_node("cursor").cursor_reset()
 		current_collider = null

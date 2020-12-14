@@ -17,7 +17,7 @@ func _ready():
 #	pass
 
 func get_interaction_icon():
-	GlobalRef.hud.get_node("cursor").set_icon(action, active)
+	GlobalRef.uis.get_node("cursor").set_icon(action, active)
 
 
 func interact():

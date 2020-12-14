@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://sfx/snow_footstep.wav" type="AudioStream" id=2]
 [ext_resource path="res://camera/camroot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menus.tscn" type="PackedScene" id=4]
+[ext_resource path="res://uis.tscn" type="PackedScene" id=5]
+[ext_resource path="res://3d/player.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.2
@@ -53,13 +56,23 @@ tracks/0/keys = {
 }
 
 [node name="player" type="KinematicBody"]
+collision_layer = 2
 script = ExtResource( 1 )
+walk_speed = 2.0
+run_speed = 4.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
+[node name="uis" parent="." instance=ExtResource( 5 )]
+mouse_filter = 2
+
 [node name="camroot" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878962, -0.157246 )
+
+[node name="menus" parent="." instance=ExtResource( 4 )]
+mouse_filter = 2
 
 [node name="footstep" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -68,3 +81,7 @@ volume_db = 5.0
 [node name="foot_sound_animation" type="AnimationPlayer" parent="."]
 anims/run = SubResource( 2 )
 anims/walk = SubResource( 3 )
+
+[node name="player" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.309245, 0 )
+[connection signal="open_menu" from="menus" to="camroot" method="capture_mode_close"]

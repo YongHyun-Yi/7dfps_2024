@@ -24,32 +24,35 @@ export var jump = 6.5
 export var run_mode = false
 export var ladder_on = false
 
-export var active = true
+export var active = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GlobalRef.player = self
+	#GlobalRef.world_generator.connect("object_generate_finish", self, "player_active")
 
 func _physics_process(delta):
 	
-	direction = Vector3()
+	if active:
 	
-	if is_on_floor():
-		gravity_vector = -get_floor_normal() * floor_gravity
-	else:
-		gravity_vector += Vector3.DOWN * air_gravity * delta
-		gravity_vector.y = clamp(gravity_vector.y, -7.0, 0.0)
-	
-	direction += transform.basis.z * z_input
-	direction += transform.basis.x * x_input
-	
-	direction = direction.normalized()
-	direction = direction * movement_speed
-	direction.x += gravity_vector.x
-	direction.z += gravity_vector.z
-	direction.y = gravity_vector.y
-	
-	move_and_slide(direction, Vector3.UP)
+		direction = Vector3()
+		
+		if is_on_floor():
+			gravity_vector = -get_floor_normal() * floor_gravity
+		else:
+			gravity_vector += Vector3.DOWN * air_gravity * delta
+			gravity_vector.y = clamp(gravity_vector.y, -7.0, 0.0)
+		
+		direction += transform.basis.z * z_input
+		direction += transform.basis.x * x_input
+		
+		direction = direction.normalized()
+		direction = direction * movement_speed
+		direction.x += gravity_vector.x
+		direction.z += gravity_vector.z
+		direction.y = gravity_vector.y
+		
+		move_and_slide(direction, Vector3.UP)
 	
 	pass
 
@@ -85,11 +88,7 @@ func _unhandled_input(event):
 			run_mode = false
 			movement_speed = walk_speed
 
-func ladder_entered(body):
-	
-	pass
-
-
-func ladder_exited(body):
-	
-	pass
+func player_active():
+	active = true
+	$camroot/Camera.make_current()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

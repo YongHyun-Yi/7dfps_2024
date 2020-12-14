@@ -1,7 +1,5 @@
 extends Control
 
-export (NodePath) var ingame_menu
-
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -10,7 +8,6 @@ export (NodePath) var ingame_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ingame_menu = get_node(ingame_menu)
 	pass # Replace with function body.
 
 
@@ -32,4 +29,17 @@ func focus_entered():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	show()
+	pass # Replace with function body.
+
+
+func restart_button_up():
+	get_tree().reload_current_scene()
+	get_tree().paused = false
+	hide()
+	pass # Replace with function body.
+
+
+func title_button_up():
+	get_tree().change_scene("res://title.tscn")
+	get_tree().paused = false
 	pass # Replace with function body.

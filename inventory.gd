@@ -11,6 +11,7 @@ func _ready():
 	GlobalRef.inventory = self
 	var viewport_tex = $details/mesh_view/Viewport.get_texture()
 	$details/mesh_view.texture = viewport_tex
+	detail_reset()
 	pass # Replace with function body.
 
 
@@ -35,3 +36,8 @@ func visibility_changed():
 	if visible:
 		$details/mesh_view/Viewport/item_mesh_in_inventory.rotation_reset()
 	pass # Replace with function body.
+
+func detail_reset():
+	$details/name.text = ""
+	$details/describe.text = ""
+	$details/mesh_view/Viewport/item_mesh_in_inventory.set_mesh(null)

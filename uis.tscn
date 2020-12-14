@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprite/crose_hair.png" type="Texture" id=1]
+[ext_resource path="res://sprite/item_slot.png" type="Texture" id=2]
+[ext_resource path="res://cursor.gd" type="Script" id=3]
+[ext_resource path="res://uis.gd" type="Script" id=4]
+
+[node name="uis" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cursor" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.635294 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3.5
+margin_top = -3.5
+margin_right = 3.5
+margin_bottom = 3.5
+rect_pivot_offset = Vector2( 4, 4 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item_slot" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.635294 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -66.8455
+margin_top = -67.2909
+margin_right = -8.84546
+margin_bottom = -9.29089
+mouse_filter = 2
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_box" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -83.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]

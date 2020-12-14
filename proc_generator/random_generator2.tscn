@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://proc_generator/random_generator2.gd" type="Script" id=2]
+[ext_resource path="res://world_env1.tres" type="Environment" id=3]
+
+[node name="random_generator" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+
+[node name="rooms" type="Spatial" parent="."]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.834059, 0.551675, 0, -0.551675, 0.834059, 0, 8.2667, 6.14288 )
+visible = false
+
+[node name="screen_block" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="screen_block"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.0
+margin_top = -7.0
+margin_right = 29.0
+margin_bottom = 7.0
+rect_scale = Vector2( 2, 2 )
+text = "loading..."
+align = 1
+valign = 1

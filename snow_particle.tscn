@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://snow.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+params_blend_mode = 1
+params_cull_mode = 2
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 5, 5 )
+spread = 0.0
+gravity = Vector3( 50, -100, 0 )
+
+[sub_resource type="PlaneMesh" id=3]
+size = Vector2( 0.2, 0.2 )
+
+[node name="snow_particle" type="Particles"]
+material_override = SubResource( 1 )
+amount = 500
+visibility_aabb = AABB( -2.81254, -4, -3.67191, 5.62508, 8, 7.34385 )
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )

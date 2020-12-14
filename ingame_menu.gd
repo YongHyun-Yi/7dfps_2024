@@ -1,11 +1,8 @@
 extends Control
 
-export (NodePath) var pause_menu
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pause_menu = get_node(pause_menu)
 	pass # Replace with function body.
 
 

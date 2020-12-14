@@ -21,10 +21,14 @@ func _process(delta):
 		
 		collider.get_interaction_icon()
 		
-		if Input.is_action_just_pressed("left_click"):
-			collider.interact()
-		
 	elif current_collider:
 		#print("부딫히는데 아무것도 없음")
-		GlobalRef.hud.get_node("cursor").cursor_reset()
+		GlobalRef.uis.get_node("cursor").cursor_reset()
 		current_collider = null
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			if Input.is_action_just_pressed("left_click"):
+				if current_collider:
+					current_collider.interact()

@@ -4,6 +4,7 @@
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
+flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
 params_cull_mode = 2
@@ -13,7 +14,7 @@ albedo_texture = ExtResource( 1 )
 
 [sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.12987, 0.821429, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.839216, 1, 1, 1, 0 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.25098, 1, 1, 1, 0.0980392, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=5]
 gradient = SubResource( 4 )
@@ -27,14 +28,15 @@ initial_velocity = 25.0
 initial_velocity_random = 0.8
 damping = 15.03
 damping_random = 1.0
-scale = 0.05
-scale_random = 0.11
+scale = 0.01
+scale_random = 0.04
 color_ramp = SubResource( 5 )
 
 [sub_resource type="QuadMesh" id=3]
 
 [node name="snow_particle" type="Particles"]
 material_override = SubResource( 1 )
+cast_shadow = 0
 amount = 500
 visibility_aabb = AABB( -2.813, -4, -3.672, 5.625, 10, 7.344 )
 process_material = SubResource( 2 )

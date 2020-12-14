@@ -29,7 +29,7 @@ export var active = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GlobalRef.player = self
-	#GlobalRef.world_generator.connect("object_generate_finish", self, "player_active")
+	GlobalRef.world_generator.connect("object_generate_finish", self, "player_active")
 
 func _physics_process(delta):
 	

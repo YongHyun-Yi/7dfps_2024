@@ -21,6 +21,5 @@ fog_transmit_enabled = true
 tonemap_mode = 1
 dof_blur_far_enabled = true
 dof_blur_far_distance = 4.0
-dof_blur_far_quality = 0
 dof_blur_near_distance = 1.0
 adjustment_brightness = 1.89

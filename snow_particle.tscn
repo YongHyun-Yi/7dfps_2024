@@ -12,14 +12,14 @@ params_billboard_mode = 2
 params_billboard_keep_scale = true
 albedo_texture = ExtResource( 1 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.12987, 0.821429, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.25098, 1, 1, 1, 0.0980392, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 2
 emission_box_extents = Vector3( 5, 5, 5 )
 direction = Vector3( -0.2, -1, 0 )
@@ -30,14 +30,14 @@ damping = 15.03
 damping_random = 1.0
 scale = 0.01
 scale_random = 0.04
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 3 )
 
-[sub_resource type="QuadMesh" id=3]
+[sub_resource type="QuadMesh" id=5]
 
 [node name="snow_particle" type="Particles"]
 material_override = SubResource( 1 )
 cast_shadow = 0
 amount = 500
 visibility_aabb = AABB( -2.813, -4, -3.672, 5.625, 10, 7.344 )
-process_material = SubResource( 2 )
-draw_pass_1 = SubResource( 3 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )

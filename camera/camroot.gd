@@ -7,6 +7,8 @@ export var zoom_min = 30
 export var zoom_max = 70
 export var zoom_current = 70
 export var zoom_factor = 3.0
+export var near_focus_factor = 0.15
+export var far_focus_factor = 0.3
 
 signal capture_cam_active
 
@@ -37,12 +39,17 @@ func _unhandled_input(event):
 			if capture_mode:
 				
 				if Input.is_action_pressed("zoom_in") and zoom_current > zoom_min:
-						zoom_current = clamp(zoom_current - zoom_factor, zoom_min, zoom_max)
-						$capture_cam/Viewport/capture_cam_camera.fov = zoom_current
-						$sound_animation.play("wind")
+					zoom_current = clamp(zoom_current - zoom_factor, zoom_min, zoom_max)
+					$capture_cam/Viewport/capture_cam_camera.fov = zoom_current
+					$capture_cam/Viewport/capture_cam_camera.environment.dof_blur_far_distance += far_focus_factor
+					$capture_cam/Viewport/capture_cam_camera.environment.dof_blur_near_distance += near_focus_factor
+					$sound_animation.play("wind")
+					
 				elif Input.is_action_pressed("zoom_out") and zoom_current < zoom_max:
 					zoom_current = clamp(zoom_current + zoom_factor, zoom_min, zoom_max)
 					$capture_cam/Viewport/capture_cam_camera.fov = zoom_current
+					$capture_cam/Viewport/capture_cam_camera.environment.dof_blur_far_distance -= far_focus_factor
+					$capture_cam/Viewport/capture_cam_camera.environment.dof_blur_near_distance -= near_focus_factor
 					$sound_animation.play("wind")
 				
 				if Input.is_action_just_pressed("left_click"):

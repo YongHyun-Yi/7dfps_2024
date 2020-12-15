@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://sfx/snow_footstep.wav" type="AudioStream" id=2]
@@ -11,10 +11,27 @@
 radius = 0.2
 height = 0.5
 
+[sub_resource type="Animation" id=4]
+resource_name = "reset"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("camroot:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.878962, -0.157246 ) ]
+}
+
 [sub_resource type="Animation" id=2]
 resource_name = "run"
-length = 0.35
-step = 0.01
+length = 0.7
+loop = true
+step = 0.02
 tracks/0/type = "audio"
 tracks/0/path = NodePath("footstep")
 tracks/0/interp = 1
@@ -28,10 +45,38 @@ tracks/0/keys = {
 "stream": ExtResource( 2 )
 }, {
 "end_offset": 0.0,
+"start_offset": 110.1,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
 "start_offset": 0.0,
 "stream": null
 } ],
-"times": PoolRealArray( 0, 0.35 )
+"times": PoolRealArray( 0, 0.35, 0.7 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("camroot:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.34, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.878962, -0.157246 ), Vector3( -0.2, 0.791, -0.157 ), Vector3( 0.029, 0.879, -0.157 ), Vector3( 0.2, 0.791, -0.157 ), Vector3( 0, 0.878962, -0.157246 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:cam_walk_shake")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.15, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.857, -1.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -54,12 +99,25 @@ tracks/0/keys = {
 } ],
 "times": PoolRealArray( 0, 0.6 )
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("camroot:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.878962, -0.157246 ), Vector3( 0, 0.79132, -0.157246 ), Vector3( 0, 0.878962, -0.157246 ) ]
+}
 
 [node name="player" type="KinematicBody"]
 collision_layer = 2
 script = ExtResource( 1 )
 walk_speed = 2.0
 run_speed = 4.0
+cam_walk_shake = -0.151086
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -69,7 +127,7 @@ shape = SubResource( 1 )
 mouse_filter = 2
 
 [node name="camroot" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878962, -0.157246 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029, 0.879, -0.157 )
 
 [node name="menus" parent="." instance=ExtResource( 4 )]
 mouse_filter = 2
@@ -79,6 +137,8 @@ stream = ExtResource( 2 )
 volume_db = 5.0
 
 [node name="foot_sound_animation" type="AnimationPlayer" parent="."]
+autoplay = "reset"
+anims/reset = SubResource( 4 )
 anims/run = SubResource( 2 )
 anims/walk = SubResource( 3 )
 

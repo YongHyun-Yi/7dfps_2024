@@ -26,10 +26,12 @@ export var ladder_on = false
 
 export var active = false
 
+export var cam_walk_shake : float = 0.0
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GlobalRef.player = self
-	GlobalRef.world_generator.connect("object_generate_finish", self, "player_active")
+	#GlobalRef.world_generator.connect("object_generate_finish", self, "player_active")
 
 func _physics_process(delta):
 	
@@ -53,6 +55,18 @@ func _physics_process(delta):
 		direction.y = gravity_vector.y
 		
 		move_and_slide(direction, Vector3.UP)
+		
+		if Input.is_action_pressed("move_foward") || Input.is_action_pressed("move_backward") || Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"):
+			if is_on_floor():
+				if run_mode:
+					$foot_sound_animation.play("run")
+					$camroot.rotation_degrees.z = cam_walk_shake
+				else:
+					$foot_sound_animation.play("walk")
+					$camroot.rotation_degrees.z = 0.0
+		elif $foot_sound_animation.is_playing() and $foot_sound_animation.current_animation != "reset":
+			$foot_sound_animation.play("reset")
+			$camroot.rotation_degrees.z = 0.0
 	
 	pass
 
@@ -73,13 +87,6 @@ func _unhandled_input(event):
 			x_input = 1
 		else:
 			x_input = 0
-		
-		if Input.is_action_pressed("move_foward") || Input.is_action_pressed("move_backward") || Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"):
-			if is_on_floor():
-				if run_mode:
-					$foot_sound_animation.play("run")
-				else:
-					$foot_sound_animation.play("walk")
 		
 		if Input.is_action_pressed("sprint"):
 			run_mode = true

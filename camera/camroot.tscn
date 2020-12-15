@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://camera/camroot.gd" type="Script" id=1]
 [ext_resource path="res://interactable/interaction_raycast.gd" type="Script" id=2]
 [ext_resource path="res://sfx/shutter_click.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/camera_wind.wav" type="AudioStream" id=4]
-[ext_resource path="res://camera/viewfinder.png" type="Texture" id=5]
+[ext_resource path="res://sprite/viewfinder_anti.png" type="Texture" id=5]
+[ext_resource path="res://capture_cam_env1.tres" type="Environment" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "sutter"
@@ -93,6 +94,7 @@ render_target_update_mode = 0
 [node name="capture_cam_camera" type="ClippedCamera" parent="capture_cam/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254746, -0.157246 )
 cull_mask = 2147483651
+environment = ExtResource( 6 )
 
 [node name="Control" type="Control" parent="capture_cam"]
 anchor_right = 1.0

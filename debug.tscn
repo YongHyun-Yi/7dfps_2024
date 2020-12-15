@@ -12,7 +12,7 @@
 [ext_resource path="res://sfx/polar_wind.wav" type="AudioStream" id=18]
 [ext_resource path="res://collect_objects/bujeok1.tscn" type="PackedScene" id=20]
 
-[sub_resource type="BakedLightmapData" id=4]
+[sub_resource type="BakedLightmapData" id=1]
 bounds = AABB( -10, -10, -21.1871, 20, 20, 42.3742 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 40, 40, 84.7484 )
 cell_subdiv = 9
@@ -65,7 +65,7 @@ text = "Hi I'm text box"
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.34254 )
 bake_extents = Vector3( 10, 10, 21.1871 )
-light_data = SubResource( 4 )
+light_data = SubResource( 1 )
 
 [node name="snow_particle" parent="." instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.02078, 0 )

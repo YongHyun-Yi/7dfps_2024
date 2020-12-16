@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://proc_generator/room2.gd" type="Script" id=1]
 [ext_resource path="res://proc_generator/exit_pos.gd" type="Script" id=2]
@@ -7,29 +7,33 @@
 [ext_resource path="res://proc_generator/object_pos.gd" type="Script" id=5]
 [ext_resource path="res://snow_particle.tscn" type="PackedScene" id=6]
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=1]
 size = Vector3( 6, 0.3, 27 )
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 3.16781, 6.37293, 12.891 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 3.02096, 0.165705, 13.3561 )
 
+[sub_resource type="PlaneMesh" id=4]
+size = Vector2( 6, 27 )
+
 [node name="proc_gen_room" type="MeshInstance"]
-mesh = SubResource( 4 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
 material/0 = ExtResource( 4 )
 script = ExtResource( 1 )
 tag = 1
 
 [node name="proc_gen_exit" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.4916 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.5 )
 script = ExtResource( 2 )
 Room = true
 Junction = true
 
 [node name="proc_gen_exit2" type="Position3D" parent="."]
-transform = Transform( -0.999989, -0.00462511, -3.25838e-07, -0.00462511, 0.999989, -1.50705e-09, 3.25841e-07, 0, -1, 1.31616e-07, 0.00553203, -13.5229 )
+transform = Transform( -0.999989, -0.00462511, -3.25838e-07, -0.00462511, 0.999989, -1.50705e-09, 3.25841e-07, 0, -1, 0, 0, -13.5 )
 script = ExtResource( 2 )
 Room = true
 Junction = true
@@ -48,16 +52,16 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="building2" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.96779, 0, 9.23119 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.77947, 0, 9.23119 )
 
 [node name="building3" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.96779, 0, 0.116011 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.77947, 0, 0.116011 )
 
 [node name="building4" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.96779, 0, -8.97208 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.77947, 0, -8.97208 )
 
 [node name="building5" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5.71193, 0, -8.97207 )
@@ -71,9 +75,15 @@ transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 5.71193, 
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="snow_particle" parent="." instance=ExtResource( 6 )]
 visibility_aabb = AABB( -2.813, -4, -13.1853, 5.625, 10, 26.3706 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0 )
+use_in_baked_light = true
+mesh = SubResource( 4 )
+material/0 = null
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]

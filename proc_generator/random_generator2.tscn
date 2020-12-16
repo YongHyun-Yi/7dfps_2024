@@ -37,3 +37,8 @@ rect_scale = Vector2( 2, 2 )
 text = "loading..."
 align = 1
 valign = 1
+
+[node name="GIProbe" type="GIProbe" parent="."]
+subdiv = 0
+extents = Vector3( 100, 100, 100 )
+interior = true

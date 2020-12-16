@@ -48,12 +48,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		$GIProbe.bake()
 	pass
 
 func create_rooms(time):
 	print("start")
 	
-	randomize()
+	#randomize()
 	
 	var starting_module = start_point.instance()
 	$rooms.add_child(starting_module)

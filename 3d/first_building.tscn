@@ -7,6 +7,9 @@ extents = Vector3( 1.43666, 2.6073, 0.883794 )
 
 [node name="first_building" instance=ExtResource( 1 )]
 
+[node name=" 2" parent="." index="3"]
+use_in_baked_light = true
+
 [node name="StaticBody" type="StaticBody" parent="." index="4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58316, -0.612371 )
 

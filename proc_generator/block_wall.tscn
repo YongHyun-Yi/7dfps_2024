@@ -12,6 +12,7 @@ extents = Vector3( 3.20819, 3.08184, 0.546586 )
 
 [node name="proc_gen_room" type="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.369, -0.586314 )
+use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
 script = ExtResource( 3 )

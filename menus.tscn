@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://font/bakmulgwan_Bold.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://item_mesh_in_inventory.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ingame_menu.gd" type="Script" id=4]
 [ext_resource path="res://map.gd" type="Script" id=5]
@@ -8,11 +9,310 @@
 [ext_resource path="res://inventory.gd" type="Script" id=7]
 [ext_resource path="res://player_state.gd" type="Script" id=8]
 [ext_resource path="res://menus.gd" type="Script" id=9]
+[ext_resource path="res://themes/ui_panel.tres" type="StyleBox" id=10]
+[ext_resource path="res://themes/button_press_panel.tres" type="StyleBox" id=11]
+[ext_resource path="res://themes/button_hover_penel.tres" type="StyleBox" id=12]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="World" id=2]
+[sub_resource type="StyleBoxFlat" id=2]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 18.0
+content_margin_top = 15.0
+bg_color = Color( 0, 0, 0, 0.635294 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="World" id=3]
 environment = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=5]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("TabContainer/player_state/object:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 627, 329.032 ), Vector2( 627, 198 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TabContainer/player_state/say:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 183, -76.3929 ), Vector2( 183, 37 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TabContainer/player_state/state_hp:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 26.204, 330.807 ), Vector2( 26.204, 199.775 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TabContainer/player_state/face:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 23.699, -77.3949 ), Vector2( 23.699, 35.998 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TabContainer/inventory/details:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 650.133, 0 ), Vector2( 538, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("TabContainer/inventory/ItemList:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( -73.0754, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("TabContainer/inventory/drop_button:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 859.788, 480.297 ), Vector2( 747.655, 480.297 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("TabContainer/inventory/equip_button:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 755.96, 482.416 ), Vector2( 643.827, 482.416 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("TabContainer/inventory/use_button:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 650.014, 483.476 ), Vector2( 537.881, 483.476 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("TabContainer/map/Panel:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 31, 70.4205 ), Vector2( 31, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TabContainer/player_state/object:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 627, 198 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TabContainer/player_state/say:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 183, 37 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TabContainer/player_state/state_hp:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 26.204, 199.775 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TabContainer/player_state/face:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 23.699, 35.998 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TabContainer/inventory/details:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 538, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("TabContainer/inventory/ItemList:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("TabContainer/inventory/drop_button:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 747.655, 480.297 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("TabContainer/inventory/equip_button:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 643.827, 482.416 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("TabContainer/inventory/use_button:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 537.881, 483.476 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("TabContainer/map/Panel:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 31, 0 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 0.207843 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+resource_local_to_scene = true
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=10]
+size = 39
+font_data = ExtResource( 2 )
 
 [node name="menus" type="Control"]
 anchor_right = 1.0
@@ -23,10 +323,10 @@ __meta__ = {
 }
 
 [node name="ingame_menu" type="Popup" parent="."]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
-mouse_filter = 1
 popup_exclusive = true
 script = ExtResource( 4 )
 __meta__ = {
@@ -37,6 +337,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 60.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 1 )
@@ -47,8 +348,10 @@ __meta__ = {
 }
 
 [node name="player_state" type="Control" parent="ingame_menu/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,9 +363,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -488.301
-margin_top = -234.002
+margin_top = -347.395
 margin_right = -351.301
-margin_bottom = -96.0019
+margin_bottom = -209.395
+mouse_filter = 2
+custom_styles/panel = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,9 +378,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -329.0
-margin_top = -233.0
+margin_top = -346.393
 margin_right = 487.0
-margin_bottom = -95.0
+margin_bottom = -208.393
+mouse_filter = 2
+custom_styles/panel = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -86,9 +393,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -485.796
-margin_top = -70.2253
-margin_right = 86.2037
-margin_bottom = 202.775
+margin_top = 60.807
+margin_right = 86.2036
+margin_bottom = 333.808
+mouse_filter = 2
+custom_styles/panel = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -105,9 +414,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 115.0
-margin_top = -72.0
+margin_top = 59.032
 margin_right = 481.0
-margin_bottom = 210.0
+margin_bottom = 341.033
+mouse_filter = 2
+custom_styles/panel = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -133,9 +444,9 @@ __meta__ = {
 }
 
 [node name="inventory" type="Control" parent="ingame_menu/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 7 )
@@ -146,12 +457,17 @@ __meta__ = {
 [node name="ItemList" type="ItemList" parent="ingame_menu/TabContainer/inventory"]
 anchor_right = 0.377
 anchor_bottom = 0.867
-margin_right = -0.0480042
-margin_bottom = -0.180023
+margin_left = -73.0
+margin_right = -83.048
+margin_bottom = -0.179993
 focus_mode = 0
+mouse_filter = 1
+custom_styles/selected = SubResource( 2 )
+custom_styles/bg = SubResource( 8 )
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
 max_columns = 5
 same_column_width = true
-icon_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -160,9 +476,11 @@ __meta__ = {
 anchor_left = 0.525
 anchor_right = 1.0
 anchor_bottom = 0.876
-margin_left = 0.399963
+margin_left = 112.533
+margin_right = 112.134
 margin_bottom = -0.0400391
 mouse_filter = 2
+custom_styles/panel = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -173,7 +491,7 @@ scale = Vector2( 1, -1 )
 
 [node name="Viewport" type="Viewport" parent="ingame_menu/TabContainer/inventory/details/mesh_view"]
 size = Vector2( 512, 300 )
-world = SubResource( 2 )
+world = SubResource( 3 )
 transparent_bg = true
 
 [node name="item_mesh_in_inventory" parent="ingame_menu/TabContainer/inventory/details/mesh_view/Viewport" instance=ExtResource( 3 )]
@@ -186,6 +504,7 @@ margin_left = 18.0
 margin_top = 86.6359
 margin_right = -16.0
 margin_bottom = 113.636
+custom_fonts/font = SubResource( 4 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -196,38 +515,63 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 18.0
-margin_top = -112.0
-margin_right = -16.0
-margin_bottom = -17.0
+margin_top = -107.0
+margin_right = -16.0001
+margin_bottom = -16.9999
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="ingame_menu/TabContainer/inventory"]
-margin_left = 537.881
+[node name="use_button" type="Button" parent="ingame_menu/TabContainer/inventory"]
+margin_left = 650.014
 margin_top = 483.476
-margin_right = 626.881
+margin_right = 739.014
 margin_bottom = 518.476
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
 text = "use"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="ingame_menu/TabContainer/inventory"]
-margin_left = 643.827
+[node name="equip_button" type="Button" parent="ingame_menu/TabContainer/inventory"]
+margin_left = 755.96
 margin_top = 482.416
-margin_right = 732.827
+margin_right = 844.96
 margin_bottom = 517.416
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
 text = "equip"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="ingame_menu/TabContainer/inventory"]
-margin_left = 747.655
+[node name="drop_button" type="Button" parent="ingame_menu/TabContainer/inventory"]
+margin_left = 859.788
 margin_top = 480.297
-margin_right = 836.655
+margin_right = 948.788
 margin_bottom = 515.297
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
 text = "drop"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -237,6 +581,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -246,122 +591,182 @@ __meta__ = {
 anchor_left = 0.03
 anchor_right = 0.979
 anchor_bottom = 0.902
-margin_left = 0.279999
+margin_left = 0.280001
+margin_top = 70.4205
 margin_right = 0.503967
-margin_bottom = -0.0800476
+margin_bottom = 70.3405
 mouse_filter = 2
+custom_styles/panel = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ingame_menu"]
+autoplay = "reset"
+anims/open = SubResource( 5 )
+anims/reset = SubResource( 6 )
+
 [node name="pause_menu" type="Popup" parent="."]
 pause_mode = 2
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
-mouse_filter = 1
 popup_exclusive = true
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="pause_menu"]
+[node name="TabContainer" type="TabContainer" parent="pause_menu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
-color = Color( 0, 0, 0, 0.207843 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 7 )
+tabs_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="pause_menu"]
+[node name="menus" type="Panel" parent="pause_menu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -305.0
-margin_top = -180.5
-margin_right = 305.0
-margin_bottom = 180.5
+margin_left = -114.0
+margin_top = -174.0
+margin_right = 115.0
+margin_bottom = 183.0
 mouse_filter = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/menus"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 24.0
-margin_right = -18.0
-margin_bottom = -18.0
 custom_constants/separation = 30
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="load_button" type="Button" parent="pause_menu/Panel/VBoxContainer"]
-margin_left = 226.0
-margin_top = 34.0
-margin_right = 346.0
-margin_bottom = 74.0
+[node name="load_button" type="Button" parent="pause_menu/menus/VBoxContainer"]
+margin_left = 54.0
+margin_top = 53.0
+margin_right = 174.0
+margin_bottom = 93.0
 rect_min_size = Vector2( 120, 40 )
 focus_mode = 0
+mouse_filter = 1
 size_flags_horizontal = 6
 size_flags_vertical = 0
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "load"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="restart_button" type="Button" parent="pause_menu/Panel/VBoxContainer"]
-margin_left = 226.0
-margin_top = 104.0
-margin_right = 346.0
-margin_bottom = 144.0
+[node name="restart_button" type="Button" parent="pause_menu/menus/VBoxContainer"]
+margin_left = 54.0
+margin_top = 123.0
+margin_right = 174.0
+margin_bottom = 163.0
 rect_min_size = Vector2( 120, 40 )
 focus_mode = 0
+mouse_filter = 1
 size_flags_horizontal = 6
 size_flags_vertical = 0
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "restart"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="option_button" type="Button" parent="pause_menu/Panel/VBoxContainer"]
-margin_left = 226.0
-margin_top = 174.0
-margin_right = 346.0
-margin_bottom = 214.0
+[node name="option_button" type="Button" parent="pause_menu/menus/VBoxContainer"]
+margin_left = 54.0
+margin_top = 193.0
+margin_right = 174.0
+margin_bottom = 233.0
 rect_min_size = Vector2( 120, 40 )
 focus_mode = 0
+mouse_filter = 1
 size_flags_horizontal = 6
 size_flags_vertical = 0
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "option"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="title_button" type="Button" parent="pause_menu/Panel/VBoxContainer"]
-margin_left = 226.0
-margin_top = 244.0
-margin_right = 346.0
-margin_bottom = 284.0
+[node name="title_button" type="Button" parent="pause_menu/menus/VBoxContainer"]
+margin_left = 54.0
+margin_top = 263.0
+margin_right = 174.0
+margin_bottom = 303.0
 rect_min_size = Vector2( 120, 40 )
 focus_mode = 0
+mouse_filter = 1
 size_flags_horizontal = 6
 size_flags_vertical = 0
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "title"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="pause_menu/menus"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -22.5
+margin_top = 15.892
+margin_right = 22.5
+margin_bottom = 34.892
+text = "Pause"
+align = 1
+valign = 1
+
+[node name="close_button" type="Button" parent="pause_menu/menus"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 3.53772
+margin_right = 53.5377
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="focus_entered" from="ingame_menu" to="ingame_menu" method="focus_entered"]
+[connection signal="tab_changed" from="ingame_menu/TabContainer" to="ingame_menu" method="tab_changed"]
 [connection signal="visibility_changed" from="ingame_menu/TabContainer/player_state" to="ingame_menu/TabContainer/player_state" method="visibility_changed"]
 [connection signal="visibility_changed" from="ingame_menu/TabContainer/inventory" to="ingame_menu/TabContainer/inventory" method="visibility_changed"]
 [connection signal="item_selected" from="ingame_menu/TabContainer/inventory/ItemList" to="ingame_menu/TabContainer/inventory" method="item_selected"]
 [connection signal="focus_entered" from="pause_menu" to="pause_menu" method="focus_entered"]
-[connection signal="button_up" from="pause_menu/Panel/VBoxContainer/restart_button" to="pause_menu" method="restart_button_up"]
-[connection signal="button_up" from="pause_menu/Panel/VBoxContainer/title_button" to="pause_menu" method="title_button_up"]
+[connection signal="button_up" from="pause_menu/menus/VBoxContainer/restart_button" to="pause_menu" method="restart_button_up"]
+[connection signal="button_up" from="pause_menu/menus/VBoxContainer/title_button" to="pause_menu" method="title_button_up"]
+[connection signal="button_up" from="pause_menu/menus/close_button" to="pause_menu" method="close_button_up"]

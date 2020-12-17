@@ -99,3 +99,13 @@ func player_active():
 	active = true
 	$camroot/Camera.make_current()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func only_player_active():
+	active = true
+
+func player_deactive():
+	active = false
+	run_mode = false
+	x_input = 0
+	z_input = 0
+	$foot_sound_animation.play("reset")

@@ -11,7 +11,7 @@
 radius = 0.2
 height = 0.5
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "reset"
 length = 0.001
 tracks/0/type = "value"
@@ -27,11 +27,10 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0.878962, -0.157246 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "run"
+[sub_resource type="Animation" id=3]
 length = 0.7
 loop = true
-step = 0.02
+step = 0.01
 tracks/0/type = "audio"
 tracks/0/path = NodePath("footstep")
 tracks/0/interp = 1
@@ -76,10 +75,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0.15, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.857, -1.0 ]
+"values": [ 0.2, -0.2 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.6
 tracks/0/type = "audio"
 tracks/0/path = NodePath("footstep")
@@ -117,7 +116,7 @@ collision_layer = 2
 script = ExtResource( 1 )
 walk_speed = 2.0
 run_speed = 4.0
-cam_walk_shake = -0.151086
+cam_walk_shake = -0.5
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -127,7 +126,7 @@ shape = SubResource( 1 )
 mouse_filter = 2
 
 [node name="camroot" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029, 0.879, -0.157 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187947, 0.795632, -0.157 )
 
 [node name="menus" parent="." instance=ExtResource( 4 )]
 mouse_filter = 2
@@ -138,10 +137,12 @@ volume_db = 5.0
 
 [node name="foot_sound_animation" type="AnimationPlayer" parent="."]
 autoplay = "reset"
-anims/reset = SubResource( 4 )
-anims/run = SubResource( 2 )
-anims/walk = SubResource( 3 )
+anims/reset = SubResource( 2 )
+anims/run = SubResource( 3 )
+anims/walk = SubResource( 4 )
 
 [node name="player" parent="." instance=ExtResource( 6 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.309245, 0 )
+[connection signal="close_menu" from="menus" to="." method="only_player_active"]
 [connection signal="open_menu" from="menus" to="camroot" method="capture_mode_close"]
+[connection signal="open_menu" from="menus" to="." method="player_deactive"]

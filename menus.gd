@@ -5,6 +5,11 @@ signal close_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#yield(get_tree(), "idle_frame")
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#$pause_menu.show()
+	#$pause_menu/TabContainer.current_tab = 1
+	#$pause_menu/TabContainer/option_menu.grab_focus()
 	pass # Replace with function body.
 
 
@@ -34,3 +39,9 @@ func _unhandled_input(event):
 			$pause_menu.grab_focus()
 			#emit_signal("open_menu")
 
+
+
+func _on_menus_resized():
+	print("resized")
+	#minimum_size_changed()
+	pass # Replace with function body.

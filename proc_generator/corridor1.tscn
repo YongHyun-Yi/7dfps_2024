@@ -82,6 +82,7 @@ visibility_aabb = AABB( -2.813, -4, -13.1853, 5.625, 10, 26.3706 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0 )
+visible = false
 use_in_baked_light = true
 mesh = SubResource( 4 )
 material/0 = null

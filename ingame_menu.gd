@@ -26,7 +26,7 @@ func _gui_input(event):
 		if $TabContainer.current_tab > 0:
 			$TabContainer.current_tab -= 1
 	
-	if Input.is_action_just_pressed("tab_key") or Input.is_action_just_pressed("right_click"):
+	if Input.is_action_just_pressed("tab_key") or Input.is_action_just_pressed("right_click") or Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		hide()
 		get_parent().emit_signal("close_menu")
@@ -36,8 +36,9 @@ func _gui_input(event):
 
 
 func focus_entered():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	show()
+	if !visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		show()
 	pass # Replace with function body.
 
 

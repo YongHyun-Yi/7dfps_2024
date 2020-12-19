@@ -18,6 +18,7 @@ var x_input = 0
 var movement_speed = 0
 export var walk_speed = 1.0
 export var run_speed = 2.8
+export var capature_mode_speed = 0.85
 
 export var jump = 6.5
 
@@ -88,12 +89,16 @@ func _unhandled_input(event):
 		else:
 			x_input = 0
 		
-		if Input.is_action_pressed("sprint"):
-			run_mode = true
-			movement_speed = run_speed
+		if !$camroot.capture_mode:
+			if Input.is_action_pressed("sprint"):
+				run_mode = true
+				movement_speed = run_speed
+			else:
+				run_mode = false
+				movement_speed = walk_speed
 		else:
 			run_mode = false
-			movement_speed = walk_speed
+			movement_speed = capature_mode_speed
 
 func player_active():
 	active = true

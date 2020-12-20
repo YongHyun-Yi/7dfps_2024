@@ -38,10 +38,3 @@ func _unhandled_input(event):
 			
 			$pause_menu.grab_focus()
 			#emit_signal("open_menu")
-
-
-
-func _on_menus_resized():
-	print("resized")
-	#minimum_size_changed()
-	pass # Replace with function body.

@@ -29,7 +29,7 @@ func _process(delta):
 func _unhandled_input(event):
 	
 	if event is InputEventMouseMotion:
-		GlobalRef.player.rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
+		GlobalRef.player.rotate_y(deg2rad(-event.relative.x * GlobalOption.mouse_sensitivity))
 		rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
 		rotation.x = clamp(rotation.x, deg2rad(-89), deg2rad(90))
 	

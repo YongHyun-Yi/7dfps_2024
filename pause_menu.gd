@@ -37,10 +37,20 @@ func focus_entered():
 	pass # Replace with function body.
 
 
+func loadbutton_up():
+	$TabContainer.current_tab = 1
+	pass # Replace with function body.
+
+
 func restart_button_up():
 	get_tree().reload_current_scene()
 	get_tree().paused = false
 	hide()
+	pass # Replace with function body.
+
+
+func option_button_up():
+	$TabContainer.current_tab = 2
 	pass # Replace with function body.
 
 
@@ -54,9 +64,4 @@ func close_button_up():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 	hide()
-	pass # Replace with function body.
-
-
-func option_button_up():
-	$TabContainer.current_tab = 2
 	pass # Replace with function body.

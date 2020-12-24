@@ -53,6 +53,7 @@ config/icon="res://icon.png"
 GlobalRef="*res://global_ref.gd"
 GlobalPlayerState="*res://global_player_state.tscn"
 GlobalOption="*res://global_option.gd"
+SaveLoadSystem="*res://save_load_system.gd"
 
 [display]
 

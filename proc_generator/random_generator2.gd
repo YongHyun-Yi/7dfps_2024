@@ -27,7 +27,7 @@ export var collision_loop_max = 3
 
 signal part_generate_finish
 signal object_generate_finish
-
+var a
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalRef.world_generator = self
@@ -42,23 +42,41 @@ func _ready():
 		create_rooms(5)
 		yield(self, "part_generate_finish")
 	
-	create_objects()
+	#create_objects()
+	$screen_block.queue_free()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		$GIProbe.bake()
+	if Input.is_action_just_pressed("call_ingame_menu1"):
+		SaveLoadSystem.pack_save(0, $rooms)
+	
+	if Input.is_action_just_pressed("call_ingame_menu2"):
+		SaveLoadSystem.pack_load(0, self)
+	
+	if Input.is_action_just_pressed("call_ingame_menu3"):
+		$rooms.queue_free()
+	
+	if Input.is_action_just_pressed("ui_up"):
+		$Camera.make_current()
+		GlobalRef.player.player_deactive()
+	if Input.is_action_just_pressed("ui_down"):
+		GlobalRef.player_camera.make_current()
+		GlobalRef.player.player_active()
+	
 	pass
 
 func create_rooms(time):
 	print("start")
 	
-	#randomize()
+	randomize()
 	
-	var starting_module = start_point.instance()
+	var starting_module = start_point.instance()#room1.instance()#start_point.instance()
 	$rooms.add_child(starting_module)
+	starting_module.owner = $rooms
+	for i in starting_module.get_children():
+		i.owner = starting_module
 	starting_module.global_transform.origin = Vector3.ZERO
 	
 	var pending_exits = starting_module.exits
@@ -73,6 +91,9 @@ func create_rooms(time):
 			selected_module = selected_module[randi() % selected_module.size()]
 			var new_module = selected_module.instance()
 			$rooms.add_child(new_module)
+			new_module.owner = $rooms
+			for i in new_module.get_children():
+				i.owner = new_module
 			var exit_to_match = new_module.exits[randi() % new_module.exits.size()]
 			new_module.connect_room(pending_exit, exit_to_match)
 			
@@ -94,6 +115,9 @@ func create_rooms(time):
 					selected_module = selected_module[randi() % selected_module.size()]
 					new_module = selected_module.instance()
 					$rooms.add_child(new_module)
+					new_module.owner = $rooms
+					for i in new_module.get_children():
+						i.owner = new_module
 					exit_to_match = new_module.exits[randi() % new_module.exits.size()]
 					new_module.connect_room(pending_exit, exit_to_match)
 					
@@ -149,14 +173,14 @@ func create_objects():
 		var pos = object_positions.pop_front()
 		var col_obj = collect_object.instance()
 		col_obj.global_transform = pos.global_transform
-		add_child(col_obj)
+		$rooms.add_child(col_obj)
 	
 	for i in range(3):
 		var pos = object_positions.pop_front()
 		var cap_obj = capture_object.instance()
 		cap_obj.global_transform = pos.global_transform
-		add_child(cap_obj)
+		$rooms.add_child(cap_obj)
 	
-	emit_signal("object_generate_finish")
+	#emit_signal("object_generate_finish")
 	$screen_block.queue_free()
 	#print("object finish")

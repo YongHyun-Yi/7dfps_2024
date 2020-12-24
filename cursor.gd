@@ -1,6 +1,6 @@
 extends TextureRect
 
-enum actions {hand, talk, pick_up, see, lock}
+enum actions {hand, talk, add_item, pick_up, see, lock}
 
 var normal = preload("res://sprite/crose_hair.png")
 var icon0 = preload("res://sprite/action_icon1.png")

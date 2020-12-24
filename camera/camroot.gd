@@ -82,6 +82,7 @@ func capture_mode_toggle():
 		$Camera.fov = zoom_current
 		"""
 		print("사진촬영")
+		get_parent().run_mode = false
 	else:
 		"""
 		GlobalRef.hud.get_node("viewfinder").hide()

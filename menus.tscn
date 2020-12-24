@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://font/bakmulgwan_Bold.otf" type="DynamicFontData" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://themes/button_hover_penel.tres" type="StyleBox" id=12]
 [ext_resource path="res://option_menu.gd" type="Script" id=13]
 [ext_resource path="res://load_menu.gd" type="Script" id=14]
+[ext_resource path="res://save_menu.gd" type="Script" id=15]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -770,7 +771,6 @@ __meta__ = {
 }
 
 [node name="load_menu" type="Control" parent="pause_menu/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -825,18 +825,6 @@ custom_styles/pressed = ExtResource( 11 )
 custom_styles/normal = ExtResource( 10 )
 text = "Load save file"
 
-[node name="Button2" type="Button" parent="pause_menu/TabContainer/load_menu/Panel/Control/VBoxContainer"]
-margin_top = 204.0
-margin_right = 883.0
-margin_bottom = 404.0
-rect_min_size = Vector2( 883, 200 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_styles/hover = ExtResource( 12 )
-custom_styles/pressed = ExtResource( 11 )
-custom_styles/normal = ExtResource( 10 )
-text = "Load save file"
-
 [node name="VSlider" type="VSlider" parent="pause_menu/TabContainer/load_menu/Panel"]
 anchor_left = 1.0
 anchor_top = 0.5
@@ -876,6 +864,7 @@ __meta__ = {
 }
 
 [node name="option_menu" type="Control" parent="pause_menu/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -1104,6 +1093,98 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="save_menu" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="save_menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -460.5
+margin_top = -304.5
+margin_right = 460.5
+margin_bottom = 304.5
+mouse_filter = 2
+custom_styles/panel = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="save_menu/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 9.0
+margin_right = -29.0
+margin_bottom = -8.0
+rect_min_size = Vector2( 883, 592 )
+rect_clip_content = true
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="save_menu/Panel/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 883, 593 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="save_menu/Panel/Control/VBoxContainer"]
+margin_right = 883.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 883, 200 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 10 )
+text = "Add save file"
+
+[node name="VSlider" type="VSlider" parent="save_menu/Panel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -23.9999
+margin_top = -295.5
+margin_right = -7.99994
+margin_bottom = 297.5
+rect_pivot_offset = Vector2( 8, 296 )
+size_flags_vertical = 0
+max_value = 0.0
+step = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="close_button" type="Button" parent="save_menu"]
+anchor_left = 0.886
+anchor_top = 0.112
+anchor_right = 0.886
+anchor_bottom = 0.112
+margin_left = -25.0801
+margin_top = -24.64
+margin_right = 24.9199
+margin_bottom = 25.36
+rect_min_size = Vector2( 50, 50 )
+mouse_filter = 1
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="focus_entered" from="ingame_menu" to="ingame_menu" method="focus_entered"]
 [connection signal="tab_changed" from="ingame_menu/TabContainer" to="ingame_menu" method="tab_changed"]
 [connection signal="visibility_changed" from="ingame_menu/TabContainer/player_state" to="ingame_menu/TabContainer/player_state" method="visibility_changed"]
@@ -1115,6 +1196,7 @@ __meta__ = {
 [connection signal="button_up" from="pause_menu/TabContainer/menus/menus/VBoxContainer/option_button" to="pause_menu" method="option_button_up"]
 [connection signal="button_up" from="pause_menu/TabContainer/menus/menus/VBoxContainer/title_button" to="pause_menu" method="title_button_up"]
 [connection signal="button_up" from="pause_menu/TabContainer/menus/menus/close_button" to="pause_menu" method="close_button_up"]
+[connection signal="gui_input" from="pause_menu/TabContainer/load_menu/Panel/Control/VBoxContainer" to="pause_menu/TabContainer/load_menu" method="VBoxContainer_gui_input"]
 [connection signal="value_changed" from="pause_menu/TabContainer/load_menu/Panel/VSlider" to="pause_menu/TabContainer/load_menu" method="VSlider_value_changed"]
 [connection signal="button_up" from="pause_menu/TabContainer/load_menu/close_button" to="pause_menu/TabContainer/load_menu" method="close_button_up"]
 [connection signal="item_selected" from="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2/resolution" to="pause_menu/TabContainer/option_menu" method="resolution_selected"]
@@ -1123,3 +1205,6 @@ __meta__ = {
 [connection signal="value_changed" from="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2/brightness" to="pause_menu/TabContainer/option_menu" method="brightness_value_changed"]
 [connection signal="item_selected" from="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2/language" to="pause_menu/TabContainer/option_menu" method="language_selected"]
 [connection signal="button_up" from="pause_menu/TabContainer/option_menu/Panel/close_button" to="pause_menu/TabContainer/option_menu" method="close_button_up"]
+[connection signal="gui_input" from="save_menu/Panel/Control/VBoxContainer" to="save_menu" method="VBoxContainer_gui_input"]
+[connection signal="value_changed" from="save_menu/Panel/VSlider" to="save_menu" method="VSlider_value_changed"]
+[connection signal="button_up" from="save_menu/close_button" to="save_menu" method="close_button_up"]

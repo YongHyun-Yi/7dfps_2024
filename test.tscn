@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://3d/building2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://world_env1.tres" type="Environment" id=3]
+[ext_resource path="res://save_test.gd" type="Script" id=4]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -38.7502, -10.4604, -23.8487, 77.5003, 20.9208, 47.6974 )
@@ -90,6 +91,13 @@ size = Vector3( 6, 3, 12 )
 size = Vector3( 12, 12, 12 )
 
 [sub_resource type="CubeMesh" id=26]
+
+[sub_resource type="SphereMesh" id=27]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape" id=28]
+radius = 0.4
 
 [node name="test" type="Spatial"]
 
@@ -528,6 +536,20 @@ omni_attenuation = 4.43828
 transform = Transform( 0.936372, 0, 0.351008, 0, 1, 0, -0.351008, 0, 0.936372, 26.4447, 3.83126, -30.4886 )
 omni_range = 18.1412
 omni_attenuation = 4.43828
+
+[node name="MeshInstance" type="MeshInstance" parent="new"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23345, 0.465164, -2.11728 )
+use_in_baked_light = true
+mesh = SubResource( 27 )
+material/0 = null
+
+[node name="save" type="Area" parent="new/MeshInstance"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="new/MeshInstance/save"]
+shape = SubResource( 28 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.138603, 0.990348, 0, -0.990348, -0.138603, 0, 0, 0 )

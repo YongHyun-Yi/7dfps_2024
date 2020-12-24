@@ -16,9 +16,9 @@ var z_input = 0
 var x_input = 0
 
 var movement_speed = 0
-export var walk_speed = 1.0
+export var walk_speed = 1.2
 export var run_speed = 2.8
-export var capature_mode_speed = 0.85
+export var capature_mode_speed = 0.9
 
 export var jump = 6.5
 
@@ -39,6 +39,13 @@ func _physics_process(delta):
 	if active:
 	
 		direction = Vector3()
+		
+		if $camroot.capture_mode:
+			movement_speed = capature_mode_speed
+		elif run_mode:
+			movement_speed = run_speed
+		else:
+			movement_speed = walk_speed
 		
 		if is_on_floor():
 			gravity_vector = -get_floor_normal() * floor_gravity
@@ -61,7 +68,10 @@ func _physics_process(delta):
 			if is_on_floor():
 				if run_mode:
 					$foot_sound_animation.play("run")
-					$camroot.rotation_degrees.z = cam_walk_shake
+					if !$camroot.capture_mode:
+						$camroot.rotation_degrees.z = cam_walk_shake
+					else:
+						$camroot.rotation_degrees.z = 0.0
 				else:
 					$foot_sound_animation.play("walk")
 					$camroot.rotation_degrees.z = 0.0
@@ -89,16 +99,10 @@ func _unhandled_input(event):
 		else:
 			x_input = 0
 		
-		if !$camroot.capture_mode:
-			if Input.is_action_pressed("sprint"):
-				run_mode = true
-				movement_speed = run_speed
-			else:
-				run_mode = false
-				movement_speed = walk_speed
+		if Input.is_action_pressed("sprint"):
+			run_mode = true
 		else:
 			run_mode = false
-			movement_speed = capature_mode_speed
 
 func player_active():
 	active = true

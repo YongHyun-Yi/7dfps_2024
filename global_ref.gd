@@ -8,6 +8,7 @@ var hud
 var uis
 var inventory
 var world_generator
+var save_menu
 
 
 # Called when the node enters the scene tree for the first time.

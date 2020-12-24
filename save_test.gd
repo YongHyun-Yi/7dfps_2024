@@ -1,14 +1,14 @@
-extends Node
+extends Interactable
 
-class_name Interactable
 
-enum actions {hand, talk, add_item, pick_up, see, lock}
-var action
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
-export var active = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	action = actions.see
 	pass # Replace with function body.
 
 
@@ -16,9 +16,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func get_interaction_icon():
-	GlobalRef.uis.get_node("cursor").set_icon(action, active)
-
-
 func interact():
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	GlobalRef.save_menu.show()
+	GlobalRef.save_menu.has_focus()

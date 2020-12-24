@@ -1,4 +1,4 @@
-extends Control
+extends Popup
 
 
 # Declare member variables here. Examples:
@@ -8,6 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalRef.save_menu = self
 	$Panel/VSlider.max_value = $Panel/Control/VBoxContainer.rect_size.y - $Panel/Control.rect_size.y
 	$Panel/VSlider.value = $Panel/VSlider.max_value + $Panel/VSlider.step
 	pass # Replace with function body.
@@ -18,7 +19,8 @@ func _ready():
 #	pass
 
 func close_button_up():
-	get_parent().current_tab = 0
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	hide()
 	pass # Replace with function body.
 
 

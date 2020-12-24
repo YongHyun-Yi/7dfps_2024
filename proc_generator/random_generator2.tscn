@@ -1,19 +1,20 @@
 [gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://proc_generator/Camera.gd" type="Script" id=1]
 [ext_resource path="res://proc_generator/random_generator2.gd" type="Script" id=2]
-[ext_resource path="res://world_env1.tres" type="Environment" id=3]
 
 [node name="random_generator" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 3 )
 
 [node name="rooms" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.834059, 0.551675, 0, -0.551675, 0.834059, 0, 8.2667, 6.14288 )
-visible = false
+current = true
+script = ExtResource( 1 )
+_vel_multiplier = 8
 
 [node name="screen_block" type="ColorRect" parent="."]
 anchor_right = 1.0

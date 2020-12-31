@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "MeshInstance",
 "class": "proc_gen_room",
 "language": "GDScript",
-"path": "res://proc_generator/room2.gd"
+"path": "res://proc_generator/proc_gen_room.gd"
 } ]
 _global_script_class_icons={
 "Interactable": "",
@@ -45,15 +45,15 @@ _global_script_class_icons={
 [application]
 
 config/name="Proc Fps Jam 2020"
-run/main_scene="res://test.tscn"
+run/main_scene="res://levels/debug.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-GlobalRef="*res://global_ref.gd"
-GlobalPlayerState="*res://global_player_state.tscn"
-GlobalOption="*res://global_option.gd"
-SaveLoadSystem="*res://save_load_system.gd"
+GlobalRef="*res://globals/global_ref.gd"
+GlobalPlayerState="*res://globals/global_player_state.tscn"
+GlobalOption="*res://globals/global_option.gd"
+SaveLoadSystem="*res://uis/save_load_system.gd"
 
 [display]
 

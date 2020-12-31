@@ -1,0 +1,1217 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://uis/pause_menu.gd" type="Script" id=2]
+[ext_resource path="res://uis/load_menu.gd" type="Script" id=3]
+[ext_resource path="res://uis/map.gd" type="Script" id=4]
+[ext_resource path="res://uis/menus.gd" type="Script" id=5]
+[ext_resource path="res://uis/inventory.gd" type="Script" id=6]
+[ext_resource path="res://uis/ingame_menu.gd" type="Script" id=7]
+[ext_resource path="res://uis/option_menu.gd" type="Script" id=8]
+[ext_resource path="res://uis/player_state.gd" type="Script" id=9]
+[ext_resource path="res://uis/save_menu.gd" type="Script" id=10]
+[ext_resource path="res://font/bakmulgwan_Bold.otf" type="DynamicFontData" id=11]
+[ext_resource path="res://items/item_mesh_in_inventory.tscn" type="PackedScene" id=12]
+[ext_resource path="res://themes/button_press_panel.tres" type="StyleBox" id=13]
+[ext_resource path="res://themes/button_hover_penel.tres" type="StyleBox" id=14]
+[ext_resource path="res://themes/ui_panel.tres" type="StyleBox" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 18.0
+content_margin_top = 15.0
+bg_color = Color( 0, 0, 0, 0.635294 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="World" id=4]
+environment = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 11 )
+
+[sub_resource type="Animation" id=6]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("TabContainer/player_state/object:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 755.367, 344.656 ), Vector2( 755.367, 239.53 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TabContainer/player_state/say:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 311.367, -14.123 ), Vector2( 311.367, 78.5305 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TabContainer/player_state/state_hp:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 154.571, 346.431 ), Vector2( 154.571, 241.305 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TabContainer/player_state/face:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 152.066, -15.125 ), Vector2( 152.066, 77.5284 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TabContainer/inventory/details:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 780.681, 9.43874 ), Vector2( 607.847, 9.43874 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("TabContainer/inventory/ItemList:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( -72.6969, 9.43874 ), Vector2( 69.8468, 9.43874 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("TabContainer/inventory/drop_button:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 992.224, 595.45 ), Vector2( 819.39, 595.45 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("TabContainer/inventory/equip_button:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 888.396, 597.569 ), Vector2( 715.562, 597.569 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("TabContainer/inventory/use_button:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 782.45, 598.629 ), Vector2( 609.615, 598.629 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("TabContainer/map/Panel:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 31, 101.562 ), Vector2( 31, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TabContainer/player_state/object:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 755.367, 239.53 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TabContainer/player_state/say:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 311.367, 78.5305 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TabContainer/player_state/state_hp:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 154.571, 241.305 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TabContainer/player_state/face:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 152.066, 77.5284 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TabContainer/inventory/details:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 607.847, 9.43874 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("TabContainer/inventory/ItemList:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 69.8468, 9.43874 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("TabContainer/inventory/drop_button:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 819.39, 595.45 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("TabContainer/inventory/equip_button:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 715.562, 597.569 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("TabContainer/inventory/use_button:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 609.615, 598.629 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("TabContainer/map/Panel:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 0.439216 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+resource_local_to_scene = true
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=10]
+size = 39
+font_data = ExtResource( 11 )
+
+[sub_resource type="ImageTexture" id=11]
+
+[node name="menus" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ingame_menu" type="Popup" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+popup_exclusive = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="ingame_menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 60.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+tab_align = 0
+tabs_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_state" type="Control" parent="ingame_menu/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="face" type="Panel" parent="ingame_menu/TabContainer/player_state"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -487.934
+margin_top = -345.125
+margin_right = -350.934
+margin_bottom = -207.125
+mouse_filter = 2
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="say" type="Panel" parent="ingame_menu/TabContainer/player_state"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -328.633
+margin_top = -344.123
+margin_right = 487.367
+margin_bottom = -206.123
+mouse_filter = 2
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="state_hp" type="Panel" parent="ingame_menu/TabContainer/player_state"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -485.429
+margin_top = 16.4315
+margin_right = 86.5706
+margin_bottom = 289.432
+mouse_filter = 2
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ingame_menu/TabContainer/player_state/state_hp"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="object" type="Panel" parent="ingame_menu/TabContainer/player_state"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 115.367
+margin_top = 14.6565
+margin_right = 481.367
+margin_bottom = 296.658
+mouse_filter = 2
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collect_object_current" type="Label" parent="ingame_menu/TabContainer/player_state/object"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 9.0
+margin_right = -10.0
+margin_bottom = 43.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="capture_object_current" type="Label" parent="ingame_menu/TabContainer/player_state/object"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 54.2409
+margin_right = -10.0
+margin_bottom = 88.2409
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inventory" type="Control" parent="ingame_menu/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="ingame_menu/TabContainer/inventory"]
+anchor_right = 0.377
+anchor_bottom = 0.867
+margin_left = -72.6969
+margin_top = 9.43874
+margin_right = -82.7449
+margin_bottom = 9.25873
+focus_mode = 0
+mouse_filter = 1
+custom_styles/selected = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
+max_columns = 5
+same_column_width = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="details" type="Panel" parent="ingame_menu/TabContainer/inventory"]
+anchor_left = 0.525
+anchor_right = 1.0
+anchor_bottom = 0.876
+margin_left = 108.681
+margin_top = 9.43874
+margin_right = 108.282
+margin_bottom = 9.39868
+mouse_filter = 2
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mesh_view" type="Sprite" parent="ingame_menu/TabContainer/inventory/details"]
+position = Vector2( 238.111, 158.551 )
+scale = Vector2( 1, -1 )
+
+[node name="Viewport" type="Viewport" parent="ingame_menu/TabContainer/inventory/details/mesh_view"]
+size = Vector2( 512, 300 )
+world = SubResource( 4 )
+transparent_bg = true
+
+[node name="item_mesh_in_inventory" parent="ingame_menu/TabContainer/inventory/details/mesh_view/Viewport" instance=ExtResource( 12 )]
+
+[node name="name" type="Label" parent="ingame_menu/TabContainer/inventory/details"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 18.0
+margin_top = 86.6359
+margin_right = -16.0
+margin_bottom = 113.636
+custom_fonts/font = SubResource( 5 )
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="describe" type="RichTextLabel" parent="ingame_menu/TabContainer/inventory/details"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 18.0
+margin_top = -107.0
+margin_right = -16.0001
+margin_bottom = -16.9999
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="use_button" type="Button" parent="ingame_menu/TabContainer/inventory"]
+margin_left = 782.45
+margin_top = 598.629
+margin_right = 871.45
+margin_bottom = 633.629
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "use"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="equip_button" type="Button" parent="ingame_menu/TabContainer/inventory"]
+margin_left = 888.396
+margin_top = 597.569
+margin_right = 977.396
+margin_bottom = 632.569
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "equip"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="drop_button" type="Button" parent="ingame_menu/TabContainer/inventory"]
+margin_left = 992.224
+margin_top = 595.45
+margin_right = 1081.22
+margin_bottom = 630.45
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "drop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="map" type="Control" parent="ingame_menu/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ingame_menu/TabContainer/map"]
+anchor_left = 0.03
+anchor_right = 0.979
+anchor_bottom = 0.902
+margin_left = -7.4
+margin_top = 101.562
+margin_right = -7.17615
+margin_bottom = 101.482
+mouse_filter = 2
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ingame_menu"]
+autoplay = "reset"
+anims/open = SubResource( 6 )
+anims/reset = SubResource( 7 )
+
+[node name="pause_menu" type="Popup" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+popup_exclusive = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="pause_menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 8 )
+tabs_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menus" type="Control" parent="pause_menu/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="menus" type="Panel" parent="pause_menu/TabContainer/menus"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -143.0
+margin_top = -194.0
+margin_right = 143.0
+margin_bottom = 215.0
+mouse_filter = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/TabContainer/menus/menus"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 30
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="load_button" type="Button" parent="pause_menu/TabContainer/menus/menus/VBoxContainer"]
+margin_left = 83.0
+margin_top = 79.0
+margin_right = 203.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 120, 40 )
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 6
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restart_button" type="Button" parent="pause_menu/TabContainer/menus/menus/VBoxContainer"]
+margin_left = 83.0
+margin_top = 149.0
+margin_right = 203.0
+margin_bottom = 189.0
+rect_min_size = Vector2( 120, 40 )
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 6
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="option_button" type="Button" parent="pause_menu/TabContainer/menus/menus/VBoxContainer"]
+margin_left = 83.0
+margin_top = 219.0
+margin_right = 203.0
+margin_bottom = 259.0
+rect_min_size = Vector2( 120, 40 )
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 6
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "option"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title_button" type="Button" parent="pause_menu/TabContainer/menus/menus/VBoxContainer"]
+margin_left = 83.0
+margin_top = 289.0
+margin_right = 203.0
+margin_bottom = 329.0
+rect_min_size = Vector2( 120, 40 )
+focus_mode = 0
+mouse_filter = 1
+size_flags_horizontal = 6
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "title"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="pause_menu/TabContainer/menus/menus"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -22.5
+margin_top = 15.892
+margin_right = 22.5
+margin_bottom = 34.892
+text = "Pause"
+align = 1
+valign = 1
+
+[node name="close_button" type="Button" parent="pause_menu/TabContainer/menus/menus"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 3.53772
+margin_right = 53.5377
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="load_menu" type="Control" parent="pause_menu/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="pause_menu/TabContainer/load_menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -460.5
+margin_top = -304.5
+margin_right = 460.5
+margin_bottom = 304.5
+mouse_filter = 2
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="pause_menu/TabContainer/load_menu/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 9.0
+margin_right = -29.0
+margin_bottom = -8.0
+rect_min_size = Vector2( 883, 592 )
+rect_clip_content = true
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/TabContainer/load_menu/Panel/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 883, 593 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="pause_menu/TabContainer/load_menu/Panel/Control/VBoxContainer"]
+margin_right = 883.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 883, 200 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+text = "Load save file"
+
+[node name="VSlider" type="VSlider" parent="pause_menu/TabContainer/load_menu/Panel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -23.9999
+margin_top = -295.5
+margin_right = -7.99994
+margin_bottom = 297.5
+rect_pivot_offset = Vector2( 8, 296 )
+size_flags_vertical = 0
+max_value = 0.0
+step = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="close_button" type="Button" parent="pause_menu/TabContainer/load_menu"]
+anchor_left = 0.886
+anchor_top = 0.112
+anchor_right = 0.886
+anchor_bottom = 0.112
+margin_left = -25.0801
+margin_top = -24.64
+margin_right = 24.9199
+margin_bottom = 25.36
+rect_min_size = Vector2( 50, 50 )
+mouse_filter = 1
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="option_menu" type="Control" parent="pause_menu/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="pause_menu/TabContainer/option_menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -311.5
+margin_top = -224.0
+margin_right = 311.5
+margin_bottom = 224.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="pause_menu/TabContainer/option_menu/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -202.0
+margin_top = -106.0
+margin_right = 202.0
+margin_bottom = 106.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 212.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resolution" type="Label" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 200, 32 )
+text = "Resolution"
+align = 1
+valign = 1
+
+[node name="volume" type="Label" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 200.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 200, 32 )
+text = "Volume"
+align = 1
+valign = 1
+
+[node name="mouse_sensitive" type="Label" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 200.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 200, 32 )
+text = "Mouse sensitive"
+align = 1
+valign = 1
+
+[node name="brightness" type="Label" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 108.0
+margin_right = 200.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 200, 32 )
+text = "Brightness"
+align = 1
+valign = 1
+
+[node name="key_setting" type="Label" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 144.0
+margin_right = 200.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 200, 32 )
+text = "Key setting"
+align = 1
+valign = 1
+
+[node name="language" type="Label" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 180.0
+margin_right = 200.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 200, 32 )
+text = "Language"
+align = 1
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer"]
+margin_left = 204.0
+margin_right = 404.0
+margin_bottom = 212.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resolution" type="OptionButton" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2"]
+margin_right = 200.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_mode = 0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_icons/arrow = SubResource( 11 )
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+toggle_mode = false
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "1280 x 720 (window)"
+align = 1
+items = [ "Full Screen", null, false, 0, false, "1920 x 1080 (window)", null, false, 0, false, "1280 x 720 (window)", null, false, 2, null, "960 x 540 (window)", null, false, 3, null, "1920 x 1080 (borderless)", null, false, 4, null, "1280 x 720 (borderless)", null, false, 5, null, "960 x 540 (borderless)", null, false, 6, null ]
+selected = 2
+
+[node name="volume" type="HSlider" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 36.0
+margin_right = 200.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 0, 32 )
+focus_mode = 0
+mouse_filter = 1
+max_value = 2.0
+step = 0.01
+value = 1.0
+ticks_on_borders = true
+
+[node name="mouse_sensitive" type="HSlider" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 72.0
+margin_right = 200.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 32 )
+focus_mode = 0
+mouse_filter = 1
+min_value = 0.01
+max_value = 0.2
+step = 0.01
+value = 0.1
+ticks_on_borders = true
+
+[node name="brightness" type="HSlider" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 108.0
+margin_right = 200.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 0, 32 )
+focus_mode = 0
+mouse_filter = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+ticks_on_borders = true
+
+[node name="key_setting" type="Label" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 144.0
+margin_right = 200.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 200, 32 )
+text = "Key setting"
+align = 1
+valign = 1
+
+[node name="language" type="OptionButton" parent="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 180.0
+margin_right = 200.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 0, 32 )
+focus_mode = 0
+mouse_filter = 1
+size_flags_vertical = 0
+custom_icons/arrow = SubResource( 11 )
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+toggle_mode = false
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "English"
+align = 1
+items = [ "English", null, false, 0, false, "한국어", null, false, 0, false ]
+selected = 0
+
+[node name="close_button" type="Button" parent="pause_menu/TabContainer/option_menu/Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 6.93567
+margin_right = 56.9357
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="pause_menu/TabContainer/option_menu/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -396.0
+margin_top = 30.2723
+margin_right = 396.0
+margin_bottom = 80.2723
+text = "Option"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="save_menu" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="save_menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -460.5
+margin_top = -304.5
+margin_right = 460.5
+margin_bottom = 304.5
+mouse_filter = 2
+custom_styles/panel = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="save_menu/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 9.0
+margin_right = -29.0
+margin_bottom = -8.0
+rect_min_size = Vector2( 883, 592 )
+rect_clip_content = true
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="save_menu/Panel/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 883, 593 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="save_menu/Panel/Control/VBoxContainer"]
+margin_right = 883.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 883, 200 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/normal = ExtResource( 15 )
+text = "Add save file"
+
+[node name="VSlider" type="VSlider" parent="save_menu/Panel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -23.9999
+margin_top = -295.5
+margin_right = -7.99994
+margin_bottom = 297.5
+rect_pivot_offset = Vector2( 8, 296 )
+size_flags_vertical = 0
+max_value = 0.0
+step = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="close_button" type="Button" parent="save_menu"]
+anchor_left = 0.886
+anchor_top = 0.112
+anchor_right = 0.886
+anchor_bottom = 0.112
+margin_left = -25.0801
+margin_top = -24.64
+margin_right = 24.9199
+margin_bottom = 25.36
+rect_min_size = Vector2( 50, 50 )
+mouse_filter = 1
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="focus_entered" from="ingame_menu" to="ingame_menu" method="focus_entered"]
+[connection signal="tab_changed" from="ingame_menu/TabContainer" to="ingame_menu" method="tab_changed"]
+[connection signal="visibility_changed" from="ingame_menu/TabContainer/player_state" to="ingame_menu/TabContainer/player_state" method="visibility_changed"]
+[connection signal="visibility_changed" from="ingame_menu/TabContainer/inventory" to="ingame_menu/TabContainer/inventory" method="visibility_changed"]
+[connection signal="item_selected" from="ingame_menu/TabContainer/inventory/ItemList" to="ingame_menu/TabContainer/inventory" method="item_selected"]
+[connection signal="focus_entered" from="pause_menu" to="pause_menu" method="focus_entered"]
+[connection signal="button_up" from="pause_menu/TabContainer/menus/menus/VBoxContainer/load_button" to="pause_menu" method="loadbutton_up"]
+[connection signal="button_up" from="pause_menu/TabContainer/menus/menus/VBoxContainer/restart_button" to="pause_menu" method="restart_button_up"]
+[connection signal="button_up" from="pause_menu/TabContainer/menus/menus/VBoxContainer/option_button" to="pause_menu" method="option_button_up"]
+[connection signal="button_up" from="pause_menu/TabContainer/menus/menus/VBoxContainer/title_button" to="pause_menu" method="title_button_up"]
+[connection signal="button_up" from="pause_menu/TabContainer/menus/menus/close_button" to="pause_menu" method="close_button_up"]
+[connection signal="gui_input" from="pause_menu/TabContainer/load_menu/Panel/Control/VBoxContainer" to="pause_menu/TabContainer/load_menu" method="VBoxContainer_gui_input"]
+[connection signal="value_changed" from="pause_menu/TabContainer/load_menu/Panel/VSlider" to="pause_menu/TabContainer/load_menu" method="VSlider_value_changed"]
+[connection signal="button_up" from="pause_menu/TabContainer/load_menu/close_button" to="pause_menu/TabContainer/load_menu" method="close_button_up"]
+[connection signal="item_selected" from="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2/resolution" to="pause_menu/TabContainer/option_menu" method="resolution_selected"]
+[connection signal="value_changed" from="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2/volume" to="pause_menu/TabContainer/option_menu" method="volume_value_changed"]
+[connection signal="value_changed" from="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2/mouse_sensitive" to="pause_menu/TabContainer/option_menu" method="mouse_sensitive_value_changed"]
+[connection signal="value_changed" from="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2/brightness" to="pause_menu/TabContainer/option_menu" method="brightness_value_changed"]
+[connection signal="item_selected" from="pause_menu/TabContainer/option_menu/Panel/HBoxContainer/VBoxContainer2/language" to="pause_menu/TabContainer/option_menu" method="language_selected"]
+[connection signal="button_up" from="pause_menu/TabContainer/option_menu/Panel/close_button" to="pause_menu/TabContainer/option_menu" method="close_button_up"]
+[connection signal="gui_input" from="save_menu/Panel/Control/VBoxContainer" to="save_menu" method="VBoxContainer_gui_input"]
+[connection signal="value_changed" from="save_menu/Panel/VSlider" to="save_menu" method="VSlider_value_changed"]
+[connection signal="button_up" from="save_menu/close_button" to="save_menu" method="close_button_up"]

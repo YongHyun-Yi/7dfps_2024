@@ -1,166 +1,119 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://proc_generator/room2.gd" type="Script" id=1]
-[ext_resource path="res://proc_generator/corridor1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://3d/snow_floor.tres" type="Material" id=1]
+[ext_resource path="res://proc_generator/proc_gen_room.gd" type="Script" id=2]
 [ext_resource path="res://proc_generator/start_point.tscn" type="PackedScene" id=3]
-[ext_resource path="res://3d/snow_floor.tres" type="Material" id=4]
-[ext_resource path="res://proc_generator/junction1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://proc_generator/corridor2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://proc_generator/room2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://proc_generator/corridor1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://proc_generator/junction1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://proc_generator/block_wall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://proc_generator/corridor2.tscn" type="PackedScene" id=8]
+
 
 [sub_resource type="CubeMesh" id=1]
-material = ExtResource( 4 )
+material = ExtResource( 1 )
 size = Vector3( 6, 0.3, 6 )
 
 [sub_resource type="CubeMesh" id=2]
-size = Vector3( 6, 0.3, 16 )
+size = Vector3( 6, 0.3, 27 )
 
 [sub_resource type="CubeMesh" id=3]
-size = Vector3( 12, 0.3, 12 )
+size = Vector3( 12, 0.3, 6 )
 
 [sub_resource type="CubeMesh" id=4]
-size = Vector3( 6, 0.3, 27 )
+size = Vector3( 6, 0.3, 16 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 12, 0.3, 12 )
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 6, 6, 1 )
 
 [node name="rooms" type="Spatial"]
 
-[node name="@proc_gen_room@370" type="MeshInstance" parent="." instance=ExtResource( 3 )]
+[node name="proc_gen_room" type="MeshInstance" parent="." instance=ExtResource( 3 )]
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = null
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 tag = 0
 
-[node name="@proc_gen_room@383" type="MeshInstance" parent="." instance=ExtResource( 6 )]
-transform = Transform( 7.54979e-08, 0.34202, 0.939693, 0, 0.939693, -0.34202, -1, 2.58218e-08, 7.09448e-08, 11.4658, -2.6937, 6.39147e-07 )
+[node name="@proc_gen_room@20" type="MeshInstance" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3.13916e-07, 0, 1, 0, 1, 0, -1, 0, 3.13916e-07, 16.5, 0, 4.23787e-06 )
 use_in_baked_light = true
 mesh = SubResource( 2 )
-material/0 = null
-script = ExtResource( 1 )
-tag = 0
+material/0 = ExtResource( 1 )
+script = ExtResource( 2 )
+tag = 1
 
-[node name="proc_gen_room" type="MeshInstance" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 31.4275, -5.4195, 0.00234734 )
+[node name="@proc_gen_room@41" type="MeshInstance" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.64912e-07, 0, -1, 0, 1, 0, 1, 0, -4.64912e-07, 39.0324, 0, 3.09042 )
 use_in_baked_light = true
 mesh = SubResource( 3 )
 material/0 = null
-script = ExtResource( 1 )
-tag = 2
-
-[node name="@proc_gen_room@438" type="MeshInstance" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 5.98007e-08, 1.64301e-07, 0, 0.939693, -0.34202, -1.74846e-07, 0.34202, 0.939693, 31.4656, -2.6937, -19.9893 )
-use_in_baked_light = true
-mesh = SubResource( 2 )
-material/0 = null
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 tag = 0
 
-[node name="@proc_gen_room@455" type="MeshInstance" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 31.4326, -5.4195, 24.9359 )
+[node name="@proc_gen_room@56" type="MeshInstance" parent="." instance=ExtResource( 8 )]
+transform = Transform( 3.13916e-07, 0.34202, 0.939693, 0, 0.939693, -0.34202, -1, 1.07366e-07, 2.94985e-07, 56.5118, -2.6937, 6.20226 )
 use_in_baked_light = true
 mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-script = ExtResource( 1 )
-tag = 1
-
-[node name="@proc_gen_room@476" type="MeshInstance" parent="." instance=ExtResource( 2 )]
-transform = Transform( 3.13916e-07, 0, 1, 0, 1, 0, -1, 0, 3.13916e-07, 56.3898, -5.4195, 0.00453454 )
-use_in_baked_light = true
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-script = ExtResource( 1 )
-tag = 1
-
-[node name="@proc_gen_room@497" type="MeshInstance" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 31.4604, 0, -39.8887 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
 material/0 = null
-script = ExtResource( 1 )
+script = ExtResource( 2 )
+tag = 0
+
+[node name="@proc_gen_room@73" type="MeshInstance" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 76.4735, -5.4195, 6.20461 )
+use_in_baked_light = true
+mesh = SubResource( 5 )
+material/0 = null
+script = ExtResource( 2 )
 tag = 2
 
-[node name="@proc_gen_room@536" type="MeshInstance" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.707107, 0, -0.707106, 0, 1, 0, 0.707106, 0, 0.707107, 31.4304, -5.4195, 49.8983 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = null
-script = ExtResource( 1 )
-tag = 2
-
-[node name="@proc_gen_room@575" type="MeshInstance" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 81.3521, -5.4195, 0.00672746 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = null
-script = ExtResource( 1 )
-tag = 2
-
-[node name="@proc_gen_room@614" type="MeshInstance" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 5.98007e-08, 1.64301e-07, 0, 0.939693, -0.34202, -1.74846e-07, 0.34202, 0.939693, 31.4985, 2.7258, -59.8804 )
-use_in_baked_light = true
-mesh = SubResource( 2 )
-material/0 = null
-script = ExtResource( 1 )
-tag = 0
-
-[node name="@proc_gen_room@631" type="MeshInstance" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 6.4863, 0, -39.891 )
+[node name="@proc_gen_room@112" type="MeshInstance" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, -1.03287e-07, -2.83779e-07, 0, 0.939693, -0.34202, 3.01992e-07, 0.34202, 0.939693, 76.5116, -2.6937, -13.7871 )
 use_in_baked_light = true
 mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-script = ExtResource( 1 )
+material/0 = null
+script = ExtResource( 2 )
+tag = 0
+
+[node name="@proc_gen_room@129" type="MeshInstance" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 76.4786, -5.4195, 31.1382 )
+use_in_baked_light = true
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
+script = ExtResource( 2 )
 tag = 1
 
-[node name="@proc_gen_room@652" type="MeshInstance" parent="." instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0.34202, 0.939693, 0, 0.939693, -0.34202, -1, -1.49502e-08, -4.10753e-08, 51.3885, -2.6937, -39.8865 )
-use_in_baked_light = true
-mesh = SubResource( 2 )
-material/0 = null
-script = ExtResource( 1 )
-tag = 0
-
-[node name="@proc_gen_room@669" type="MeshInstance" parent="." instance=ExtResource( 6 )]
-transform = Transform( 9.65599e-07, -0.34202, -0.939693, 0, 0.939693, -0.34202, 1, 3.30254e-07, 9.07367e-07, 11.4606, -8.1132, 49.8602 )
-use_in_baked_light = true
-mesh = SubResource( 2 )
-material/0 = null
-script = ExtResource( 1 )
-tag = 0
-
-[node name="@proc_gen_room@686" type="MeshInstance" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1, -2.74532e-07, -7.54271e-07, 0, 0.939693, -0.34202, 8.02679e-07, -0.34202, -0.939693, 31.4281, -2.6937, 69.86 )
-use_in_baked_light = true
-mesh = SubResource( 2 )
-material/0 = null
-script = ExtResource( 1 )
-tag = 0
-
-[node name="@proc_gen_room@703" type="MeshInstance" parent="." instance=ExtResource( 6 )]
-transform = Transform( -7.58967e-07, 0.34202, 0.939693, 0, 0.939693, -0.34202, -1, -2.59582e-07, -7.13196e-07, 51.3298, -8.1132, 49.8931 )
-use_in_baked_light = true
-mesh = SubResource( 2 )
-material/0 = null
-script = ExtResource( 1 )
-tag = 0
-
-[node name="@proc_gen_room@720" type="MeshInstance" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, -1.03287e-07, -2.83779e-07, 0, 0.939693, -0.34202, 3.01992e-07, 0.34202, 0.939693, 81.314, -8.1132, 19.9766 )
-use_in_baked_light = true
-mesh = SubResource( 2 )
-material/0 = null
-script = ExtResource( 1 )
-tag = 0
-
-[node name="@proc_gen_room@737" type="MeshInstance" parent="." instance=ExtResource( 2 )]
-transform = Transform( 6.71544e-07, 0, 1, 0, 1, 0, -1, 0, 6.71544e-07, 106.326, -5.4195, 0.00908876 )
+[node name="@proc_gen_room@150" type="MeshInstance" parent="." instance=ExtResource( 8 )]
+transform = Transform( 3.13916e-07, 0.34202, 0.939693, 0, 0.939693, -0.34202, -1, 1.07366e-07, 2.94985e-07, 96.4016, -8.1132, 6.2068 )
 use_in_baked_light = true
 mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-script = ExtResource( 1 )
-tag = 1
-
-[node name="@proc_gen_room@758" type="MeshInstance" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1, 2.14731e-07, 5.8997e-07, 0, 0.939693, -0.34202, -6.27833e-07, -0.34202, -0.939693, 81.347, -8.1132, -19.8926 )
-use_in_baked_light = true
-mesh = SubResource( 2 )
 material/0 = null
-script = ExtResource( 1 )
+script = ExtResource( 2 )
+tag = 0
+
+[node name="@proc_gen_room@167" type="MeshInstance" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 76.5116, 2.9577, -22.7811 )
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = ExtResource( 1 )
+script = ExtResource( 2 )
+tag = 0
+
+[node name="@proc_gen_room@169" type="MeshInstance" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.02679e-07, 0, 1, 0, 8.02679e-07, 0, -1, 76.4786, -2.4618, 45.1664 )
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = ExtResource( 1 )
+script = ExtResource( 2 )
+tag = 0
+
+[node name="@proc_gen_room@171" type="MeshInstance" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 105.417, -7.8813, 6.2068 )
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = ExtResource( 1 )
+script = ExtResource( 2 )
 tag = 0

@@ -3,8 +3,8 @@
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://sfx/snow_footstep.wav" type="AudioStream" id=2]
 [ext_resource path="res://camera/camroot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://menus.tscn" type="PackedScene" id=4]
-[ext_resource path="res://uis.tscn" type="PackedScene" id=5]
+[ext_resource path="res://uis/menus.tscn" type="PackedScene" id=4]
+[ext_resource path="res://uis/uis.tscn" type="PackedScene" id=5]
 [ext_resource path="res://3d/player.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
@@ -144,5 +144,5 @@ anims/walk = SubResource( 4 )
 [node name="player" parent="." instance=ExtResource( 6 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.309245, 0 )
 [connection signal="close_menu" from="menus" to="." method="only_player_active"]
-[connection signal="open_menu" from="menus" to="camroot" method="capture_mode_close"]
 [connection signal="open_menu" from="menus" to="." method="player_deactive"]
+[connection signal="open_menu" from="menus" to="camroot" method="capture_mode_close"]

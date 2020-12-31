@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://levels/title.gd" type="Script" id=1]
+[ext_resource path="res://proc_generator/random_generator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/debug.tscn" type="PackedScene" id=3]
+
+[node name="title" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+game_start = ExtResource( 2 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1280, 720 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="debug" parent="ViewportContainer/Viewport" instance=ExtResource( 3 )]
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.196
+anchor_right = 0.998
+anchor_bottom = 0.242
+margin_top = -0.134094
+margin_right = -510.952
+margin_bottom = -13.7341
+rect_scale = Vector2( 2, 2 )
+text = "Untitled jam game 2020"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -282.0
+margin_top = -199.0
+margin_right = -82.0
+margin_bottom = -74.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start_button" type="Button" parent="VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+text = "start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit_button" type="Button" parent="VBoxContainer"]
+margin_top = 75.0
+margin_right = 200.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 200, 50 )
+text = "quit"
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -95.4163
+margin_top = -30.8811
+margin_right = -19.4163
+margin_bottom = -11.8811
+text = "YHY_Games"
+[connection signal="button_up" from="VBoxContainer/start_button" to="." method="start_button_up"]
+[connection signal="button_up" from="VBoxContainer/quit_button" to="." method="quit_button_up"]

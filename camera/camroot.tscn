@@ -1,12 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://camera/camroot.gd" type="Script" id=1]
 [ext_resource path="res://interactable/interaction_raycast.gd" type="Script" id=2]
 [ext_resource path="res://sfx/shutter_click.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/camera_wind.wav" type="AudioStream" id=4]
 [ext_resource path="res://sprite/viewfinder_anti.png" type="Texture" id=5]
-[ext_resource path="res://camera/capture_cam_env1.tres" type="Environment" id=6]
-
+[ext_resource path="res://world_env2.tres" type="Environment" id=6]
+[ext_resource path="res://GodotRetro/Other/Images/white.png" type="Texture" id=7]
+[ext_resource path="res://GodotRetro/Screen Shaders/VHS.shader" type="Shader" id=8]
+[ext_resource path="res://GodotRetro/Screen Shaders/Aditional Shaders/LensDistortion.shader" type="Shader" id=9]
+[ext_resource path="res://GodotRetro/Other/Images/CRT Frame.png" type="Texture" id=10]
+[ext_resource path="res://GodotRetro/Screen Shaders/Aditional Shaders/BetterCC.shader" type="Shader" id=11]
+[ext_resource path="res://font/font_vcr_csd_mono.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://font/DISPLAY FREE TFB.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "sutter"
@@ -54,9 +60,47 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.19 )
 }
 
+[sub_resource type="DynamicFont" id=3]
+size = 38
+font_data = ExtResource( 12 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 9 )
+shader_param/show_curvature = true
+shader_param/curvature_x_amount = 6.0
+shader_param/curvature_y_amount = 4.0
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 8 )
+shader_param/tape_wave_amount = 0.005
+shader_param/tape_crease_amount = 10.0
+shader_param/color_displacement = 2.0
+shader_param/lines_velocity = 0.1
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 11 )
+shader_param/Shadows = Vector3( 0, 0, 0 )
+shader_param/Midtones = Vector3( 0, 0, 0 )
+shader_param/Hilights = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
+outline_color = Color( 1, 0.560784, 0, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+outline_size = 3
+outline_color = Color( 1, 0.560784, 0, 1 )
+font_data = ExtResource( 14 )
+
 [node name="camroot" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254746, -0.157246 )
 script = ExtResource( 1 )
+last_picture = NodePath("capture_cam/images/last_picture")
+capture_cam_viewport = NodePath("capture_cam/Viewport")
+capture_cam_camera = NodePath("capture_cam/Viewport/capture_cam_camera")
+date_stamp_viewport = NodePath("Viewport2")
 
 [node name="Camera" type="ClippedCamera" parent="."]
 cull_mask = 1
@@ -97,7 +141,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254746, -0.157246 )
 cull_mask = 2147483651
 environment = ExtResource( 6 )
 
-[node name="Control" type="Control" parent="capture_cam"]
+[node name="images" type="Control" parent="capture_cam"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -107,7 +151,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="viewfinder" type="TextureRect" parent="capture_cam/Control"]
+[node name="viewfinder" type="TextureRect" parent="capture_cam/images"]
 self_modulate = Color( 1, 1, 1, 0.635294 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -118,7 +162,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="last_picture" type="TextureRect" parent="capture_cam/Control"]
+[node name="last_picture" type="TextureRect" parent="capture_cam/images"]
 modulate = Color( 1, 1, 1, 0.588235 )
 anchor_left = 0.971
 anchor_top = 0.91
@@ -131,3 +175,132 @@ margin_bottom = 0.0610352
 rect_min_size = Vector2( 256, 150 )
 mouse_filter = 2
 stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="capture_cam/images"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 174.0
+rect_scale = Vector2( 1, 0.8 )
+mouse_filter = 2
+texture = ExtResource( 10 )
+stretch_mode = 1
+
+[node name="date_times" type="Label" parent="capture_cam/images"]
+anchor_left = 0.178
+anchor_top = 0.744
+anchor_right = 0.178
+anchor_bottom = 0.744
+margin_left = -86.8007
+margin_top = -30.6638
+margin_right = 87.1993
+margin_bottom = 30.3362
+custom_fonts/font = SubResource( 3 )
+text = "AM 4:09
+AUG. 20 1995"
+
+[node name="screen_shaders" type="Control" parent="capture_cam"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="capture_cam/screen_shaders"]
+copy_mode = 2
+rect = Rect2( 0, 0, 1280, 720 )
+
+[node name="TextureRect" type="TextureRect" parent="capture_cam/screen_shaders/BackBufferCopy"]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="capture_cam/screen_shaders"]
+copy_mode = 2
+rect = Rect2( 0, 0, 1280, 720 )
+
+[node name="TextureRect" type="TextureRect" parent="capture_cam/screen_shaders/BackBufferCopy2"]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackBufferCopy3" type="BackBufferCopy" parent="capture_cam/screen_shaders"]
+copy_mode = 2
+rect = Rect2( 0, 0, 1280, 720 )
+
+[node name="TextureRect" type="TextureRect" parent="capture_cam/screen_shaders/BackBufferCopy3"]
+material = SubResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport2" type="Viewport" parent="."]
+size = Vector2( 1280, 720 )
+size_override_stretch = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Control" type="Control" parent="Viewport2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Viewport2/Control"]
+modulate = Color( 1, 1, 1, 0.729412 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -162.685
+margin_top = -66.9229
+margin_right = -39.6851
+margin_bottom = -34.9229
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 0.560784, 0, 1 )
+text = "21 01 06"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Viewport2/Control"]
+visible = false
+modulate = Color( 1, 1, 1, 0.443137 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -162.685
+margin_top = -66.9229
+margin_right = -39.6851
+margin_bottom = -34.9229
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 0.560784, 0, 0 )
+text = "21 01 06"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

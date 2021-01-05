@@ -328,7 +328,6 @@ __meta__ = {
 }
 
 [node name="ingame_menu" type="Popup" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
@@ -339,9 +338,10 @@ __meta__ = {
 }
 
 [node name="TabContainer" type="TabContainer" parent="ingame_menu"]
+anchor_top = 0.083
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 60.0
+margin_top = 0.239998
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -367,9 +367,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -487.934
-margin_top = -345.125
+margin_top = -252.472
 margin_right = -350.934
-margin_bottom = -207.125
+margin_bottom = -114.472
 mouse_filter = 2
 custom_styles/panel = ExtResource( 15 )
 __meta__ = {
@@ -382,9 +382,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -328.633
-margin_top = -344.123
+margin_top = -251.469
 margin_right = 487.367
-margin_bottom = -206.123
+margin_bottom = -113.47
 mouse_filter = 2
 custom_styles/panel = ExtResource( 15 )
 __meta__ = {
@@ -397,9 +397,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -485.429
-margin_top = 16.4315
+margin_top = -88.695
 margin_right = 86.5706
-margin_bottom = 289.432
+margin_bottom = 184.306
 mouse_filter = 2
 custom_styles/panel = ExtResource( 15 )
 __meta__ = {
@@ -421,9 +421,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 115.367
-margin_top = 14.6565
+margin_top = -90.47
 margin_right = 481.367
-margin_bottom = 296.658
+margin_bottom = 191.531
 mouse_filter = 2
 custom_styles/panel = ExtResource( 15 )
 __meta__ = {
@@ -463,11 +463,13 @@ __meta__ = {
 }
 
 [node name="ItemList" type="ItemList" parent="ingame_menu/TabContainer/inventory"]
-anchor_right = 0.377
+anchor_left = 0.055
+anchor_top = 0.014
+anchor_right = 0.424
 anchor_bottom = 0.867
-margin_left = -72.6969
-margin_top = 9.43874
-margin_right = -82.7449
+margin_left = -0.5532
+margin_top = 0.198739
+margin_right = -0.361267
 margin_bottom = 9.25873
 focus_mode = 0
 mouse_filter = 1
@@ -482,12 +484,13 @@ __meta__ = {
 }
 
 [node name="details" type="Panel" parent="ingame_menu/TabContainer/inventory"]
-anchor_left = 0.525
-anchor_right = 1.0
+anchor_left = 0.475
+anchor_top = 0.014
+anchor_right = 0.95
 anchor_bottom = 0.876
-margin_left = 108.681
-margin_top = 9.43874
-margin_right = 108.282
+margin_left = -0.153015
+margin_top = 0.198739
+margin_right = -0.552124
 margin_bottom = 9.39868
 mouse_filter = 2
 custom_styles/panel = ExtResource( 15 )
@@ -496,7 +499,7 @@ __meta__ = {
 }
 
 [node name="mesh_view" type="Sprite" parent="ingame_menu/TabContainer/inventory/details"]
-position = Vector2( 238.111, 158.551 )
+position = Vector2( 310.03, 182.524 )
 scale = Vector2( 1, -1 )
 
 [node name="Viewport" type="Viewport" parent="ingame_menu/TabContainer/inventory/details/mesh_view"]
@@ -507,13 +510,13 @@ transparent_bg = true
 [node name="item_mesh_in_inventory" parent="ingame_menu/TabContainer/inventory/details/mesh_view/Viewport" instance=ExtResource( 12 )]
 
 [node name="name" type="Label" parent="ingame_menu/TabContainer/inventory/details"]
-anchor_top = 0.5
+anchor_top = 0.681
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 0.681
 margin_left = 18.0
-margin_top = 86.6359
+margin_top = -18.0038
 margin_right = -16.0
-margin_bottom = 113.636
+margin_bottom = 8.99628
 custom_fonts/font = SubResource( 5 )
 valign = 1
 __meta__ = {
@@ -521,23 +524,27 @@ __meta__ = {
 }
 
 [node name="describe" type="RichTextLabel" parent="ingame_menu/TabContainer/inventory/details"]
-anchor_top = 1.0
+anchor_top = 0.858
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 18.0
-margin_top = -107.0
-margin_right = -16.0001
-margin_bottom = -16.9999
+anchor_bottom = 0.858
+margin_left = 22.0
+margin_top = -65.0269
+margin_right = -20.6009
+margin_bottom = 64.9731
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="use_button" type="Button" parent="ingame_menu/TabContainer/inventory"]
-margin_left = 782.45
-margin_top = 598.629
-margin_right = 871.45
-margin_bottom = 633.629
+anchor_left = 0.511
+anchor_top = 0.934
+anchor_right = 0.511
+anchor_bottom = 0.934
+margin_left = -44.4651
+margin_top = -17.811
+margin_right = 44.5349
+margin_bottom = 17.189
 focus_mode = 0
 mouse_filter = 1
 custom_styles/hover = ExtResource( 14 )
@@ -552,10 +559,14 @@ __meta__ = {
 }
 
 [node name="equip_button" type="Button" parent="ingame_menu/TabContainer/inventory"]
-margin_left = 888.396
-margin_top = 597.569
-margin_right = 977.396
-margin_bottom = 632.569
+anchor_left = 0.594
+anchor_top = 0.932
+anchor_right = 0.594
+anchor_bottom = 0.932
+margin_left = -44.7581
+margin_top = -17.5511
+margin_right = 44.2419
+margin_bottom = 17.4489
 focus_mode = 0
 mouse_filter = 1
 custom_styles/hover = ExtResource( 14 )
@@ -570,10 +581,14 @@ __meta__ = {
 }
 
 [node name="drop_button" type="Button" parent="ingame_menu/TabContainer/inventory"]
-margin_left = 992.224
-margin_top = 595.45
-margin_right = 1081.22
-margin_bottom = 630.45
+anchor_left = 0.675
+anchor_top = 0.929
+anchor_right = 0.675
+anchor_bottom = 0.929
+margin_left = -44.61
+margin_top = -17.69
+margin_right = 44.386
+margin_bottom = 17.31
 focus_mode = 0
 mouse_filter = 1
 custom_styles/hover = ExtResource( 14 )
@@ -602,9 +617,8 @@ anchor_left = 0.03
 anchor_right = 0.979
 anchor_bottom = 0.902
 margin_left = -7.4
-margin_top = 101.562
 margin_right = -7.17615
-margin_bottom = 101.482
+margin_bottom = -0.0800171
 mouse_filter = 2
 custom_styles/panel = ExtResource( 15 )
 __meta__ = {
@@ -618,6 +632,7 @@ anims/reset = SubResource( 7 )
 
 [node name="pause_menu" type="Popup" parent="."]
 pause_mode = 2
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
@@ -639,6 +654,7 @@ __meta__ = {
 }
 
 [node name="menus" type="Control" parent="pause_menu/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -871,7 +887,6 @@ __meta__ = {
 }
 
 [node name="option_menu" type="Control" parent="pause_menu/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2

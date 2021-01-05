@@ -55,7 +55,7 @@ func mouse_sensitive_value_changed(value):
 
 func brightness_value_changed(value):
 	if initialized:
-		var world_env1 = load("res://world_env1.tres")
+		var world_env1 = load("res://world_env2.tres")
 		world_env1.tonemap_exposure = value
 	pass # Replace with function body.
 

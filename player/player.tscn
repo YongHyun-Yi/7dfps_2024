@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://sfx/snow_footstep.wav" type="AudioStream" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://uis/menus.tscn" type="PackedScene" id=4]
 [ext_resource path="res://uis/uis.tscn" type="PackedScene" id=5]
 [ext_resource path="res://3d/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GodotRetro/Other/Images/white.png" type="Texture" id=7]
+[ext_resource path="res://GodotRetro/Screen Shaders/VHS.shader" type="Shader" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.2
@@ -111,6 +113,13 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0.878962, -0.157246 ), Vector3( 0, 0.79132, -0.157246 ), Vector3( 0, 0.878962, -0.157246 ) ]
 }
 
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 8 )
+shader_param/tape_wave_amount = 0.005
+shader_param/tape_crease_amount = 10.0
+shader_param/color_displacement = 2.0
+shader_param/lines_velocity = 0.1
+
 [node name="player" type="KinematicBody"]
 collision_layer = 2
 script = ExtResource( 1 )
@@ -143,6 +152,20 @@ anims/walk = SubResource( 4 )
 
 [node name="player" parent="." instance=ExtResource( 6 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.309245, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="close_menu" from="menus" to="." method="only_player_active"]
 [connection signal="open_menu" from="menus" to="." method="player_deactive"]
 [connection signal="open_menu" from="menus" to="camroot" method="capture_mode_close"]

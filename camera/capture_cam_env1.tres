@@ -18,7 +18,6 @@ fog_depth_begin = 2.0
 fog_depth_end = 25.0
 fog_depth_curve = 0.5
 fog_transmit_enabled = true
-tonemap_mode = 1
 ssao_enabled = true
 ssao_radius = 8.0
 ssao_intensity = 27.71

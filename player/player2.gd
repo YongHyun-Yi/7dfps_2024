@@ -1,5 +1,4 @@
 extends KinematicBody
-class_name player
 
 var direction = Vector3()
 var velocity = Vector3.ZERO
@@ -18,23 +17,13 @@ var x_input = 0
 var movement_speed = 0
 export var walk_speed = 1.2
 export var run_speed = 2.8
-export var capature_mode_speed = 1.0
-
-export var jump = 6.5
 
 export var run_mode = false
-export var crouch_mode = false
-export var ladder_on = false
 
 export var active = false
 
-export var cam_walk_shake : float = 0.0
-export (NodePath) var switch_cam = null
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	GlobalRef.player = self
-	switch_cam = get_node(switch_cam)
-	#GlobalRef.world_generator.connect("object_generate_finish", self, "player_active")
 
 func _physics_process(delta):
 	
@@ -42,11 +31,7 @@ func _physics_process(delta):
 	
 		direction = Vector3()
 		
-		#crouch_swtich()
-		
-		if $camroot.capture_mode:
-			movement_speed = capature_mode_speed
-		elif run_mode:
+		if run_mode:
 			movement_speed = run_speed
 		else:
 			movement_speed = walk_speed
@@ -68,22 +53,6 @@ func _physics_process(delta):
 		
 		move_and_slide(direction, Vector3.UP)
 		
-		if Input.is_action_pressed("move_foward") || Input.is_action_pressed("move_backward") || Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"):
-			if is_on_floor():
-				if !crouch_mode:
-					if run_mode:
-						$foot_sound_animation.play("run")
-						if !$camroot.capture_mode:
-							$camroot.rotation_degrees.z = cam_walk_shake
-						else:
-							$camroot.rotation_degrees.z = 0.0
-					else:
-						$foot_sound_animation.play("walk")
-						$camroot.rotation_degrees.z = 0.0
-		elif $foot_sound_animation.is_playing() and $foot_sound_animation.current_animation != "reset":
-			$foot_sound_animation.play("reset")
-			$camroot.rotation_degrees.z = 0.0
-	
 	pass
 
 func _unhandled_input(event):
@@ -108,18 +77,10 @@ func _unhandled_input(event):
 			run_mode = true
 		else:
 			run_mode = false
-		
-		if Input.is_action_pressed("crouch"):
-			if crouch_mode == false:
-				print("press")
-				$foot_sound_animation.play("reset")
-			crouch_mode = true
-		else:
-			crouch_mode = false
 
 func player_active():
 	active = true
-	$camroot/Camera.make_current()
+	$Camera2.make_current()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func only_player_active():
@@ -130,12 +91,3 @@ func player_deactive():
 	run_mode = false
 	x_input = 0
 	z_input = 0
-	$foot_sound_animation.play("reset")
-
-func crouch_swtich():
-	
-	#crouch_mode = !crouch_mode
-	if crouch_mode:
-		$camroot.transform.origin.y = 0.796 - 0.7
-	else:
-		$camroot.transform.origin.y = 0.796

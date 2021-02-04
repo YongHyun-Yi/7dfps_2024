@@ -106,6 +106,10 @@ date_stamp_viewport = NodePath("Viewport2")
 cull_mask = 1
 current = true
 
+[node name="Camera_back" type="ClippedCamera" parent="."]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+cull_mask = 1
+
 [node name="interaction_raycast" type="RayCast" parent="."]
 enabled = true
 cast_to = Vector3( 0, 0, -1 )

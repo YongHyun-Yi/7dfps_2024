@@ -135,10 +135,22 @@ func _unhandled_input(event):
 					$sound_animation.play("sutter")
 					emit_signal("capture_cam_active")
 					print("사진 찍었어용")
+				
+			else:
+				if Input.is_action_just_pressed("left_click"):
+					if $Camera.current:
+						get_parent().switch_cam.make_current()
+					else:
+						$Camera.make_current()
 			
 			if Input.is_action_just_pressed("right_click"):
 				capture_mode_toggle()
-				
+			
+	if event is InputEventKey:
+		if Input.is_action_just_pressed("ui_accept"):
+			$Camera_back.make_current()
+		elif Input.is_action_just_released("ui_accept"):
+			$Camera.make_current()
 
 
 func capture_mode_toggle():

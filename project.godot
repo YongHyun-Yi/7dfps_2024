@@ -1217,11 +1217,16 @@ crouch={
 [layer_names]
 
 2d_render/layer_1="normal"
-2d_physics/layer_1="static"
+3d_physics/layer_1="terrain"
 2d_render/layer_2="capture"
-2d_physics/layer_2="player"
+3d_physics/layer_2="player"
 2d_render/layer_3="event"
-2d_physics/layer_3="map_generate"
+3d_physics/layer_3="map_generate"
+3d_physics/layer_4="enemy"
+
+[physics]
+
+common/physics_fps=90
 
 [rendering]
 

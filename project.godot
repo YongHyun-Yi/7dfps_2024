@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "BoneHandle",
+"language": "GDScript",
+"path": "res://addons/bone_editor/BoneHandle.gd"
+}, {
 "base": "Node",
 "class": "Interactable",
 "language": "GDScript",
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://proc_generator/proc_gen_room.gd"
 } ]
 _global_script_class_icons={
+"BoneHandle": "",
 "Interactable": "",
 "object_pos": "",
 "player": "",
@@ -62,6 +68,10 @@ window/size/height=720
 window/size/resizable=false
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "bone_editor" )
 
 [gui]
 

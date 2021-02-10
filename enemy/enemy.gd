@@ -48,7 +48,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	$Label.text = "current state is : " + str(current_state) + "\nleft chase time is : " + str($chase_limit_timer.time_left) + "\ntarget is : " + str(target) + "\ndirection is : " + str(dir)
+	$Label.text = "current state is : " + str(current_state) + "\nleft chase time is : " + str($chase_limit_timer.time_left) + "\ntarget is : " + str(target) + "\ndirection is : " + str(dir) + "\nsight angle is : " + str($head.rotation_degrees.y)
 	
 	var nav = get_parent().nav
 	
@@ -185,21 +185,21 @@ func _physics_process(delta):
 	else:
 		velocity.y = -gravity
 	
-	if target:
+	if target: # 시야 회전 타겟이 있으면 타겟에게 고정
 		var a = (target.global_transform.origin - global_transform.origin).normalized()
 		a = Vector2(a.z, a.x)
-		a = rad2deg(a.angle())
-		$head.rotation_degrees.y = lerp($head.rotation_degrees.y, a, .1)
-	elif waypoint != Vector3():
+		a = a.angle()
+		$head.rotation_degrees.y = rad2deg(lerp_angle(deg2rad($head.rotation_degrees.y), a, .1))
+	elif waypoint != Vector3(): # 타겟이 없으면 waypoint 즉 도착지점에 고정
 		var a = (waypoint - global_transform.origin).normalized()
 		a = Vector2(a.z, a.x)
-		a = rad2deg(a.angle())
-		$head.rotation_degrees.y = lerp($head.rotation_degrees.y, a, .1)
-	else:
+		a = a.angle()
+		$head.rotation_degrees.y = rad2deg(lerp_angle(deg2rad($head.rotation_degrees.y), a, .1))
+	else: # waypoint도 없으면 다음 path point에 고정
 		var a = dir
 		a = Vector2(a.z, a.x)
-		a = rad2deg(a.angle())
-		$head.rotation_degrees.y = lerp($head.rotation_degrees.y, a, .1)
+		a = a.angle()
+		$head.rotation_degrees.y = rad2deg(lerp_angle(deg2rad($head.rotation_degrees.y), a, .1))
 	
 	move_and_slide(velocity, Vector3.UP)
 	

@@ -41,6 +41,8 @@ disabled = true
 [node name="chase_shape" type="CollisionShape" parent="head/sight_area"]
 disabled = true
 
+[node name="overtaking_prevention_area" type="CollisionShape" parent="head/sight_area"]
+
 [node name="check_wall_down_side" type="RayCast" parent="."]
 enabled = true
 

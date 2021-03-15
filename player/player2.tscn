@@ -42,11 +42,12 @@ collision_layer = 2
 script = ExtResource( 1 )
 air_gravity = 10.0
 floor_gravity = 10.0
+player_cam_stand_height = 2.879
 walk_speed = 5.0
 run_speed = 10.0
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.11745, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.87927, 0 )
 current = true
 script = ExtResource( 2 )
 

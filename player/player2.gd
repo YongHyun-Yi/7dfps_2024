@@ -10,12 +10,12 @@ export var floor_gravity = 1.0
 export var floor_speed = 1.0
 
 onready var raycast_pos = $raycast_pos
-var raycast_pos_stand_height = 3.082
-var raycast_pos_crouch_height = 0.993
+export var raycast_pos_stand_height = 3.082
+export var raycast_pos_crouch_height = 0.993
 
 onready var player_cam = $Camera
-var player_cam_stand_height = 3.117
-var player_cam_crouch_height = 1.757
+export var player_cam_stand_height = 3.117
+export var player_cam_crouch_height = 1.757
 
 onready var sprint_sound_area = load("res://player_sound_area/player_sprint_sound_area.tscn")
 

@@ -14,7 +14,7 @@ export var raycast_pos_stand_height = 3.082
 export var raycast_pos_crouch_height = 0.993
 
 onready var player_cam = $Camera
-export var player_cam_stand_height = 3.117
+export var player_cam_stand_height = 1.6#3.117
 export var player_cam_crouch_height = 1.757
 
 onready var sprint_sound_area = load("res://player_sound_area/player_sprint_sound_area.tscn")
@@ -36,7 +36,7 @@ export var active = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	raycast_pos.transform.origin.y = raycast_pos_stand_height
-	player_cam.transform.origin.y = player_cam_stand_height
+	#player_cam.transform.origin.y = player_cam_stand_height
 
 func _physics_process(delta):
 	

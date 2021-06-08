@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cinematic_trailer_hit_explosion.mp3-be99406ccdb17000a3966de58ee3e28d.mp3str"
+
+[deps]
+
+source_file="res://sfx/cinematic_trailer_hit_explosion.mp3"
+dest_files=[ "res://.import/cinematic_trailer_hit_explosion.mp3-be99406ccdb17000a3966de58ee3e28d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

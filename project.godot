@@ -73,6 +73,10 @@ window/stretch/aspect="expand"
 
 enabled=PoolStringArray( "bone_editor" )
 
+[global]
+
+fps=false
+
 [gui]
 
 theme/custom_font="res://font/editor_default.tres"

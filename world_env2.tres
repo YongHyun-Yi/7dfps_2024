@@ -9,10 +9,7 @@ ground_horizon_color = Color( 0, 0, 0, 1 )
 [resource]
 background_mode = 1
 background_sky = SubResource( 1 )
-fog_enabled = true
 fog_color = Color( 0, 0, 0, 1 )
 fog_depth_begin = 0.0
-fog_depth_end = 50.0
 fog_depth_curve = 0.02
-fog_transmit_curve = 0.01
 ssao_light_affect = 1.0

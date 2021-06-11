@@ -21,7 +21,7 @@ func _process(delta):
 		collider.get_interaction_icon()
 		
 	elif current_collider:
-		GlobalRef.uis.get_node("cursor").cursor_reset()
+		#GlobalRef.uis.get_node("cursor").cursor_reset()
 		current_collider = null
 
 func _unhandled_input(event):

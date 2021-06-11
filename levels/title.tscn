@@ -2,7 +2,7 @@
 
 [ext_resource path="res://levels/title.gd" type="Script" id=1]
 [ext_resource path="res://proc_generator/random_generator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://levels/debug.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/debug/debug.tscn" type="PackedScene" id=3]
 
 [node name="title" type="Control"]
 anchor_right = 1.0

@@ -2,6 +2,8 @@ extends KinematicBody
 
 var direction = Vector3()
 var velocity = Vector3.ZERO
+var snap
+var moment
 
 var gravity_vector = Vector3()
 export var gravity = 5
@@ -42,7 +44,7 @@ func _physics_process(delta):
 	
 	if active:
 	
-		direction = Vector3()
+		direction = Vector3.ZERO
 		
 		if run_mode:
 			movement_speed = run_speed
@@ -81,21 +83,28 @@ func _physics_process(delta):
 				$walking_sound_player.stream = load("res://sfx/player_walking_01.wav")
 		
 		if is_on_floor():
-			gravity_vector = -get_floor_normal() * floor_gravity
+			snap = -get_floor_normal()
+			gravity_vector = Vector3.ZERO#-get_floor_normal() * floor_gravity
 		else:
+			snap = Vector3.DOWN
 			gravity_vector += Vector3.DOWN * air_gravity * delta
 			gravity_vector.y = clamp(gravity_vector.y, -7.0, 0.0)
+		
+		var h_rot = global_transform.basis.get_euler().y
+		direction = Vector3(x_input, 0, z_input).rotated(Vector3.UP, h_rot).normalized()
 		
 		direction += transform.basis.z * z_input
 		direction += transform.basis.x * x_input
 		
 		direction = direction.normalized()
-		direction = direction * movement_speed
-		direction.x += gravity_vector.x
-		direction.z += gravity_vector.z
-		direction.y = gravity_vector.y
+		velocity = direction * movement_speed + gravity_vector
+		#velocity.x += gravity_vector.x
+		#velocity.z += gravity_vector.z
+		#velocity.y = gravity_vector.y
+		#moment = velocity + gravity_vector
 		
-		move_and_slide(direction, Vector3.UP)
+		#move_and_slide(direction, Vector3.UP)
+		move_and_slide_with_snap(velocity, snap, Vector3.UP)
 		
 	pass
 
@@ -103,19 +112,21 @@ func _unhandled_input(event):
 	
 	if event is InputEventKey:
 	
-		if Input.is_action_pressed("move_foward"):
-			z_input = -1
-		elif Input.is_action_pressed("move_backward"):
-			z_input = 1
-		else:
-			z_input = 0
+		#if Input.is_action_pressed("move_foward"):
+		#	z_input = -1
+		#elif Input.is_action_pressed("move_backward"):
+		#	z_input = 1
+		#else:
+		#	z_input = 0
+		z_input = Input.get_action_strength("move_backward") - Input.get_action_strength("move_foward")
 		
-		if Input.is_action_pressed("move_left"):
-			x_input = -1
-		elif Input.is_action_pressed("move_right"):
-			x_input = 1
-		else:
-			x_input = 0
+		#if Input.is_action_pressed("move_left"):
+		#	x_input = -1
+		#elif Input.is_action_pressed("move_right"):
+		#	x_input = 1
+		#else:
+		#	x_input = 0
+		x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		
 		if Input.is_action_pressed("sprint"):
 			run_mode = true

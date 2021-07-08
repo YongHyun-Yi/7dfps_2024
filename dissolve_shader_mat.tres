@@ -2,41 +2,41 @@
 
 [ext_resource path="res://noisetexture.tres" type="Texture" id=1]
 
-[sub_resource type="VisualShaderNodeScalarUniform" id=9]
+[sub_resource type="VisualShaderNodeScalarUniform" id=1]
 uniform_name = "ScalarUniform"
 
-[sub_resource type="VisualShaderNodeTextureUniform" id=13]
+[sub_resource type="VisualShaderNodeTextureUniform" id=2]
 uniform_name = "TextureUniform"
 
-[sub_resource type="VisualShaderNodeInput" id=14]
+[sub_resource type="VisualShaderNodeInput" id=3]
 output_port_for_preview = 0
 input_name = "uv"
 
-[sub_resource type="VisualShaderNodeInput" id=1]
+[sub_resource type="VisualShaderNodeInput" id=4]
 output_port_for_preview = 0
 input_name = "uv"
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=3]
+[sub_resource type="VisualShaderNodeScalarFunc" id=5]
 output_port_for_preview = 0
 function = 0
 
-[sub_resource type="VisualShaderNodeScalarOp" id=4]
+[sub_resource type="VisualShaderNodeScalarOp" id=6]
 output_port_for_preview = 0
 default_input_values = [ 0, 0.0, 1, 2.0 ]
 operator = 3
 
-[sub_resource type="VisualShaderNodeTexture" id=5]
+[sub_resource type="VisualShaderNodeTexture" id=7]
 texture = ExtResource( 1 )
 
-[sub_resource type="VisualShaderNodeScalarOp" id=6]
+[sub_resource type="VisualShaderNodeScalarOp" id=8]
 output_port_for_preview = 0
 operator = 1
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=7]
+[sub_resource type="VisualShaderNodeScalarFunc" id=9]
 output_port_for_preview = 0
 function = 15
 
-[sub_resource type="VisualShader" id=8]
+[sub_resource type="VisualShader" id=10]
 code = "shader_type spatial;
 render_mode depth_draw_alpha_prepass, cull_disabled, specular_schlick_ggx;
 
@@ -103,27 +103,27 @@ graph_offset = Vector2( 55.2, -24.11 )
 modes/cull = 2
 modes/depth_draw = 3
 nodes/fragment/0/position = Vector2( 880, 200 )
-nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/node = SubResource( 4 )
 nodes/fragment/2/position = Vector2( -60, 120 )
-nodes/fragment/4/node = SubResource( 3 )
+nodes/fragment/4/node = SubResource( 5 )
 nodes/fragment/4/position = Vector2( -60, 360 )
-nodes/fragment/5/node = SubResource( 4 )
+nodes/fragment/5/node = SubResource( 6 )
 nodes/fragment/5/position = Vector2( 160, 360 )
-nodes/fragment/7/node = SubResource( 5 )
+nodes/fragment/7/node = SubResource( 7 )
 nodes/fragment/7/position = Vector2( 140, 100 )
-nodes/fragment/8/node = SubResource( 6 )
+nodes/fragment/8/node = SubResource( 8 )
 nodes/fragment/8/position = Vector2( 400, 340 )
-nodes/fragment/9/node = SubResource( 7 )
+nodes/fragment/9/node = SubResource( 9 )
 nodes/fragment/9/position = Vector2( 600, 220 )
-nodes/fragment/10/node = SubResource( 9 )
+nodes/fragment/10/node = SubResource( 1 )
 nodes/fragment/10/position = Vector2( -320, 380 )
-nodes/fragment/12/node = SubResource( 13 )
+nodes/fragment/12/node = SubResource( 2 )
 nodes/fragment/12/position = Vector2( 600, -20 )
-nodes/fragment/13/node = SubResource( 14 )
+nodes/fragment/13/node = SubResource( 3 )
 nodes/fragment/13/position = Vector2( 400, 20 )
 nodes/fragment/connections = PoolIntArray( 4, 0, 5, 0, 8, 0, 9, 0, 5, 0, 8, 1, 9, 0, 0, 1, 7, 0, 8, 0, 12, 0, 0, 0, 10, 0, 4, 0, 13, 0, 12, 0, 2, 0, 7, 0 )
 
 [resource]
 resource_local_to_scene = true
-shader = SubResource( 8 )
+shader = SubResource( 10 )
 shader_param/ScalarUniform = -1.0

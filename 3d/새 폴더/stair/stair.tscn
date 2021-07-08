@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://3d/새 폴더/stair_step/stair_step.tscn" type="PackedScene" id=1]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0 )
+
+[node name="stair" type="Spatial"]
+
+[node name="stair_step" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09, 1.5 )
+
+[node name="stair_step2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, 1.24 )
+
+[node name="stair_step3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53, 0.98 )
+
+[node name="stair_step4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.72 )
+
+[node name="stair_step5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97, 0.46 )
+
+[node name="stair_step6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19, 0.2 )
+
+[node name="stair_step7" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41, -0.0600001 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="CSGMesh" type="CSGMesh" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.63 )
+use_collision = true
+mesh = SubResource( 1 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 1.6 )
+polygon = PoolVector2Array( -0.03, 0, 1.8, 1.68, 1.79, 1.49, 0.21, 0 )
+depth = 2.0
+material = SubResource( 2 )
+
+[node name="CSGMesh4" type="CSGMesh" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68, -1.2 )
+use_collision = true
+mesh = SubResource( 1 )

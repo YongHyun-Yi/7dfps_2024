@@ -10,6 +10,7 @@ var inventory
 var world_generator
 var save_menu
 var textbox
+var last_check_point
 
 
 # Called when the node enters the scene tree for the first time.

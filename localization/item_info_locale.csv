@@ -1,0 +1,8 @@
+id,ko,en
+item_get_messege,「{0}」 을(를) 획득했다.,You got a 「 {0} 」 .
+,,
+item_coin_name,동전,Coin
+item_coin_discribe,100원짜리 동전이다.,It's a 100 won coin.
+,,
+item_classroom_key_name,교실 열쇠,Class room Key
+item_classroom_key_discribe,교실의 자물쇠를 열수있다.,You can unlock the classroom.

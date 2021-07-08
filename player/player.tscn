@@ -166,6 +166,7 @@ stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="close_menu" from="menus" to="." method="only_player_active"]
 [connection signal="open_menu" from="menus" to="." method="player_deactive"]
 [connection signal="open_menu" from="menus" to="camroot" method="capture_mode_close"]

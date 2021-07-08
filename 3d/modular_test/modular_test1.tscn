@@ -1,0 +1,856 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://3d/modular_test/modular_test1.glb" type="PackedScene" id=1]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=5]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=6]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=7]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=8]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=9]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=10]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=11]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=12]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=13]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=14]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=15]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=16]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=17]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=18]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=19]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=20]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=21]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=22]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=23]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=24]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=25]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=26]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=27]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=28]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=29]
+data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=30]
+data = PoolVector3Array( -0.9238, 0.8762, 1, 1.0762, -0.8238, -1, 1.0762, -0.8238, 1, -0.9238, 0.8762, 1, -0.9238, 0.8762, -1, 1.0762, -0.8238, -1, 1.0762, -0.8238, -1, 0.8762, -0.8238, 1, 1.0762, -0.8238, 1, 1.0762, -0.8238, -1, 0.8762, -0.8238, -1, 0.8762, -0.8238, 1, -0.9238, 0.8762, 1, -0.9238, 0.6762, -1, -0.9238, 0.8762, -1, -0.9238, 0.8762, 1, -0.9238, 0.6762, 1, -0.9238, 0.6762, -1, 0.8762, -0.8238, 1, -0.9238, 0.6762, -1, -0.9238, 0.6762, 1, 0.8762, -0.8238, 1, 0.8762, -0.8238, -1, -0.9238, 0.6762, -1, -0.9238, 0.8762, -1, 0.8762, -0.8238, -1, 1.0762, -0.8238, -1, -0.9238, 0.8762, -1, -0.9238, 0.6762, -1, 0.8762, -0.8238, -1, -0.9238, 0.8762, 1, 0.8762, -0.8238, 1, -0.9238, 0.6762, 1, -0.9238, 0.8762, 1, 1.0762, -0.8238, 1, 0.8762, -0.8238, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=31]
+data = PoolVector3Array( -0.9238, 0.8762, 1, 1.0762, -0.8238, -1, 1.0762, -0.8238, 1, -0.9238, 0.8762, 1, -0.9238, 0.8762, -1, 1.0762, -0.8238, -1, 1.0762, -0.8238, -1, 0.8762, -0.8238, 1, 1.0762, -0.8238, 1, 1.0762, -0.8238, -1, 0.8762, -0.8238, -1, 0.8762, -0.8238, 1, -0.9238, 0.8762, 1, -0.9238, 0.6762, -1, -0.9238, 0.8762, -1, -0.9238, 0.8762, 1, -0.9238, 0.6762, 1, -0.9238, 0.6762, -1, 0.8762, -0.8238, 1, -0.9238, 0.6762, -1, -0.9238, 0.6762, 1, 0.8762, -0.8238, 1, 0.8762, -0.8238, -1, -0.9238, 0.6762, -1, -0.9238, 0.8762, -1, 0.8762, -0.8238, -1, 1.0762, -0.8238, -1, -0.9238, 0.8762, -1, -0.9238, 0.6762, -1, 0.8762, -0.8238, -1, -0.9238, 0.8762, 1, 0.8762, -0.8238, 1, -0.9238, 0.6762, 1, -0.9238, 0.8762, 1, 1.0762, -0.8238, 1, 0.8762, -0.8238, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=32]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=33]
+data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=34]
+data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1 )
+
+[node name="modular_test1" instance=ExtResource( 1 )]
+
+[node name="큐브293" parent="." index="0"]
+transform = Transform( 0, 0.1, -5.06639e-08, 2.98023e-08, 0, -1.7, -1, -2.98023e-09, 0, -9.07712, 1.7, 6.00241 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브293" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브293/StaticBody" index="0"]
+shape = SubResource( 1 )
+
+[node name="큐브294" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -7.98964, 2.99, 6.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브294" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브294/StaticBody" index="0"]
+shape = SubResource( 2 )
+
+[node name="평면084" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98964, 3.3, 6.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="평면084" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면084/StaticBody" index="0"]
+shape = SubResource( 3 )
+
+[node name="평면085" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98964, 0.1, 6.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="평면085" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면085/StaticBody" index="0"]
+shape = SubResource( 4 )
+
+[node name="큐브292" parent="." index="4"]
+transform = Transform( 0, 0.1, -5.06639e-08, 2.98023e-08, 0, -1.7, -1, -2.98023e-09, 0, -6.88712, 1.7, 6.00241 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브292" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브292/StaticBody" index="0"]
+shape = SubResource( 5 )
+
+[node name="큐브295" parent="." index="5"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, -7.97712, 1.7, 7.10241 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브295" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브295/StaticBody" index="0"]
+shape = SubResource( 6 )
+
+[node name="큐브296" parent="." index="6"]
+transform = Transform( 0, 0.1, -5.06639e-08, 2.98023e-08, 0, -1.7, -1, -2.98023e-09, 0, -9.07712, 1.7, 4.00241 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브296" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브296/StaticBody" index="0"]
+shape = SubResource( 7 )
+
+[node name="큐브297" parent="." index="7"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -7.98964, 2.99, 4.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브297" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브297/StaticBody" index="0"]
+shape = SubResource( 8 )
+
+[node name="평면086" parent="." index="8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98964, 3.3, 4.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="평면086" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면086/StaticBody" index="0"]
+shape = SubResource( 9 )
+
+[node name="평면087" parent="." index="9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98964, 0.1, 4.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="평면087" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면087/StaticBody" index="0"]
+shape = SubResource( 10 )
+
+[node name="큐브298" parent="." index="10"]
+transform = Transform( 0, 0.1, -5.06639e-08, 2.98023e-08, 0, -1.7, -1, -2.98023e-09, 0, -6.88712, 1.7, 4.00241 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브298" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브298/StaticBody" index="0"]
+shape = SubResource( 11 )
+
+[node name="큐브299" parent="." index="11"]
+transform = Transform( 0, 0.1, -5.06639e-08, 2.98023e-08, 0, -1.7, -1, -2.98023e-09, 0, -9.07712, 1.7, 2.00241 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브299" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브299/StaticBody" index="0"]
+shape = SubResource( 12 )
+
+[node name="큐브300" parent="." index="12"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -7.98964, 2.99, 2.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브300" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브300/StaticBody" index="0"]
+shape = SubResource( 13 )
+
+[node name="평면088" parent="." index="13"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98964, 3.3, 2.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="평면088" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면088/StaticBody" index="0"]
+shape = SubResource( 14 )
+
+[node name="평면089" parent="." index="14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98964, 0.1, 2.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="평면089" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면089/StaticBody" index="0"]
+shape = SubResource( 15 )
+
+[node name="큐브301" parent="." index="15"]
+transform = Transform( 0, 0.1, -5.06639e-08, 2.98023e-08, 0, -1.7, -1, -2.98023e-09, 0, -6.88712, 1.7, 2.00241 )
+
+[node name="큐브302" parent="." index="16"]
+transform = Transform( 0, 0.1, -5.06639e-08, 2.98023e-08, 0, -1.7, -1, -2.98023e-09, 0, -9.07712, 1.7, 0.00240946 )
+
+[node name="큐브303" parent="." index="17"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -7.98964, 2.99, 0.0078187 )
+
+[node name="평면090" parent="." index="18"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98964, 3.3, 0.0078187 )
+
+[node name="평면091" parent="." index="19"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98969, 0.0999532, 0.00772443 )
+
+[node name="StaticBody" type="StaticBody" parent="평면091" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면091/StaticBody" index="0"]
+shape = SubResource( 16 )
+
+[node name="큐브304" parent="." index="20"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, -7.98712, 1.7, -1.09759 )
+
+[node name="평면092" parent="." index="21"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.98803, 0.103312, 0.00735757 )
+
+[node name="StaticBody" type="StaticBody" parent="평면092" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면092/StaticBody" index="0"]
+shape = SubResource( 17 )
+
+[node name="평면093" parent="." index="22"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98964, 0.1, 0.0078187 )
+
+[node name="StaticBody" type="StaticBody" parent="평면093" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면093/StaticBody" index="0"]
+shape = SubResource( 18 )
+
+[node name="평면095" parent="." index="23"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98964, 0.1, 2.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="평면095" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면095/StaticBody" index="0"]
+shape = SubResource( 19 )
+
+[node name="평면096" parent="." index="24"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98964, 0.1, 0.0078187 )
+
+[node name="StaticBody" type="StaticBody" parent="평면096" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면096/StaticBody" index="0"]
+shape = SubResource( 20 )
+
+[node name="평면097" parent="." index="25"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98964, 0.1, -1.99218 )
+
+[node name="StaticBody" type="StaticBody" parent="평면097" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면097/StaticBody" index="0"]
+shape = SubResource( 21 )
+
+[node name="평면098" parent="." index="26"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98964, 0.1, 2.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="평면098" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면098/StaticBody" index="0"]
+shape = SubResource( 22 )
+
+[node name="평면099" parent="." index="27"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00550866, 0.096381, 0.0101029 )
+
+[node name="StaticBody" type="StaticBody" parent="평면099" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면099/StaticBody" index="0"]
+shape = SubResource( 23 )
+
+[node name="평면100" parent="." index="28"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0103629, 0.1, -1.99218 )
+
+[node name="StaticBody" type="StaticBody" parent="평면100" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면100/StaticBody" index="0"]
+shape = SubResource( 24 )
+
+[node name="평면101" parent="." index="29"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0103629, 0.1, 2.00782 )
+
+[node name="StaticBody" type="StaticBody" parent="평면101" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면101/StaticBody" index="0"]
+shape = SubResource( 25 )
+
+[node name="큐브307" parent="." index="30"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, -1.98712, 1.7, -3.09759 )
+
+[node name="큐브308" parent="." index="31"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 0.0128844, 1.7, -3.09759 )
+
+[node name="큐브309" parent="." index="32"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, -3.98712, 1.7, 3.10241 )
+
+[node name="큐브310" parent="." index="33"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, -1.98712, 1.7, 3.10241 )
+
+[node name="큐브311" parent="." index="34"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 0.0128844, 1.7, 3.10241 )
+
+[node name="큐브315" parent="." index="35"]
+transform = Transform( 0, 0.1, -5.06639e-08, 2.98023e-08, 0, -1.7, -1, -2.98023e-09, 0, -5.07712, 1.7, 2.00241 )
+
+[node name="큐브322" parent="." index="36"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -5.98964, 2.99, 0.0078187 )
+
+[node name="평면103" parent="." index="37"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.98964, 3.3, 0.0078187 )
+
+[node name="큐브323" parent="." index="38"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -3.98964, 2.99, 0.0078187 )
+
+[node name="평면104" parent="." index="39"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98964, 3.3, 0.0078187 )
+
+[node name="큐브325" parent="." index="40"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -1.98964, 2.99, -1.99218 )
+
+[node name="평면106" parent="." index="41"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98964, 3.3, -1.99218 )
+
+[node name="큐브328" parent="." index="42"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -1.98964, 2.99, 0.0078187 )
+
+[node name="평면109" parent="." index="43"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98964, 3.3, 0.0078187 )
+
+[node name="큐브330" parent="." index="44"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, 0.0103629, 2.99, 2.00782 )
+
+[node name="평면111" parent="." index="45"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0103629, 3.3, 2.00782 )
+
+[node name="큐브331" parent="." index="46"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -1.98964, 2.99, 2.00782 )
+
+[node name="평면112" parent="." index="47"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98964, 3.3, 2.00782 )
+
+[node name="큐브332" parent="." index="48"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -3.98964, 2.99, 2.00782 )
+
+[node name="평면113" parent="." index="49"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98964, 3.3, 2.00782 )
+
+[node name="큐브319" parent="." index="50"]
+transform = Transform( -0.8, 7.54979e-09, 1.28346e-07, -6.03983e-08, 0, -1.7, -6.03983e-08, -0.1, 0, -5.98712, 1.7, 1.10241 )
+
+[node name="큐브305" parent="." index="51"]
+transform = Transform( -0.9, 7.54979e-09, 1.28346e-07, -6.79481e-08, 0, -1.7, -6.79481e-08, -0.1, 0, -6.08712, 1.7, -1.09759 )
+
+[node name="큐브336" parent="." index="52"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 4.01597, 5.1, 7.0956 )
+
+[node name="큐브337" parent="." index="53"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 4.02138, 6.39, 6.00812 )
+
+[node name="평면114" parent="." index="54"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 4.02138, 6.7, 6.00812 )
+
+[node name="평면115" parent="." index="55"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 4.02138, 3.5, 6.00812 )
+
+[node name="큐브338" parent="." index="56"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 4.01597, 5.1, 4.9056 )
+
+[node name="큐브339" parent="." index="57"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 1, 0, 0, 5.11597, 5.1, 5.9956 )
+
+[node name="큐브340" parent="." index="58"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 2.01598, 5.1, 7.0956 )
+
+[node name="큐브341" parent="." index="59"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 2.02139, 6.39, 6.00812 )
+
+[node name="평면116" parent="." index="60"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 2.02139, 6.7, 6.00812 )
+
+[node name="평면117" parent="." index="61"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 2.02139, 3.5, 6.00812 )
+
+[node name="큐브342" parent="." index="62"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 2.01598, 5.1, 4.9056 )
+
+[node name="큐브343" parent="." index="63"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 0.0159762, 5.1, 7.0956 )
+
+[node name="큐브344" parent="." index="64"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 0.0213854, 6.39, 6.00812 )
+
+[node name="평면118" parent="." index="65"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0.0213854, 6.7, 6.00812 )
+
+[node name="평면119" parent="." index="66"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0.0213854, 3.5, 6.00812 )
+
+[node name="큐브345" parent="." index="67"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 0.0159762, 5.1, 4.9056 )
+
+[node name="큐브346" parent="." index="68"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, -1.98402, 5.1, 7.0956 )
+
+[node name="큐브347" parent="." index="69"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, -1.97861, 6.39, 6.00812 )
+
+[node name="평면120" parent="." index="70"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 6.7, 6.00812 )
+
+[node name="평면121" parent="." index="71"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 3.5, 6.00812 )
+
+[node name="큐브348" parent="." index="72"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 1, 0, 0, -3.08402, 5.1, 6.0056 )
+
+[node name="평면122" parent="." index="73"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 3.5, 4.00812 )
+
+[node name="평면123" parent="." index="74"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 3.5, 2.00812 )
+
+[node name="평면124" parent="." index="75"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -3.97861, 3.5, 2.00812 )
+
+[node name="평면125" parent="." index="76"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0.0213854, 3.5, 2.00812 )
+
+[node name="평면126" parent="." index="77"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 3.5, 0.00811815 )
+
+[node name="평면127" parent="." index="78"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -3.97861, 3.5, 0.00811815 )
+
+[node name="평면129" parent="." index="79"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 3.5, -1.99188 )
+
+[node name="평면130" parent="." index="80"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -3.97861, 3.5, -1.99188 )
+
+[node name="평면132" parent="." index="81"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 3.5, -3.99188 )
+
+[node name="큐브349" parent="." index="82"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 1, 0, 0, -5.08402, 5.1, 2.0056 )
+
+[node name="큐브350" parent="." index="83"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 1, 0, 0, -5.08402, 5.1, 0.00559664 )
+
+[node name="큐브351" parent="." index="84"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 1, 0, 0, -5.08402, 5.1, -1.9944 )
+
+[node name="큐브354" parent="." index="85"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 1, 0, 0, 1.11598, 5.1, -1.9944 )
+
+[node name="큐브355" parent="." index="86"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, -3.98402, 5.1, -3.1044 )
+
+[node name="큐브356" parent="." index="87"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, -1.98402, 5.1, -5.1044 )
+
+[node name="큐브357" parent="." index="88"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 0.0159762, 5.1, -3.1044 )
+
+[node name="큐브358" parent="." index="89"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, 0.0159762, 5.1, 3.0956 )
+
+[node name="큐브359" parent="." index="90"]
+transform = Transform( -1, 7.54979e-09, 1.28346e-07, -7.54979e-08, 0, -1.7, -7.54979e-08, -0.1, 0, -3.98402, 5.1, 3.0956 )
+
+[node name="큐브360" parent="." index="91"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, -1.97861, 6.39, 4.00812 )
+
+[node name="평면133" parent="." index="92"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 6.7, 4.00812 )
+
+[node name="큐브361" parent="." index="93"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, -1.97861, 6.39, 2.00812 )
+
+[node name="평면134" parent="." index="94"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 6.7, 2.00812 )
+
+[node name="큐브362" parent="." index="95"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, -3.97861, 6.39, 2.00812 )
+
+[node name="평면135" parent="." index="96"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -3.97861, 6.7, 2.00812 )
+
+[node name="큐브363" parent="." index="97"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, -3.97861, 6.39, 0.00811815 )
+
+[node name="평면136" parent="." index="98"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -3.97861, 6.7, 0.00811815 )
+
+[node name="큐브364" parent="." index="99"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, -3.97861, 6.39, -1.99188 )
+
+[node name="평면137" parent="." index="100"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -3.97861, 6.7, -1.99188 )
+
+[node name="큐브365" parent="." index="101"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, -1.97861, 6.39, -1.99188 )
+
+[node name="평면138" parent="." index="102"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 6.7, -1.99188 )
+
+[node name="큐브366" parent="." index="103"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, -1.97861, 6.39, 0.00811815 )
+
+[node name="평면139" parent="." index="104"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 6.7, 0.00811815 )
+
+[node name="큐브367" parent="." index="105"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, -1.97861, 6.39, -3.99188 )
+
+[node name="평면140" parent="." index="106"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, -1.97861, 6.7, -3.99188 )
+
+[node name="큐브368" parent="." index="107"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 0.0213854, 6.39, -1.99188 )
+
+[node name="평면141" parent="." index="108"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0.0213854, 6.7, -1.99188 )
+
+[node name="큐브369" parent="." index="109"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 0.0213854, 6.39, 0.00811815 )
+
+[node name="큐브370" parent="." index="110"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 0.0213854, 6.39, 2.00812 )
+
+[node name="평면143" parent="." index="111"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0.0213854, 6.7, 2.00812 )
+
+[node name="큐브371" parent="." index="112"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 0.8, 0, 0, -0.884023, 5.1, 4.0056 )
+
+[node name="큐브372" parent="." index="113"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 0.9, 0, 0, -3.08402, 5.1, 4.1056 )
+
+[node name="큐브373" parent="." index="114"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 0.9, 0, 0, -0.884023, 5.1, -4.0944 )
+
+[node name="큐브374" parent="." index="115"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 0.9, 0, 0, -3.08402, 5.1, -4.0944 )
+
+[node name="큐브326" parent="." index="116"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, 0.0103629, 2.99, 0.0078187 )
+
+[node name="평면107" parent="." index="117"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0103629, 3.3, 0.0078187 )
+
+[node name="평면108" parent="." index="118"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0.0213854, 3.5, 0.00811815 )
+
+[node name="큐브327" parent="." index="119"]
+transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, 0.0103629, 2.99, -1.99218 )
+
+[node name="평면128" parent="." index="120"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0103629, 3.3, -1.99218 )
+
+[node name="평면131" parent="." index="121"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0.0147512, 3.5, -1.97941 )
+
+[node name="평면144" parent="." index="122"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 0.0213854, 6.7, 0.00811815 )
+
+[node name="큐브382" parent="." index="123"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 1, 0, 0, 1.11598, 5.1, -1.9944 )
+
+[node name="평면151" parent="." index="124"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 2.02224, 0.1, 2.01365 )
+
+[node name="StaticBody" type="StaticBody" parent="평면151" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면151/StaticBody" index="0"]
+shape = SubResource( 26 )
+
+[node name="큐브389" parent="." index="125"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 0.1, 0, 1, 0, 5.96046e-08, 6.02224, 1.7, 2.01365 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브389" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브389/StaticBody" index="0"]
+shape = SubResource( 27 )
+
+[node name="큐브388" parent="." index="126"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 0.1, 0, 1, 0, 5.96046e-08, 6.02224, 1.7, 0.0136476 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브388" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브388/StaticBody" index="0"]
+shape = SubResource( 28 )
+
+[node name="평면156" parent="." index="127"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 2.02224, 0.1, 0.0136476 )
+
+[node name="StaticBody" type="StaticBody" parent="평면156" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면156/StaticBody" index="0"]
+shape = SubResource( 29 )
+
+[node name="평면155" parent="." index="128"]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 4.09813, 0.92381, 0.024672 )
+
+[node name="StaticBody" type="StaticBody" parent="평면155" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면155/StaticBody" index="0"]
+shape = SubResource( 30 )
+
+[node name="평면154" parent="." index="129"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.94021, 2.62381, 2.02467 )
+
+[node name="StaticBody" type="StaticBody" parent="평면154" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면154/StaticBody" index="0"]
+shape = SubResource( 31 )
+
+[node name="큐브393" parent="." index="130"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 2.02951, 1.7, 3.12112 )
+
+[node name="큐브394" parent="." index="131"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 2.0326, 5.1, 3.11431 )
+
+[node name="큐브396" parent="." index="132"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 0.275, 0, 1, 0, 5.96046e-08, 2.02224, 3.22236, 0.0136476 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브396" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브396/StaticBody" index="0"]
+shape = SubResource( 32 )
+
+[node name="큐브395" parent="." index="133"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 0.275, 0, 1, 0, 5.96046e-08, 2.02224, 3.22236, 2.01365 )
+
+[node name="StaticBody" type="StaticBody" parent="큐브395" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="큐브395/StaticBody" index="0"]
+shape = SubResource( 33 )
+
+[node name="큐브386" parent="." index="134"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, -6.88712, 1.7, 7.10241 )
+
+[node name="큐브391" parent="." index="135"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, -9.08712, 1.7, 7.10241 )
+
+[node name="큐브392" parent="." index="136"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, -9.08712, 1.7, -1.09759 )
+
+[node name="큐브401" parent="." index="137"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, -5.08712, 1.7, 3.10241 )
+
+[node name="큐브403" parent="." index="138"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, -5.08712, 5.1, 3.10241 )
+
+[node name="큐브404" parent="." index="139"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, -5.08712, 5.1, -3.09759 )
+
+[node name="큐브405" parent="." index="140"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, -3.08712, 5.1, 7.10241 )
+
+[node name="큐브406" parent="." index="141"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, 5.11288, 5.1, 7.10241 )
+
+[node name="큐브407" parent="." index="142"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, 5.11288, 5.1, 4.90241 )
+
+[node name="큐브409" parent="." index="143"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, 1.11288, 5.1, -3.09759 )
+
+[node name="큐브410" parent="." index="144"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, -0.887117, 5.1, -5.09759 )
+
+[node name="큐브411" parent="." index="145"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, -3.08712, 5.1, -5.09759 )
+
+[node name="큐브312" parent="." index="146"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 4.0295, 1.7, 3.12112 )
+
+[node name="큐브313" parent="." index="147"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 4.0326, 5.1, 3.11431 )
+
+[node name="큐브314" parent="." index="148"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 6.0295, 1.7, 3.12112 )
+
+[node name="큐브316" parent="." index="149"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 6.0326, 5.1, 3.11431 )
+
+[node name="큐브321" parent="." index="150"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 6.0295, 1.7, -1.07888 )
+
+[node name="큐브329" parent="." index="151"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 6.0326, 5.1, -1.08569 )
+
+[node name="큐브352" parent="." index="152"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 4.0295, 1.7, -1.07888 )
+
+[node name="큐브353" parent="." index="153"]
+transform = Transform( -1, -1.62921e-08, -2.76965e-07, 1.62921e-07, 0, -1.7, 1.62921e-07, -0.1, 0, 4.0326, 5.1, -1.08569 )
+
+[node name="큐브375" parent="." index="154"]
+transform = Transform( 4.76837e-07, -0.1, 0, 0, 0, -1.7, 1, 4.76837e-08, 0, 7.13446, 1.7, 0.0192647 )
+
+[node name="큐브376" parent="." index="155"]
+transform = Transform( 4.76837e-07, -0.1, 0, 0, 0, -1.7, 1, 4.76837e-08, 0, 7.12765, 5.1, 0.0161672 )
+
+[node name="큐브377" parent="." index="156"]
+transform = Transform( 4.76837e-07, -0.1, 0, 0, 0, -1.7, 1, 4.76837e-08, 0, 7.13446, 1.7, 2.01926 )
+
+[node name="큐브378" parent="." index="157"]
+transform = Transform( 4.76837e-07, -0.1, 0, 0, 0, -1.7, 1, 4.76837e-08, 0, 7.12765, 5.1, 2.01617 )
+
+[node name="큐브379" parent="." index="158"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, 7.11288, 1.7, 3.10241 )
+
+[node name="큐브380" parent="." index="159"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, 7.11288, 5.1, 3.10241 )
+
+[node name="큐브381" parent="." index="160"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, 7.11288, 1.7, -1.09759 )
+
+[node name="큐브383" parent="." index="161"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, 7.11288, 5.1, -1.09759 )
+
+[node name="큐브384" parent="." index="162"]
+transform = Transform( 0, -0.1, 0, 0, 0, -1.7, 1, 0, 0, 1.11598, 1.7, -1.9944 )
+
+[node name="큐브387" parent="." index="163"]
+transform = Transform( -0.1, 7.54979e-09, 1.28346e-07, -7.54979e-09, 0, -1.7, -7.54979e-09, -0.1, 0, 1.11288, 1.7, -3.09759 )
+
+[node name="큐브390" parent="." index="164"]
+transform = Transform( -0.9, 7.54979e-09, 1.28346e-07, -6.79481e-08, 0, -1.7, -6.79481e-08, -0.1, 0, 2.11288, 1.7, -1.09759 )
+
+[node name="큐브397" parent="." index="165"]
+transform = Transform( -0.9, 7.54979e-09, 1.28346e-07, -6.79481e-08, 0, -1.7, -6.79481e-08, -0.1, 0, 2.11288, 5.1, -1.09759 )
+
+[node name="큐브398" parent="." index="166"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 2.02139, 6.39, 2.00812 )
+
+[node name="평면102" parent="." index="167"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 2.02139, 6.7, 2.00812 )
+
+[node name="큐브399" parent="." index="168"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 4.02139, 6.39, 2.00812 )
+
+[node name="평면110" parent="." index="169"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 4.02139, 6.7, 2.00812 )
+
+[node name="큐브400" parent="." index="170"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 6.02139, 6.39, 2.00812 )
+
+[node name="평면145" parent="." index="171"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 6.02139, 6.7, 2.00812 )
+
+[node name="큐브408" parent="." index="172"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 6.02139, 6.39, 0.00811815 )
+
+[node name="평면146" parent="." index="173"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 6.02139, 6.7, 0.00811815 )
+
+[node name="큐브412" parent="." index="174"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 4.02139, 6.39, 0.00811815 )
+
+[node name="평면147" parent="." index="175"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 4.02139, 6.7, 0.00811815 )
+
+[node name="큐브413" parent="." index="176"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 0.05, 0, -1, 0, 5.96046e-08, 2.02139, 6.39, 0.00811815 )
+
+[node name="평면148" parent="." index="177"]
+transform = Transform( 5.96046e-08, 0, 1, 0, 1, 0, -1, 0, 5.96046e-08, 2.02139, 6.7, 0.00811815 )
+
+[node name="평면149" parent="." index="178"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 4.02224, 0.1, 2.01365 )
+
+[node name="평면150" parent="." index="179"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 6.02224, 0.1, 2.01365 )
+
+[node name="평면152" parent="." index="180"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 6.02224, 0.1, 0.0136476 )
+
+[node name="평면153" parent="." index="181"]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 4.02224, 0.1, 0.0136476 )
+
+[node name="평면157" parent="." index="182"]
+transform = Transform( 0.11248, 0, 0, 0, 0.562399, 0, 0, 0, 0.011248, 2.9213, 0.59964, 0.924672 )
+
+[node name="평면158" parent="." index="183"]
+transform = Transform( -0.11248, 0, -9.83329e-10, 0, 0.562399, 0, 9.83331e-09, 0, -0.011248, 5.12338, 2.32144, 1.11747 )
+
+[node name="평면159" parent="." index="184"]
+transform = Transform( -0.011248, 0, -9.8333e-10, 0, 0.281199, 0, 9.83331e-10, 0, -0.011248, 2.92338, 4.02144, 0.0174661 )
+
+[node name="평면167" parent="." index="185"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98964, 0.1, -1.99218 )
+
+[node name="StaticBody" type="StaticBody" parent="평면167" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="평면167/StaticBody" index="0"]
+shape = SubResource( 34 )
+
+[node name="큐브416" parent="." index="186"]
+transform = Transform( 0.989949, 0.0707107, -5.06639e-08, 4.17233e-08, -1.19209e-08, -1.7, -0.98995, 0.0707107, -2.02656e-07, -4.05712, 1.7, -2.06759 )
+
+[node name="평면168" parent="." index="187"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98964, 3.3, -1.99218 )
+
+[node name="평면169" parent="." index="188"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98964, 3, -1.99218 )
+
+[node name="OmniLight" type="OmniLight" parent="." index="189"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.28444, 0 )
+
+[node name="OmniLight2" type="OmniLight" parent="." index="190"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.83389, 2.28444, 0 )
+
+[node name="OmniLight3" type="OmniLight" parent="." index="191"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7953, 4.42889, 1.10491 )
+
+[node name="OmniLight4" type="OmniLight" parent="." index="192"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02857, 5.27055, 1.10491 )

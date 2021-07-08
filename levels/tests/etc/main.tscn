@@ -1,0 +1,542 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://levels/tests/etc/1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/tests/etc/4.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/tests/etc/3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/player2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/tests/etc/2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world_env2.tres" type="Environment" id=6]
+[ext_resource path="res://levels/debug/right_gate.gd" type="Script" id=7]
+[ext_resource path="res://3d/새 폴더/lamp/lamp.material" type="Material" id=8]
+[ext_resource path="res://3d/새 폴더/vending_machine/TexturesCom_Various0448_1_S.jpg" type="Texture" id=9]
+[ext_resource path="res://3d/새 폴더/iron_door/iron_door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://3d/새 폴더/hyangro/hyangro.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/item_key.tscn" type="PackedScene" id=12]
+[ext_resource path="res://items/item_coin.tscn" type="PackedScene" id=13]
+[ext_resource path="res://3d/새 폴더/iron_door/iron_door.material" type="Material" id=14]
+
+[sub_resource type="ArrayMesh" id=1]
+resource_name = "큐브045"
+surfaces/0 = {
+"aabb": AABB( -1, -1, -1, 2, 2, 2.00001 ),
+"array_data": PoolByteArray( 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 129, 0, 0, 0, 0, 0, 129, 129, 156, 39, 132, 58, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 0, 0, 0, 0, 129, 127, 187, 42, 247, 57, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 127, 0, 127, 0, 0, 127, 156, 39, 132, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 129, 0, 0, 0, 0, 0, 129, 129, 156, 39, 8, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 127, 0, 127, 0, 0, 127, 156, 39, 8, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 0, 0, 129, 0, 0, 127, 144, 59, 189, 51, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 129, 0, 0, 0, 0, 0, 129, 129, 195, 59, 132, 58, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 0, 0, 0, 0, 129, 127, 148, 59, 247, 57, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 129, 0, 127, 0, 0, 129, 156, 39, 132, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 129, 0, 0, 0, 0, 0, 129, 129, 195, 59, 8, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 129, 0, 127, 0, 0, 129, 156, 39, 8, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 0, 0, 129, 0, 0, 127, 144, 59, 33, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 0, 0, 0, 0, 129, 127, 187, 42, 68, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 127, 0, 127, 0, 0, 127, 195, 59, 132, 58, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 127, 0, 0, 0, 0, 0, 129, 127, 156, 39, 132, 58, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 127, 0, 127, 0, 0, 127, 195, 59, 8, 58, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 0, 0, 129, 0, 0, 127, 111, 59, 189, 51, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 127, 0, 0, 0, 0, 0, 129, 127, 156, 39, 8, 58, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 0, 129, 0, 0, 0, 0, 129, 127, 148, 59, 68, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 129, 0, 127, 0, 0, 129, 195, 59, 132, 58, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 127, 0, 0, 0, 0, 0, 129, 127, 195, 59, 132, 58, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 129, 0, 127, 0, 0, 129, 195, 59, 8, 58, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 127, 0, 0, 129, 0, 0, 127, 111, 59, 33, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 127, 0, 0, 0, 0, 0, 129, 127, 195, 59, 8, 58 ),
+"array_index_data": PoolByteArray( 0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 10, 0, 19, 0, 21, 0, 10, 0, 8, 0, 19, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 15, 0, 2, 0, 4, 0, 15, 0, 13, 0, 2, 0, 18, 0, 1, 0, 12, 0, 18, 0, 7, 0, 1, 0, 11, 0, 16, 0, 5, 0, 11, 0, 22, 0, 16, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 36,
+"material": ExtResource( 8 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 9 )
+emission_enabled = true
+emission = Color( 0, 0.678431, 1, 1 )
+emission_energy = 0.44
+emission_operator = 1
+emission_on_uv2 = false
+emission_texture = ExtResource( 9 )
+
+[sub_resource type="SpatialMaterial" id=3]
+emission_enabled = true
+emission = Color( 0.231373, 1, 0.552941, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereShape" id=4]
+radius = 0.094708
+
+[sub_resource type="ArrayMesh" id=5]
+resource_name = "큐브049"
+surfaces/0 = {
+"aabb": AABB( -1.2, -1.05, -0.1, 2.4, 3, 0.20001 ),
+"array_data": PoolByteArray( 154, 153, 153, 191, 102, 102, 134, 191, 205, 204, 204, 61, 129, 0, 0, 0, 0, 0, 129, 129, 17, 57, 84, 56, 154, 153, 153, 191, 102, 102, 134, 191, 205, 204, 204, 61, 0, 129, 0, 0, 127, 0, 0, 129, 17, 57, 113, 56, 154, 153, 153, 191, 102, 102, 134, 191, 205, 204, 204, 61, 0, 0, 127, 0, 127, 0, 0, 127, 17, 57, 84, 56, 154, 153, 153, 191, 154, 153, 249, 63, 205, 204, 204, 61, 129, 0, 0, 0, 0, 0, 129, 129, 17, 57, 165, 53, 154, 153, 153, 191, 154, 153, 249, 63, 205, 204, 204, 61, 0, 0, 127, 0, 127, 0, 0, 127, 17, 57, 165, 53, 154, 153, 153, 191, 154, 153, 249, 63, 205, 204, 204, 61, 0, 127, 0, 0, 127, 0, 0, 127, 17, 57, 113, 56, 154, 153, 153, 191, 102, 102, 134, 191, 205, 204, 204, 189, 129, 0, 0, 0, 0, 0, 129, 129, 168, 58, 84, 56, 154, 153, 153, 191, 102, 102, 134, 191, 205, 204, 204, 189, 0, 129, 0, 0, 127, 0, 0, 129, 17, 57, 223, 53, 154, 153, 153, 191, 102, 102, 134, 191, 205, 204, 204, 189, 0, 0, 129, 0, 127, 0, 0, 129, 17, 57, 84, 56, 154, 153, 153, 191, 154, 153, 249, 63, 205, 204, 204, 189, 129, 0, 0, 0, 0, 0, 129, 129, 168, 58, 165, 53, 154, 153, 153, 191, 154, 153, 249, 63, 205, 204, 204, 189, 0, 0, 129, 0, 127, 0, 0, 129, 17, 57, 165, 53, 154, 153, 153, 191, 154, 153, 249, 63, 205, 204, 204, 189, 0, 127, 0, 0, 127, 0, 0, 127, 17, 57, 223, 53, 154, 153, 153, 63, 102, 102, 134, 191, 205, 204, 204, 61, 0, 129, 0, 0, 127, 0, 0, 129, 168, 58, 113, 56, 154, 153, 153, 63, 102, 102, 134, 191, 205, 204, 204, 61, 0, 0, 127, 0, 127, 0, 0, 127, 168, 58, 84, 56, 154, 153, 153, 63, 102, 102, 134, 191, 205, 204, 204, 61, 127, 0, 0, 0, 0, 0, 129, 127, 17, 57, 84, 56, 154, 153, 153, 63, 154, 153, 249, 63, 205, 204, 204, 61, 0, 0, 127, 0, 127, 0, 0, 127, 168, 58, 165, 53, 154, 153, 153, 63, 154, 153, 249, 63, 205, 204, 204, 61, 0, 127, 0, 0, 127, 0, 0, 127, 168, 58, 113, 56, 154, 153, 153, 63, 154, 153, 249, 63, 205, 204, 204, 61, 127, 0, 0, 0, 0, 0, 129, 127, 17, 57, 165, 53, 154, 153, 153, 63, 102, 102, 134, 191, 205, 204, 204, 189, 0, 129, 0, 0, 127, 0, 0, 129, 168, 58, 223, 53, 154, 153, 153, 63, 102, 102, 134, 191, 205, 204, 204, 189, 0, 0, 129, 0, 127, 0, 0, 129, 168, 58, 84, 56, 154, 153, 153, 63, 102, 102, 134, 191, 205, 204, 204, 189, 127, 0, 0, 0, 0, 0, 129, 127, 168, 58, 84, 56, 154, 153, 153, 63, 154, 153, 249, 63, 205, 204, 204, 189, 0, 0, 129, 0, 127, 0, 0, 129, 168, 58, 165, 53, 154, 153, 153, 63, 154, 153, 249, 63, 205, 204, 204, 189, 0, 127, 0, 0, 127, 0, 0, 127, 168, 58, 223, 53, 154, 153, 153, 63, 154, 153, 249, 63, 205, 204, 204, 189, 127, 0, 0, 0, 0, 0, 129, 127, 168, 58, 165, 53, 205, 204, 140, 191, 102, 102, 134, 191, 205, 204, 204, 61, 0, 129, 0, 0, 127, 0, 0, 129, 34, 57, 113, 56, 205, 204, 140, 191, 102, 102, 134, 191, 205, 204, 204, 61, 0, 0, 127, 0, 126, 0, 0, 127, 34, 57, 84, 56, 205, 204, 140, 191, 102, 102, 134, 191, 205, 204, 204, 61, 126, 0, 0, 0, 0, 0, 129, 127, 17, 57, 58, 56, 205, 204, 140, 191, 102, 102, 134, 191, 205, 204, 204, 189, 0, 129, 0, 0, 127, 0, 0, 129, 34, 57, 223, 53, 205, 204, 140, 191, 102, 102, 134, 191, 205, 204, 204, 189, 0, 0, 129, 0, 127, 0, 0, 129, 34, 57, 84, 56, 205, 204, 140, 191, 102, 102, 134, 191, 205, 204, 204, 189, 126, 0, 0, 0, 0, 0, 129, 127, 168, 58, 58, 56, 205, 204, 140, 191, 102, 102, 134, 63, 205, 204, 204, 61, 0, 130, 0, 0, 126, 0, 0, 129, 34, 57, 113, 56, 205, 204, 140, 191, 102, 102, 134, 63, 205, 204, 204, 61, 0, 0, 127, 0, 127, 0, 0, 127, 34, 57, 140, 54, 205, 204, 140, 191, 102, 102, 134, 63, 205, 204, 204, 61, 126, 0, 0, 0, 0, 0, 129, 127, 17, 57, 89, 54, 205, 204, 140, 191, 102, 102, 134, 63, 205, 204, 204, 189, 0, 130, 0, 0, 127, 0, 0, 129, 34, 57, 223, 53, 205, 204, 140, 191, 102, 102, 134, 63, 205, 204, 204, 189, 0, 0, 129, 0, 127, 0, 0, 129, 34, 57, 140, 54, 205, 204, 140, 191, 102, 102, 134, 63, 205, 204, 204, 189, 126, 0, 0, 0, 0, 0, 129, 127, 168, 58, 89, 54, 205, 204, 140, 63, 102, 102, 134, 191, 205, 204, 204, 61, 130, 0, 0, 0, 0, 0, 129, 129, 17, 57, 84, 56, 205, 204, 140, 63, 102, 102, 134, 191, 205, 204, 204, 61, 0, 129, 0, 0, 127, 0, 0, 129, 151, 58, 113, 56, 205, 204, 140, 63, 102, 102, 134, 191, 205, 204, 204, 61, 0, 0, 127, 0, 127, 0, 0, 127, 151, 58, 84, 56, 205, 204, 140, 63, 102, 102, 134, 191, 205, 204, 204, 189, 130, 0, 0, 0, 0, 0, 129, 129, 168, 58, 84, 56, 205, 204, 140, 63, 102, 102, 134, 191, 205, 204, 204, 189, 0, 129, 0, 0, 127, 0, 0, 129, 151, 58, 223, 53, 205, 204, 140, 63, 102, 102, 134, 191, 205, 204, 204, 189, 0, 0, 129, 0, 126, 0, 0, 129, 151, 58, 84, 56, 205, 204, 140, 63, 102, 102, 134, 63, 205, 204, 204, 189, 130, 0, 0, 0, 0, 0, 129, 129, 168, 58, 140, 54, 205, 204, 140, 63, 102, 102, 134, 63, 205, 204, 204, 189, 0, 130, 0, 0, 126, 0, 0, 129, 151, 58, 223, 53, 205, 204, 140, 63, 102, 102, 134, 63, 205, 204, 204, 189, 0, 0, 129, 0, 127, 0, 0, 129, 151, 58, 140, 54, 205, 204, 140, 63, 102, 102, 134, 63, 205, 204, 204, 61, 130, 0, 0, 0, 0, 0, 129, 129, 17, 57, 140, 54, 205, 204, 140, 63, 102, 102, 134, 63, 205, 204, 204, 61, 0, 130, 0, 0, 127, 0, 0, 129, 151, 58, 113, 56, 205, 204, 140, 63, 102, 102, 134, 63, 205, 204, 204, 61, 0, 0, 127, 0, 127, 0, 0, 127, 151, 58, 140, 54 ),
+"array_index_data": PoolByteArray( 0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0, 29, 0, 32, 0, 35, 0, 29, 0, 26, 0, 32, 0, 39, 0, 45, 0, 36, 0, 39, 0, 42, 0, 45, 0, 43, 0, 30, 0, 46, 0, 43, 0, 33, 0, 30, 0, 34, 0, 8, 0, 28, 0, 21, 0, 41, 0, 19, 0, 21, 0, 44, 0, 41, 0, 34, 0, 10, 0, 8, 0, 21, 0, 34, 0, 44, 0, 10, 0, 34, 0, 21, 0, 47, 0, 13, 0, 38, 0, 4, 0, 25, 0, 2, 0, 4, 0, 31, 0, 25, 0, 47, 0, 15, 0, 13, 0, 4, 0, 47, 0, 31, 0, 15, 0, 47, 0, 4, 0, 18, 0, 37, 0, 12, 0, 18, 0, 40, 0, 37, 0, 1, 0, 27, 0, 7, 0, 1, 0, 24, 0, 27, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 84,
+"material": ExtResource( 14 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 48
+}
+
+[node name="Spatial" type="Spatial"]
+
+[node name="player2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3, 0, 3 )
+walk_speed = 1.4
+run_speed = 3.5
+active = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 6 )
+
+[node name="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 0, -18.4 )
+
+[node name="OmniLight2" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 2.1, 3 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight6" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 2.1, 7.1 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight10" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 2.1, 11.8 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight7" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 2.1, 16.7 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight8" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 2.1, 21.7 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 4.8
+
+[node name="OmniLight3" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 2.1, -1.7 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight9" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 2.1, -4.8 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight4" type="OmniLight" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6, 2.1, 15.2 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight5" type="OmniLight" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.9, 2.1, -3.8 )
+visible = false
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="큐브047" type="MeshInstance" parent="Spatial"]
+transform = Transform( 0.15, 0, 0, 0, 0.025, 0, 0, 0, 0.6, 0.100001, 2.97, 3 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="큐브048" type="MeshInstance" parent="Spatial"]
+transform = Transform( 0.15, 0, 0, 0, 0.025, 0, 0, 0, 0.6, 0.100001, 2.97, -1.7 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="큐브049" type="MeshInstance" parent="Spatial"]
+transform = Transform( -6.55671e-09, 0, 0.6, 0, 0.025, 0, -0.15, 0, -2.62268e-08, 3, 2.97, -3.9 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="큐브050" type="MeshInstance" parent="Spatial"]
+transform = Transform( -6.55671e-09, 0, 0.6, 0, 0.025, 0, -0.15, 0, -2.62268e-08, 6.9, 2.97, -3.9 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="hyangro" parent="Spatial" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2, 1, 16.9 )
+
+[node name="item_key" parent="Spatial" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 0.0348995, 0.999391, 0, -0.999391, 0.0348995, -3.1, 0.7, 20.8 )
+
+[node name="item_coin" parent="Spatial" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 0.0697565, 0.997564, 0, -0.997564, 0.0697565, -3.1, 0.7, 21.1 )
+
+[node name="Spatial2" parent="." instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.2, 0, -3.4 )
+
+[node name="OmniLight2" type="OmniLight" parent="Spatial2"]
+transform = Transform( 1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -3.6, 1.7, -3.1 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 3.6
+
+[node name="OmniLight3" type="OmniLight" parent="Spatial2"]
+transform = Transform( 1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -3.6, 1.7, 1.9 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 3.6
+
+[node name="OmniLight4" type="OmniLight" parent="Spatial2"]
+transform = Transform( 1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0.800001, 1.7, 1.9 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 3.6
+
+[node name="OmniLight5" type="OmniLight" parent="Spatial2"]
+transform = Transform( 1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0.800001, 1.7, -2.6 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 3.6
+
+[node name="큐브047" type="MeshInstance" parent="Spatial2"]
+transform = Transform( 0.15, 0, 0, 0, 0.025, 0, 0, 0, 0.6, 0.700001, 3.77, -2.3 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="큐브048" type="MeshInstance" parent="Spatial2"]
+transform = Transform( 0.15, 0, 0, 0, 0.025, 0, 0, 0, 0.6, -3.6, 3.77, -2.3 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="큐브049" type="MeshInstance" parent="Spatial2"]
+transform = Transform( 0.15, 0, 0, 0, 0.025, 0, 0, 0, 0.6, 0.700002, 3.77, 1.4 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="큐브050" type="MeshInstance" parent="Spatial2"]
+transform = Transform( 0.15, 0, 0, 0, 0.025, 0, 0, 0, 0.6, -3.6, 3.77, 1.4 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CSGBox" type="CSGBox" parent="Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 1.1, -4.5 )
+width = 1.2
+height = 2.2
+depth = 1.0
+material = SubResource( 2 )
+
+[node name="CSGBox2" type="CSGBox" parent="Spatial2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 1.1, -4.5 )
+visible = false
+width = 1.2
+height = 2.2
+depth = 1.0
+material = SubResource( 2 )
+
+[node name="OmniLight" type="OmniLight" parent="Spatial2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.4, 1.5, -3.5 )
+light_color = Color( 0, 0.494118, 0.823529, 1 )
+omni_range = 3.3
+
+[node name="Spatial3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.49012e-08, 0, -1, 0, 1, 0, 1, 0, 1.49012e-08, 19.7, 0, -3.4 )
+
+[node name="OmniLight5" type="OmniLight" parent="Spatial3"]
+transform = Transform( 1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, -0.699999, 6.2, -1.1 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 5.8
+
+[node name="OmniLight3" type="OmniLight" parent="Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.400004, 2.1, 4 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight4" type="OmniLight" parent="Spatial3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.400004, 7.7, 4 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="Spatial4" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9, 0, -18.9 )
+
+[node name="OmniLight2" type="OmniLight" parent="Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.1, -3.9 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight7" type="OmniLight" parent="Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.1, -3.9 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight10" type="OmniLight" parent="Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8, 2.1, -3.9 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight8" type="OmniLight" parent="Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3, 2.1, -9.9 )
+light_energy = 2.0
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 8.1
+
+[node name="OmniLight3" type="OmniLight" parent="Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7, 2.1, -3.9 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight4" type="OmniLight" parent="Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 2.1, -3.9 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.7
+
+[node name="OmniLight5" type="OmniLight" parent="Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7, 2.1, 1.1 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 4.1
+
+[node name="OmniLight6" type="OmniLight" parent="Spatial4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 2.1, 1.4 )
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 4.1
+
+[node name="CSGBox4" type="CSGBox" parent="Spatial4"]
+transform = Transform( 9.92085e-10, 0, -1, 0, 1, 0, 1, 0, 9.92085e-10, 12.644, 0.44131, -5.2602 )
+visible = false
+width = 0.28419
+height = 0.139492
+depth = 0.0905771
+material = SubResource( 3 )
+
+[node name="OmniLight17" type="OmniLight" parent="Spatial4/CSGBox4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5 )
+visible = false
+light_color = Color( 0, 0.498039, 0.207843, 1 )
+omni_range = 4.1
+omni_attenuation = 4.28709
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 0, 0, 1, 0, 1, 0, -1, 0, 0, -2.4, 2.24131, -3.444 )
+width = 0.28419
+height = 0.139492
+depth = 0.0905771
+material = SubResource( 3 )
+
+[node name="OmniLight17" type="OmniLight" parent="CSGBox3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7 )
+light_color = Color( 0, 0.498039, 0.207843, 1 )
+shadow_enabled = true
+omni_range = 4.1
+omni_attenuation = 4.28709
+
+[node name="CSGCombiner3" type="CSGCombiner" parent="."]
+transform = Transform( 0, 0, 1, 0, 1, 0, -1, 0, 0, -2.9, 0, -3.4 )
+visible = false
+use_in_baked_light = true
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0459999, 1.5, 0.120437 )
+width = 3.45553
+height = 3.0
+depth = 0.3
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0669991, 1.05, 0.107 )
+operation = 2
+width = 2.18714
+height = 2.1
+depth = 0.813727
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0440002, 2.24131, 0.239801 )
+visible = false
+width = 0.28419
+height = 0.139492
+depth = 0.0905771
+material = SubResource( 3 )
+
+[node name="CSGCombiner6" type="CSGCombiner" parent="."]
+transform = Transform( 0, 0, 1, 0, 1, 0, -1.8, 0, 0, 12.1, 0, -28.4 )
+use_in_baked_light = true
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0459999, 1.5, 0.120437 )
+width = 3.45553
+height = 3.0
+depth = 0.3
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0669991, 1.05, 0.107 )
+operation = 2
+width = 2.18714
+height = 2.1
+depth = 0.813727
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0440002, 2.24131, 0 )
+width = 0.28419
+height = 0.139492
+depth = 0.0905771
+material = SubResource( 3 )
+
+[node name="OmniLight17" type="OmniLight" parent="CSGCombiner6/CSGBox3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7 )
+light_color = Color( 0, 0.498039, 0.207843, 1 )
+omni_range = 4.1
+omni_attenuation = 4.28709
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0440002, 2.24131, 0.239801 )
+visible = false
+width = 0.28419
+height = 0.139492
+depth = 0.0905771
+material = SubResource( 3 )
+
+[node name="CSGCombiner5" type="CSGCombiner" parent="."]
+transform = Transform( 0, 0, 1, 0, 1, 0, -1, 0, 0, 3.9, 0, -3.4 )
+visible = false
+use_in_baked_light = true
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0459999, 1.5, 0.120437 )
+width = 3.45553
+height = 3.0
+depth = 0.3
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0669991, 1.05, 0.107 )
+operation = 2
+width = 2.18714
+height = 2.1
+depth = 0.813727
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0440002, 2.24131, 0 )
+visible = false
+width = 0.28419
+height = 0.139492
+depth = 0.0905771
+material = SubResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0440002, 2.24131, 0.239801 )
+width = 0.28419
+height = 0.139492
+depth = 0.0905771
+material = SubResource( 3 )
+
+[node name="OmniLight17" type="OmniLight" parent="CSGCombiner5/CSGBox4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5 )
+light_color = Color( 0, 0.498039, 0.207843, 1 )
+omni_range = 4.1
+omni_attenuation = 4.28709
+
+[node name="CSGCombiner4" type="CSGCombiner" parent="."]
+transform = Transform( 0, 0, 1, 0, 1, 0, -1, 0, 0, -2.9, 0, -3.4 )
+visible = false
+use_in_baked_light = true
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4975, 1.05, 0.124344 )
+width = 1.1
+height = 2.1
+depth = 0.1
+
+[node name="CSGSphere" type="CSGSphere" parent="CSGCombiner4/CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.397972, -0.193717, -0.0730591 )
+radius = 0.06
+
+[node name="CSGSphere2" type="CSGSphere" parent="CSGCombiner4/CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.397972, -0.193717, 0.0744151 )
+radius = 0.06
+
+[node name="Area" type="Area" parent="CSGCombiner4/CSGBox"]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, 0.384754, -0.191298, -0.104212 )
+collision_mask = 0
+script = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CSGCombiner4/CSGBox/Area"]
+shape = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="CSGCombiner4/CSGBox"]
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.607601, 1.05, 0.124344 )
+width = 1.1
+height = 2.1
+depth = 0.1
+
+[node name="CSGSphere2" type="CSGSphere" parent="CSGCombiner4/CSGBox2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.421295, -0.193717, -0.0730591 )
+radius = 0.06
+
+[node name="CSGSphere3" type="CSGSphere" parent="CSGCombiner4/CSGBox2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.421295, -0.193717, 0.0744151 )
+radius = 0.06
+
+[node name="iron_door" parent="." instance=ExtResource( 10 )]
+transform = Transform( -0.0174524, 0, -0.999848, 0, 1, 0, 0.999848, 0, -0.0174524, -2.3, 1, -3.4 )
+
+[node name="iron_door2" type="Spatial" parent="."]
+transform = Transform( -6.33299e-08, 0, 1, 0, 1, 0, -1, 0, -6.33299e-08, 3.7, 1, -3.4 )
+
+[node name="큐브049" type="MeshInstance" parent="iron_door2"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.207912, 0.978148, 0, -0.978148, -0.207912, 0, 0, 0 )
+visible = false

@@ -1,3 +1,4 @@
+tool
 extends MeshInstance
 class_name proc_gen_room
 
@@ -14,7 +15,7 @@ signal match_finish
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	PhysicsServer.set_active(true)
 	#print(exits)
 	#rotation_degrees.y = 0
 	#get_parent().connect("create_room", self, "create_room")
@@ -24,7 +25,6 @@ func _ready():
 	#	exits.append(i)
 	#for i in $exit_poss.get_children():
 	#	print(str(rad2deg(i.global_transform.basis.get_euler().y)))
-	
 	pass # Replace with function body.
 
 
@@ -41,11 +41,12 @@ func connect_room(old_exit, new_exit):
 	rotation_degrees.y = result_angle
 	
 	global_transform.origin = global_transform.origin + (old_exit.global_transform.origin - new_exit.global_transform.origin)
-	owner = get_parent()
+	#owner = get_parent()
 
 
 func _on_Area_area_entered(area):
 	collision = true
+	print("collision")
 	pass # Replace with function body.
 
 

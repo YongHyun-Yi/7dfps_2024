@@ -1,4 +1,4 @@
-extends Camera
+extends Spatial
 
 
 export var mouse_sensitivity = 0.1
@@ -14,7 +14,8 @@ func _ready():
 #	pass
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		get_parent().rotate_y(deg2rad(-event.relative.x * GlobalOption.mouse_sensitivity))
-		rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
-		rotation.x = clamp(rotation.x, deg2rad(-89), deg2rad(90))
+	if GlobalRef.player != null and GlobalRef.player.active:
+		if event is InputEventMouseMotion:
+			get_parent().rotate_y(deg2rad(-event.relative.x * GlobalOption.mouse_sensitivity))
+			rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
+			rotation.x = clamp(rotation.x, deg2rad(-89), deg2rad(90))

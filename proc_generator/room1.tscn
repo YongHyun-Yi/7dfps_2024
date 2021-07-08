@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://proc_generator/proc_gen_room.gd" type="Script" id=1]
 [ext_resource path="res://proc_generator/exit_pos.gd" type="Script" id=2]
 [ext_resource path="res://3d/building2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://3d/first_building.tscn" type="PackedScene" id=4]
 [ext_resource path="res://proc_generator/object_pos.gd" type="Script" id=5]
-
+[ext_resource path="res://proc_generator/Area.gd" type="Script" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 6, 0.3, 6 )
@@ -30,6 +30,7 @@ Corridor = true
 [node name="Area" type="Area" parent="."]
 collision_layer = 4
 collision_mask = 4
+script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 2 )
@@ -56,5 +57,6 @@ omni_attenuation = 4.28709
 [node name="object_pos2" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1785, 0.947685, -3.03363 )
 script = ExtResource( 5 )
+
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]

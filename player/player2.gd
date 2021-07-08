@@ -11,15 +11,19 @@ export var air_gravity = 7.0
 export var floor_gravity = 1.0
 export var floor_speed = 1.0
 
+export var current_stamina = 100
+export var max_stamina = 100
+
 onready var raycast_pos = $raycast_pos
 export var raycast_pos_stand_height = 3.082
 export var raycast_pos_crouch_height = 0.993
 
-onready var player_cam = $Camera
+onready var player_cam = $cam
 export var player_cam_stand_height = 1.6#3.117
 export var player_cam_crouch_height = 1.757
 
 onready var sprint_sound_area = load("res://player_sound_area/player_sprint_sound_area.tscn")
+onready var letter_box = $CanvasLayer/Control/letter_box
 
 #export var mouse_sensitivity = 0.1
 
@@ -35,21 +39,38 @@ export var crouch_mode = false
 
 export var active = false
 
+onready var inventory = GlobalRef.inventory
+
 func _ready():
+	GlobalRef.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	raycast_pos.transform.origin.y = raycast_pos_stand_height
+	Input.is_action_just_pressed("inventory")
 	#player_cam.transform.origin.y = player_cam_stand_height
 
 func _physics_process(delta):
-	
+	$CanvasLayer/Control/locale.text = TranslationServer.get_locale()
 	if active:
 	
 		direction = Vector3.ZERO
 		
-		if run_mode:
-			movement_speed = run_speed
+		if crouch_mode:
+			movement_speed = walk_speed / 2.4
 		else:
-			movement_speed = walk_speed
+			if run_mode:
+				if current_stamina > 0:
+					movement_speed = run_speed
+				else:
+					run_mode = false
+			else:
+				movement_speed = walk_speed
+		
+		if !run_mode and current_stamina < max_stamina:
+			current_stamina = min(current_stamina + .05, max_stamina)
+		elif run_mode and current_stamina > 0:
+			current_stamina = max(current_stamina - .1, 0)
+		#$CanvasLayer/Control/stamina_label.text = str(current_stamina)
+		$CanvasLayer/Control/stamina_bar.value = current_stamina
 		
 		if x_input != 0 or z_input != 0: # 이동중일때
 			if run_mode:
@@ -110,7 +131,7 @@ func _physics_process(delta):
 
 func _unhandled_input(event):
 	
-	if event is InputEventKey:
+	#if event is InputEventKey:
 	
 		#if Input.is_action_pressed("move_foward"):
 		#	z_input = -1
@@ -128,14 +149,36 @@ func _unhandled_input(event):
 		#	x_input = 0
 		x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		
-		if Input.is_action_pressed("sprint"):
-			run_mode = true
-		else:
+		if Input.is_action_just_pressed("sprint"):
+			if crouch_mode:
+				crouch_mode = false
+				raycast_pos.transform.origin.y = raycast_pos_stand_height
+				player_cam.transform.origin.y = player_cam_stand_height
+			if current_stamina > 0:
+				run_mode = true
+		if Input.is_action_just_released("sprint"):
 			run_mode = false
 		
+		#if Input.is_action_just_pressed("move_foward"):
+		#	print("..")
+		#	if event is InputEventMouseButton:
+		#		if event.button_index == BUTTON_RIGHT:
+		#			if !run_mode and event.doubleclick:
+		#				run_mode = true
+		#			elif run_mode and !event.pressed:
+		#				run_mode = true
+				#run_mode = Input.is_action_pressed("sprint")
+		#else:
+		#	print("11")
+		
 		if Input.is_action_just_pressed("crouch"):
-			
-			crouch_mode = !crouch_mode
+			if event is InputEventKey:
+				crouch_mode = !crouch_mode
+			else:
+				if event.button_index == BUTTON_WHEEL_DOWN and !crouch_mode:
+					crouch_mode = true
+				elif event.button_index == BUTTON_WHEEL_UP and crouch_mode:
+					crouch_mode = false
 			
 			if crouch_mode:
 				raycast_pos.transform.origin.y = raycast_pos_crouch_height
@@ -143,10 +186,31 @@ func _unhandled_input(event):
 			else:
 				raycast_pos.transform.origin.y = raycast_pos_stand_height
 				player_cam.transform.origin.y = player_cam_stand_height
+		
+		if Input.is_action_just_pressed("inventory"):
+			if !inventory.visible:
+				inventory.show()
+				inventory.grab_focus()
+				x_input = 0
+				z_input = 0
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				$CanvasLayer/Control/inventory/inventory_open_sfx.play()
+				
+			#else:
+			#	inventory.hide()
+			#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		if Input.is_action_just_pressed("toggle_locale"):
+			var loc = TranslationServer.get_locale()
+			match loc:
+				"ko":
+					TranslationServer.set_locale("en")
+				"en":
+					TranslationServer.set_locale("ko")
 
 func player_active():
 	active = true
-	$Camera2.make_current()
+	$cam/Camera.make_current()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func only_player_active():

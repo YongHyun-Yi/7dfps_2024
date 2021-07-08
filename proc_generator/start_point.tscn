@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://proc_generator/proc_gen_room.gd" type="Script" id=1]
 [ext_resource path="res://proc_generator/exit_pos.gd" type="Script" id=2]
@@ -8,8 +8,7 @@
 [ext_resource path="res://snow_particle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://3d/snow_floor.tres" type="Material" id=7]
 [ext_resource path="res://items/item.tscn" type="PackedScene" id=8]
-
-
+[ext_resource path="res://proc_generator/Area.gd" type="Script" id=9]
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 7 )
@@ -38,6 +37,7 @@ Corridor = true
 [node name="Area" type="Area" parent="."]
 collision_layer = 4
 collision_mask = 4
+script = ExtResource( 9 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 2 )
@@ -78,5 +78,6 @@ material/0 = null
 
 [node name="item" parent="." instance=ExtResource( 8 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.09654, 1.40483, 0 )
+
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]

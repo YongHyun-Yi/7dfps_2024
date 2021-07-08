@@ -654,7 +654,6 @@ __meta__ = {
 }
 
 [node name="menus" type="Control" parent="pause_menu/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -774,6 +773,9 @@ margin_bottom = 34.892
 text = "Pause"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="close_button" type="Button" parent="pause_menu/TabContainer/menus/menus"]
 anchor_left = 1.0
@@ -887,6 +889,7 @@ __meta__ = {
 }
 
 [node name="option_menu" type="Control" parent="pause_menu/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -1207,6 +1210,7 @@ text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="focus_entered" from="ingame_menu" to="ingame_menu" method="focus_entered"]
 [connection signal="tab_changed" from="ingame_menu/TabContainer" to="ingame_menu" method="tab_changed"]
 [connection signal="visibility_changed" from="ingame_menu/TabContainer/player_state" to="ingame_menu/TabContainer/player_state" method="visibility_changed"]

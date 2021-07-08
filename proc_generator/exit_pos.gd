@@ -1,3 +1,4 @@
+tool
 extends Position3D
 class_name proc_gen_exit
 

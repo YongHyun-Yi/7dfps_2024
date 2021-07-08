@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://proc_generator/Camera.gd" type="Script" id=1]
 [ext_resource path="res://proc_generator/random_generator.gd" type="Script" id=2]
+[ext_resource path="res://proc_generator/room1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://proc_generator/start_point.tscn" type="PackedScene" id=4]
+[ext_resource path="res://proc_generator/room2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://proc_generator/junction1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://proc_generator/corridor2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://proc_generator/corridor1.tscn" type="PackedScene" id=8]
 
 [node name="random_generator" type="Spatial"]
 script = ExtResource( 2 )
+start_room = ExtResource( 4 )
+rooms = [ ExtResource( 3 ), ExtResource( 5 ) ]
+corridors = [ ExtResource( 8 ), ExtResource( 7 ) ]
+junctions = [ ExtResource( 6 ) ]
+literation = 7
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
@@ -40,6 +51,7 @@ align = 1
 valign = 1
 
 [node name="GIProbe" type="GIProbe" parent="."]
+visible = false
 subdiv = 0
 extents = Vector3( 100, 100, 100 )
 interior = true

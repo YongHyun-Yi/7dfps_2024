@@ -98,5 +98,6 @@ anims/reset = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="Timer_timeout"]

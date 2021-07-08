@@ -1,12 +1,30 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://player/player2.gd" type="Script" id=1]
 [ext_resource path="res://player/Camera2.gd" type="Script" id=2]
 [ext_resource path="res://sfx/player_sprint_01.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/player_walking_01.wav" type="AudioStream" id=4]
+[ext_resource path="res://2d/cursor.png" type="Texture" id=5]
 [ext_resource path="res://interactable/interaction_raycast.gd" type="Script" id=6]
+[ext_resource path="res://default_env.tres" type="Environment" id=7]
+[ext_resource path="res://items/item_mesh_in_inventory.tscn" type="PackedScene" id=8]
+[ext_resource path="res://themes/ui_panel.tres" type="StyleBox" id=9]
+[ext_resource path="res://themes/button_press_panel.tres" type="StyleBox" id=10]
+[ext_resource path="res://themes/button_hover_penel.tres" type="StyleBox" id=11]
+[ext_resource path="res://font/bakmulgwan_Bold.otf" type="DynamicFontData" id=12]
+[ext_resource path="res://uis/inventory.gd" type="Script" id=13]
+[ext_resource path="res://uis/textbox.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sfx/get_item/441286__drfx__scary-piano_edited.wav" type="AudioStream" id=15]
+[ext_resource path="res://sfx/inventory_open/zipper_edited.wav" type="AudioStream" id=16]
+[ext_resource path="res://sfx/inventory_click/219318__joebro10__mouse-clicks_edited.wav" type="AudioStream" id=17]
+[ext_resource path="res://2d/inventory1.PNG" type="Texture" id=18]
+[ext_resource path="res://2d/inventory2.PNG" type="Texture" id=19]
+[ext_resource path="res://player/item_using_system.gd" type="Script" id=20]
+[ext_resource path="res://player/Viewport.gd" type="Script" id=21]
+[ext_resource path="res://player/letter_box.gd" type="Script" id=22]
+[ext_resource path="res://player/stamina_bar.gd" type="Script" id=23]
 
-[sub_resource type="CapsuleShape" id=7]
+[sub_resource type="CapsuleShape" id=1]
 margin = 0.001
 radius = 0.325345
 
@@ -41,43 +59,105 @@ mid_height = 3.0
 [sub_resource type="CubeMesh" id=6]
 size = Vector3( 0.6, 1.6, 0.6 )
 
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 0.392157 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxFlat" id=9]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=10]
+content_margin_left = 18.0
+content_margin_top = 15.0
+bg_color = Color( 0, 0, 0, 0.635294 )
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="World" id=11]
+environment = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 32
+font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+resource_local_to_scene = true
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=14]
+size = 39
+font_data = ExtResource( 12 )
+
 [node name="player2" type="KinematicBody"]
 collision_layer = 2
 script = ExtResource( 1 )
 air_gravity = 10.0
 floor_gravity = 10.0
 floor_speed = 0.2
-player_cam_stand_height = 2.879
+raycast_pos_stand_height = 1.383
+raycast_pos_crouch_height = 0.692
+player_cam_stand_height = 1.4
+player_cam_crouch_height = 0.7
 walk_speed = 5.0
 run_speed = 10.0
 
-[node name="Camera" type="Camera" parent="."]
+[node name="cam" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0 )
-fov = 60.0
-far = 115.1
 script = ExtResource( 2 )
 
-[node name="SpotLight" type="SpotLight" parent="Camera"]
+[node name="Camera" type="Camera" parent="cam"]
+fov = 60.0
+
+[node name="SpotLight" type="SpotLight" parent="cam/Camera"]
 visible = false
 light_energy = 2.05
 spot_range = 21.9996
 spot_angle = 48.7462
 spot_angle_attenuation = 0.120742
 
-[node name="RayCast" type="RayCast" parent="Camera"]
+[node name="RayCast" type="RayCast" parent="cam/Camera"]
 enabled = true
 cast_to = Vector3( 0, 0, -1.052 )
-collision_mask = 16
 collide_with_areas = true
-collide_with_bodies = false
 script = ExtResource( 6 )
 
 [node name="raycast_pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.08196, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38261, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.817106, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 
 [node name="foot_sound_animation" type="AnimationPlayer" parent="."]
 autoplay = "reset"
@@ -93,6 +173,7 @@ material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
+visible = false
 mesh = SubResource( 6 )
 material/0 = null
 
@@ -114,5 +195,290 @@ light_color = Color( 0.0745098, 0.109804, 0.156863, 1 )
 omni_range = 7.30273
 omni_attenuation = 5.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 1903.86, 350 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stamina_bar" type="ProgressBar" parent="CanvasLayer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.0
+margin_top = 317.859
+margin_right = 170.0
+margin_bottom = 318.859
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
+value = 100.0
+percent_visible = false
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+self_modulate = Color( 1, 1, 1, 0.4 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.5
+margin_top = -4.5
+margin_right = 4.5
+margin_bottom = 4.5
+mouse_filter = 2
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="textbox" parent="CanvasLayer/Control" instance=ExtResource( 14 )]
+
+[node name="inventory" type="Popup" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inventory2" type="TextureRect" parent="CanvasLayer/Control/inventory"]
+self_modulate = Color( 1, 1, 1, 0.705882 )
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inventory1" type="TextureRect" parent="CanvasLayer/Control/inventory"]
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/Control/inventory"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 230.5
+margin_top = 181.0
+margin_right = 618.5
+margin_bottom = 337.0
+focus_mode = 0
+mouse_filter = 1
+custom_styles/selected = SubResource( 9 )
+custom_styles/bg = SubResource( 10 )
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
+max_columns = 5
+same_column_width = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="details" type="Control" parent="CanvasLayer/Control/inventory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mesh_view" type="ViewportContainer" parent="CanvasLayer/Control/inventory/details"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 120.0
+margin_top = -344.0
+margin_right = 632.0
+margin_bottom = -44.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="CanvasLayer/Control/inventory/details/mesh_view"]
+size = Vector2( 512, 300 )
+world = SubResource( 11 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 0
+physics_object_picking = true
+script = ExtResource( 21 )
+
+[node name="item_mesh_in_inventory" parent="CanvasLayer/Control/inventory/details/mesh_view/Viewport" instance=ExtResource( 8 )]
+
+[node name="name" type="Label" parent="CanvasLayer/Control/inventory/details"]
+anchor_top = 0.681
+anchor_right = 1.0
+anchor_bottom = 0.681
+margin_left = 786.0
+margin_top = -154.32
+margin_right = -43.0
+margin_bottom = -118.32
+custom_fonts/font = SubResource( 12 )
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="describe" type="RichTextLabel" parent="CanvasLayer/Control/inventory/details"]
+anchor_top = 0.858
+anchor_right = 1.0
+anchor_bottom = 0.858
+margin_left = 786.0
+margin_top = -231.76
+margin_right = -38.0
+margin_bottom = -130.76
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stack" type="Label" parent="CanvasLayer/Control/inventory/details"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 565.883
+margin_top = -113.857
+margin_right = 605.883
+margin_bottom = -94.8571
+align = 2
+valign = 1
+
+[node name="use_button" type="Button" parent="CanvasLayer/Control/inventory"]
+visible = false
+anchor_left = 0.511
+anchor_top = 0.934
+anchor_right = 0.511
+anchor_bottom = 0.934
+margin_left = 497.813
+margin_top = -221.165
+margin_right = 586.813
+margin_bottom = -186.165
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "사용하기"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="equip_button" type="Button" parent="CanvasLayer/Control/inventory"]
+visible = false
+anchor_left = 0.594
+anchor_top = 0.932
+anchor_right = 0.594
+anchor_bottom = 0.932
+margin_left = 392.57
+margin_top = -220.344
+margin_right = 481.57
+margin_bottom = -185.344
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "장착하기"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="close_button" type="Button" parent="CanvasLayer/Control/inventory"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 3.28418
+margin_top = -346.026
+margin_right = 53.2842
+margin_bottom = -296.026
+rect_min_size = Vector2( 50, 50 )
+focus_mode = 1
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 9 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="get_item_sfx" type="AudioStreamPlayer" parent="CanvasLayer/Control/inventory"]
+stream = ExtResource( 15 )
+
+[node name="inventory_open_sfx" type="AudioStreamPlayer" parent="CanvasLayer/Control/inventory"]
+stream = ExtResource( 16 )
+
+[node name="inventory_click_sfx" type="AudioStreamPlayer" parent="CanvasLayer/Control/inventory"]
+stream = ExtResource( 17 )
+
+[node name="move_tween" type="Tween" parent="CanvasLayer/Control/inventory"]
+
+[node name="alpha_tween" type="Tween" parent="CanvasLayer/Control/inventory"]
+
+[node name="item_using_system" type="Node" parent="CanvasLayer/Control/inventory"]
+script = ExtResource( 20 )
+
+[node name="letter_box" type="Control" parent="CanvasLayer/Control"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/letter_box"]
+anchor_right = 1.0
+margin_bottom = 112.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control/letter_box"]
+anchor_right = 1.0
+margin_top = 608.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="CanvasLayer/Control/letter_box"]
+
+[node name="locale" type="Label" parent="CanvasLayer/Control"]
+margin_right = 80.0
+margin_bottom = 56.0
+rect_scale = Vector2( 2, 2 )
+
 [connection signal="timeout" from="walking_sound_timer" to="." method="_on_walking_sound_timer_timeout"]
 [connection signal="timeout" from="sprint_sound_timer" to="." method="_on_sprint_sound_timer_timeout"]
+[connection signal="visibility_changed" from="CanvasLayer/Control/inventory" to="CanvasLayer/Control/inventory" method="visibility_changed"]
+[connection signal="item_selected" from="CanvasLayer/Control/inventory/ItemList" to="CanvasLayer/Control/inventory" method="item_selected"]
+[connection signal="button_up" from="CanvasLayer/Control/inventory/close_button" to="CanvasLayer/Control/inventory" method="close_button_up"]

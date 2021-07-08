@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://3d/새 폴더/lamp/lamp.glb" type="PackedScene" id=1]
+[ext_resource path="res://3d/새 폴더/lamp/lamp.gd" type="Script" id=2]
+[ext_resource path="res://sfx/light_bulb_buzz/119910__ftpalad__fluorescent-lightbulb-hum_edited.wav" type="AudioStream" id=3]
+
+[node name="lamp" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="OmniLight" type="OmniLight" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0 )
+visible = false
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+light_energy = 0.2
+shadow_enabled = true
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+omni_range = 2.90735
+
+[node name="SpotLight" type="SpotLight" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.38, 0 )
+visible = false
+light_color = Color( 0.376471, 0.556863, 0.65098, 1 )
+spot_range = 0.8
+spot_angle = 63.5
+
+[node name="buzz_sfx" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource( 3 )

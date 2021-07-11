@@ -7,6 +7,7 @@ var capture_camera
 var hud
 var uis
 var inventory
+var quick_slot_manager
 var world_generator
 var save_menu
 var textbox

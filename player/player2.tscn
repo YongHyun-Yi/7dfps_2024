@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://player/player2.gd" type="Script" id=1]
 [ext_resource path="res://player/Camera2.gd" type="Script" id=2]
@@ -23,6 +23,14 @@
 [ext_resource path="res://player/Viewport.gd" type="Script" id=21]
 [ext_resource path="res://player/letter_box.gd" type="Script" id=22]
 [ext_resource path="res://player/stamina_bar.gd" type="Script" id=23]
+[ext_resource path="res://2d/radial_selected_item_slot.png" type="Texture" id=24]
+[ext_resource path="res://2d/radial_selected_item_background.png" type="Texture" id=25]
+[ext_resource path="res://2d/radial_quik_background.png" type="Texture" id=26]
+[ext_resource path="res://2d/radial_quik_slot.png" type="Texture" id=27]
+[ext_resource path="res://player/quick_slot_manager.gd" type="Script" id=28]
+[ext_resource path="res://2d/icon/coin.png" type="Texture" id=29]
+[ext_resource path="res://font/bakmulgwan__Light.otf" type="DynamicFontData" id=30]
+[ext_resource path="res://uis/quick_slot/quick_slot.tscn" type="PackedScene" id=31]
 
 [sub_resource type="CapsuleShape" id=1]
 margin = 0.001
@@ -68,7 +76,213 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id=8]
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="DynamicFont" id=9]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 30 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "reset"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("slot1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 544, 440 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slot3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 736, 440 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("selected_slot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 568, 248 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("slot2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, 472 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("quick_slot3:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 675, 390 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("quick_slot2:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 580, 420 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("quick_slot1:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 485, 390 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "show"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("slot1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 360 ), Vector2( 544, 440 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("slot3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 360 ), Vector2( 736, 440 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("selected_slot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 568, 310 ), Vector2( 568, 248 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("slot2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 360 ), Vector2( 640, 472 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("quick_slot3:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 645, 360 ), Vector2( 675, 390 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("quick_slot2:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 580, 375 ), Vector2( 580, 420 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("quick_slot1:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( -2, 1 ),
+"update": 0,
+"values": [ Vector2( 520, 360 ), Vector2( 485, 390 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=12]
 draw_center = false
 border_width_left = 3
 border_width_top = 3
@@ -80,7 +294,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=13]
 content_margin_left = 18.0
 content_margin_top = 15.0
 bg_color = Color( 0, 0, 0, 0.635294 )
@@ -95,14 +309,14 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="World" id=11]
+[sub_resource type="World" id=14]
 environment = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=15]
 size = 32
 font_data = ExtResource( 12 )
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=16]
 resource_local_to_scene = true
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 3
@@ -115,7 +329,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=17]
 size = 39
 font_data = ExtResource( 12 )
 
@@ -242,6 +456,209 @@ __meta__ = {
 
 [node name="textbox" parent="CanvasLayer/Control" instance=ExtResource( 14 )]
 
+[node name="quick_slot_manager" type="Popup" parent="CanvasLayer/Control"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="selected_slot" type="Node2D" parent="CanvasLayer/Control/quick_slot_manager"]
+position = Vector2( 568, 248 )
+
+[node name="radial_selected_item_background" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/selected_slot"]
+self_modulate = Color( 1, 1, 1, 0.705882 )
+position = Vector2( 73.5, -1 )
+texture = ExtResource( 25 )
+
+[node name="radial_selected_item_slot" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/selected_slot"]
+position = Vector2( 1.5, -1 )
+texture = ExtResource( 24 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/selected_slot"]
+position = Vector2( 1.06061, -0.353561 )
+texture = ExtResource( 29 )
+
+[node name="name" type="Label" parent="CanvasLayer/Control/quick_slot_manager/selected_slot"]
+margin_left = 48.0
+margin_top = -32.0
+margin_right = 192.0
+margin_bottom = 16.0
+text = "선택된 아이템 이름"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stack" type="Label" parent="CanvasLayer/Control/quick_slot_manager/selected_slot"]
+margin_left = 96.0
+margin_top = 16.0
+margin_right = 184.0
+margin_bottom = 35.0
+text = "n 개"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot1" type="Node2D" parent="CanvasLayer/Control/quick_slot_manager"]
+visible = false
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 544, 440 )
+
+[node name="radial_quik_background" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/slot1"]
+self_modulate = Color( 1, 1, 1, 0.705882 )
+position = Vector2( -3.83752, 1.41728 )
+rotation = 0.523598
+texture = ExtResource( 26 )
+
+[node name="radial_quik_slot" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/slot1"]
+position = Vector2( -3.83752, 1.41728 )
+rotation = 0.523598
+texture = ExtResource( 27 )
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Control/quick_slot_manager/slot1"]
+position = Vector2( -3.83752, 1.41728 )
+rotation = 0.523598
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Control/quick_slot_manager/slot1/Area2D"]
+polygon = PoolVector2Array( 28.5, -36.2, 32.5, -31.2, 32.5, -26.5, 45.5, 24.3, 45.5, 34.5, 44.8, 34.5, 35.8, 37.5, -39.6, 37.5, -45.5, 36.3, -45.5, 16.9, -28.5, -36.8, -28.5, -37.5, -9.5, -37.5, -1.3, -36.5, 0.299999, -36.5, 13.1, -37.5, 28.5, -37.5 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/slot1"]
+position = Vector2( -5.64874, 3.35867 )
+texture = ExtResource( 29 )
+
+[node name="stack" type="Label" parent="CanvasLayer/Control/quick_slot_manager/slot1"]
+margin_left = -30.5219
+margin_top = 21.3066
+margin_right = 16.4781
+margin_bottom = 40.3066
+custom_fonts/font = SubResource( 9 )
+text = "n"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot2" type="Node2D" parent="CanvasLayer/Control/quick_slot_manager"]
+visible = false
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 640, 472 )
+
+[node name="radial_quik_background2" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/slot2"]
+self_modulate = Color( 1, 1, 1, 0.705882 )
+texture = ExtResource( 26 )
+
+[node name="radial_quik_slot" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/slot2"]
+texture = ExtResource( 27 )
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Control/quick_slot_manager/slot2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Control/quick_slot_manager/slot2/Area2D"]
+polygon = PoolVector2Array( 28.5, -36.2, 32.5, -31.2, 32.5, -26.5, 45.5, 24.3, 45.5, 34.5, 44.8, 34.5, 35.8, 37.5, -39.6, 37.5, -45.5, 36.3, -45.5, 16.9, -28.5, -36.8, -28.5, -37.5, -9.5, -37.5, -1.3, -36.5, 0.299999, -36.5, 13.1, -37.5, 28.5, -37.5 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/slot2"]
+position = Vector2( -0.924072, 1.46881 )
+texture = ExtResource( 29 )
+
+[node name="stack" type="Label" parent="CanvasLayer/Control/quick_slot_manager/slot2"]
+margin_left = -15.0879
+margin_top = 12.4872
+margin_right = 31.9121
+margin_bottom = 31.4872
+custom_fonts/font = SubResource( 9 )
+text = "n"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slot3" type="Node2D" parent="CanvasLayer/Control/quick_slot_manager"]
+visible = false
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 736, 440 )
+
+[node name="radial_quik_background3" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/slot3"]
+self_modulate = Color( 1, 1, 1, 0.705882 )
+position = Vector2( 4.16248, 1.4173 )
+rotation = -0.523598
+texture = ExtResource( 26 )
+
+[node name="radial_quik_slot" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/slot3"]
+position = Vector2( 4.16248, 1.4173 )
+rotation = -0.523598
+texture = ExtResource( 27 )
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Control/quick_slot_manager/slot3"]
+position = Vector2( 4.16248, 1.4173 )
+rotation = -0.523598
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Control/quick_slot_manager/slot3/Area2D"]
+polygon = PoolVector2Array( 28.5, -36.2, 32.5, -31.2, 32.5, -26.5, 45.5, 24.3, 45.5, 34.5, 44.8, 34.5, 35.8, 37.5, -39.6, 37.5, -45.5, 36.3, -45.5, 16.9, -28.5, -36.8, -28.5, -37.5, -9.5, -37.5, -1.3, -36.5, 0.299999, -36.5, 13.1, -37.5, 28.5, -37.5 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Control/quick_slot_manager/slot3"]
+position = Vector2( 4.83997, 4.38232 )
+texture = ExtResource( 29 )
+
+[node name="stack" type="Label" parent="CanvasLayer/Control/quick_slot_manager/slot3"]
+margin_left = 2.65808
+margin_top = 6.92496
+margin_right = 49.6581
+margin_bottom = 25.925
+custom_fonts/font = SubResource( 9 )
+text = "n"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quick_slot1" parent="CanvasLayer/Control/quick_slot_manager" instance=ExtResource( 31 )]
+margin_left = 485.0
+margin_top = 390.0
+margin_right = 602.0
+margin_bottom = 492.0
+rect_rotation = 30.0
+
+[node name="stack" parent="CanvasLayer/Control/quick_slot_manager/quick_slot1" index="2"]
+margin_left = -73.2552
+margin_top = -18.6562
+margin_right = -26.2552
+margin_bottom = 0.343842
+rect_rotation = -30.0
+
+[node name="quick_slot2" parent="CanvasLayer/Control/quick_slot_manager" instance=ExtResource( 31 )]
+margin_left = 580.0
+margin_top = 420.0
+margin_right = 697.0
+margin_bottom = 522.0
+
+[node name="quick_slot3" parent="CanvasLayer/Control/quick_slot_manager" instance=ExtResource( 31 )]
+margin_left = 675.0
+margin_top = 390.0
+margin_right = 792.0
+margin_bottom = 492.0
+rect_rotation = -30.0
+
+[node name="stack" parent="CanvasLayer/Control/quick_slot_manager/quick_slot3" index="2"]
+margin_left = -62.9146
+margin_top = -58.01
+margin_right = -15.9146
+margin_bottom = -39.01
+rect_rotation = 30.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/quick_slot_manager"]
+autoplay = "reset"
+playback_speed = 2.0
+anims/reset = SubResource( 10 )
+anims/show = SubResource( 11 )
+
 [node name="inventory" type="Popup" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -281,8 +698,8 @@ margin_right = 618.5
 margin_bottom = 337.0
 focus_mode = 0
 mouse_filter = 1
-custom_styles/selected = SubResource( 9 )
-custom_styles/bg = SubResource( 10 )
+custom_styles/selected = SubResource( 12 )
+custom_styles/bg = SubResource( 13 )
 custom_constants/vseparation = 5
 custom_constants/hseparation = 5
 max_columns = 5
@@ -315,7 +732,7 @@ __meta__ = {
 
 [node name="Viewport" type="Viewport" parent="CanvasLayer/Control/inventory/details/mesh_view"]
 size = Vector2( 512, 300 )
-world = SubResource( 11 )
+world = SubResource( 14 )
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 0
@@ -332,7 +749,7 @@ margin_left = 786.0
 margin_top = -154.32
 margin_right = -43.0
 margin_bottom = -118.32
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 15 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -362,6 +779,27 @@ margin_right = 605.883
 margin_bottom = -94.8571
 align = 2
 valign = 1
+
+[node name="add_quick_slot_button" type="MenuButton" parent="CanvasLayer/Control/inventory"]
+anchor_left = 0.511
+anchor_top = 0.934
+anchor_right = 0.511
+anchor_bottom = 0.934
+margin_left = 376.142
+margin_top = -221.48
+margin_right = 488.142
+margin_bottom = -186.48
+rect_min_size = Vector2( 112, 35 )
+mouse_filter = 1
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+enabled_focus_mode = 0
+text = "퀵슬롯 등록"
+flat = false
+items = [ "Slot 1", null, 0, false, false, 1, 0, null, "", false, "Slot 2", null, 0, false, false, 2, 0, null, "", false, "Slot 3", null, 0, false, false, 3, 0, null, "", false ]
 
 [node name="use_button" type="Button" parent="CanvasLayer/Control/inventory"]
 visible = false
@@ -422,8 +860,8 @@ rect_min_size = Vector2( 50, 50 )
 focus_mode = 1
 custom_styles/hover = ExtResource( 11 )
 custom_styles/pressed = ExtResource( 9 )
-custom_styles/normal = SubResource( 13 )
-custom_fonts/font = SubResource( 14 )
+custom_styles/normal = SubResource( 16 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "X"
 __meta__ = {
@@ -453,6 +891,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 22 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -479,6 +918,11 @@ rect_scale = Vector2( 2, 2 )
 
 [connection signal="timeout" from="walking_sound_timer" to="." method="_on_walking_sound_timer_timeout"]
 [connection signal="timeout" from="sprint_sound_timer" to="." method="_on_sprint_sound_timer_timeout"]
+[connection signal="visibility_changed" from="CanvasLayer/Control/quick_slot_manager" to="CanvasLayer/Control/quick_slot_manager" method="_on_quick_slot_manager_visibility_changed"]
 [connection signal="visibility_changed" from="CanvasLayer/Control/inventory" to="CanvasLayer/Control/inventory" method="visibility_changed"]
 [connection signal="item_selected" from="CanvasLayer/Control/inventory/ItemList" to="CanvasLayer/Control/inventory" method="item_selected"]
+[connection signal="about_to_show" from="CanvasLayer/Control/inventory/add_quick_slot_button" to="CanvasLayer/Control/inventory" method="_on_add_quick_slot_button_about_to_show"]
 [connection signal="button_up" from="CanvasLayer/Control/inventory/close_button" to="CanvasLayer/Control/inventory" method="close_button_up"]
+
+[editable path="CanvasLayer/Control/quick_slot_manager/quick_slot1"]
+[editable path="CanvasLayer/Control/quick_slot_manager/quick_slot3"]

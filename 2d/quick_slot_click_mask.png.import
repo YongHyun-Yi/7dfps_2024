@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/quick_slot_click_mask.png-ed2091eab5cf5bcc7b1737110bfe5bed.res"
+
+[deps]
+
+source_file="res://2d/quick_slot_click_mask.png"
+dest_files=[ "res://.import/quick_slot_click_mask.png-ed2091eab5cf5bcc7b1737110bfe5bed.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5

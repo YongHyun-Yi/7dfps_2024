@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/radial_quik_background2.png-371a736fa0e9f319e1839b3ea1868b0f.res"
+
+[deps]
+
+source_file="res://2d/radial_quik_background2.png"
+dest_files=[ "res://.import/radial_quik_background2.png-371a736fa0e9f319e1839b3ea1868b0f.res" ]
+
+[params]
+
+create_from=1
+threshold=0.5

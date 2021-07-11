@@ -40,6 +40,7 @@ export var crouch_mode = false
 export var active = false
 
 onready var inventory = GlobalRef.inventory
+#onready var quick_slot_manager = get_node("CanvasLayer/Control/quick_slot_manager")
 
 func _ready():
 	GlobalRef.player = self
@@ -189,16 +190,25 @@ func _unhandled_input(event):
 		
 		if Input.is_action_just_pressed("inventory"):
 			if !inventory.visible:
-				inventory.show()
-				inventory.grab_focus()
-				x_input = 0
-				z_input = 0
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				$CanvasLayer/Control/inventory/inventory_open_sfx.play()
+				if !GlobalRef.quick_slot_manager.visible:
+					GlobalRef.inventory.popup()
+					#inventory.show()
+					#inventory.grab_focus()
+					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+					$CanvasLayer/Control/inventory/inventory_open_sfx.play()
 				
 			#else:
 			#	inventory.hide()
 			#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		
+		if Input.is_action_just_pressed("radial_menu"):
+			if !GlobalRef.quick_slot_manager.visible:
+				if !GlobalRef.inventory.visible:
+					GlobalRef.quick_slot_manager.popup()
+					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+					#radial_menu.grab_focus()
+		
 		
 		if Input.is_action_just_pressed("toggle_locale"):
 			var loc = TranslationServer.get_locale()

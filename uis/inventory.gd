@@ -5,10 +5,12 @@ onready var m_tween = $move_tween
 onready var a_tween = $alpha_tween
 var current_selected_item = ""
 
+onready var add_quick_slot_button = $add_quick_slot_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalRef.inventory = self
+	add_quick_slot_button.get_popup().connect("id_pressed", self, "add_quick_slot_item")
 	#var viewport_tex = $details/mesh_view/Viewport.get_texture()
 	#$details/mesh_view.texture = viewport_tex
 	detail_reset()
@@ -47,6 +49,7 @@ func item_selected(index):
 	# 아이템 타입에 따라서 '사용, 장비' 버튼 활성화
 	
 	current_selected_item = datas[0]
+	GlobalRef.quick_slot_manager.selected_slot_item = current_selected_item
 	
 	pass # Replace with function body.
 
@@ -78,6 +81,10 @@ func consume_item(code_name):
 				$ItemList.remove_item(i)
 				current_selected_item = ""
 			break
+	if GlobalRef.quick_slot_manager:
+		var quick_slot = GlobalRef.quick_slot_manager.get_current_slot_by_code_name(code_name)
+		if quick_slot:
+			quick_slot.slot_setting(null)
 
 func visibility_changed():
 	if visible:
@@ -90,6 +97,16 @@ func visibility_changed():
 		m_tween.start()
 		a_tween.interpolate_property(self, "modulate:a", 0.39, 1, 1.0, Tween.TRANS_EXPO, Tween.EASE_OUT)
 		a_tween.start()
+		
+		#if $ItemList.is_anything_selected():
+		#	var selected_item_list = $ItemList.get_selected_items()
+		#	item_selected(selected_item_list[0])
+		if current_selected_item:
+			$ItemList.select(get_index_by_code_name(current_selected_item))
+			item_selected(get_index_by_code_name(current_selected_item))
+		else:
+			$ItemList.unselect_all()
+		
 	pass # Replace with function body.
 
 func detail_reset():
@@ -117,5 +134,45 @@ func close_button_up():
 		
 		hide()
 		detail_reset()
-		$ItemList.unselect_all()
+		#$ItemList.unselect_all()
+	pass # Replace with function body.
+
+
+func get_metadata_by_code_name(code_name):
+	if code_name != null:
+		for i in $ItemList.get_item_count():
+			var inv_data = $ItemList.get_item_metadata(i)
+			if code_name == inv_data[0]:
+				return inv_data
+			else:
+				if i == $ItemList.get_item_count() - 1:
+					return null
+
+
+func add_quick_slot_item(id):
+	GlobalRef.quick_slot_manager.get_node("quick_slot" + str(id)).slot_setting(current_selected_item)
+
+
+func get_index_by_code_name(code_name):
+	for i in $ItemList.get_item_count():
+		var inv_data = $ItemList.get_item_metadata(i)
+		if code_name == inv_data[0]:
+			return i
+		else:
+			if i == $ItemList.get_item_count()-1:
+				return null
+
+
+func _on_add_quick_slot_button_about_to_show():
+	var pop = add_quick_slot_button.get_popup()
+	grab_focus()
+	for i in 3:
+		if GlobalRef.quick_slot_manager:
+			var current_slot_item = GlobalRef.quick_slot_manager.get_node("quick_slot" + str(i + 1)).slot_item
+			if current_slot_item:
+				pop.set_item_text(i, tr(current_slot_item + "_name"))
+				pop.set_item_icon(i, get_metadata_by_code_name(current_slot_item)[2])
+			else:
+				pop.set_item_text(i, " -없음- ")
+				pop.set_item_icon(i, load("res://2d/radial_selected_item_slot.png"))
 	pass # Replace with function body.

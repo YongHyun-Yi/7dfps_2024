@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/polar_wind.wav-4958bdcd790eea5015a63995838aced0.sample"
+type="AudioStreamWAV"
+uid="uid://c583msskxicb4"
+path="res://.godot/imported/polar_wind.wav-4958bdcd790eea5015a63995838aced0.sample"
 
 [deps]
 
 source_file="res://sfx/polar_wind.wav"
-dest_files=[ "res://.import/polar_wind.wav-4958bdcd790eea5015a63995838aced0.sample" ]
+dest_files=["res://.godot/imported/polar_wind.wav-4958bdcd790eea5015a63995838aced0.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

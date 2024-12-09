@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/camera_wind.wav-51c863582b39220855c0ac1155404008.sample"
+type="AudioStreamWAV"
+uid="uid://4vfc8hmn44hx"
+path="res://.godot/imported/camera_wind.wav-51c863582b39220855c0ac1155404008.sample"
 
 [deps]
 
 source_file="res://sfx/camera_wind.wav"
-dest_files=[ "res://.import/camera_wind.wav-51c863582b39220855c0ac1155404008.sample" ]
+dest_files=["res://.godot/imported/camera_wind.wav-51c863582b39220855c0ac1155404008.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0
